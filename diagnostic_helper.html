@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CompX Orbit Diagnostic Helper</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a1a; color: #fff; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #4da3ff; }
+        .section { background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .status { padding: 10px; margin: 5px 0; border-radius: 4px; }
+        .status.success { background: #1a4d1a; color: #57d7a0; }
+        .status.error { background: #4d1a1a; color: #ff7180; }
+        .status.warning { background: #4d4d1a; color: #ffd700; }
+        .status.info { background: #1a1a4d; color: #4da3ff; }
+        button { background: #4da3ff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: #3a8ce6; }
+        pre { background: #1a1a1a; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        .details { display: none; margin-top: 10px; }
+        .details.show { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CompX Orbit Diagnostic Helper</h1>
+        <p>Use this tool to diagnose panel loading issues in Adobe Premiere Pro.</p>
+        
+        <div class="section">
+            <h2>Diagnostic Steps</h2>
+            <button onclick="runDiagnostics()">Run Full Diagnostics</button>
+            <button onclick="checkLicense()">Check License Status</button>
+            <button onclick="checkHostConnection()">Check Host Connection</button>
+            <button onclick="checkJavaScriptErrors()">Check for JavaScript Errors</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function addResult(type, title, message, details = null) {
+            const resultsDiv = document.getElementById('results');
+            const section = document.createElement('div');
+            section.className = 'section';
+            
+            let detailsHtml = '';
+            if (details) {
+                detailsHtml = `
+                    <button onclick="this.nextElementSibling.classList.toggle('show')">Show Details</button>
+                    <pre class="details">${details}</pre>
+                `;
+            }
+            
+            section.innerHTML = `
+                <div class="status ${type}">${title}</div>
+                <p>${message}</p>
+                ${detailsHtml}
+            `;
+            
+            resultsDiv.appendChild(section);
+        }
+
+        function runDiagnostics() {
+            document.getElementById('results').innerHTML = '';
+            addResult('info', 'Starting Diagnostics', 'Running comprehensive diagnostic checks...');
+            
+            // Check browser environment
+            checkBrowserEnvironment();
+            
+            // Check for required objects
+            checkRequiredObjects();
+            
+            // Check CSInterface
+            checkCSInterface();
+            
+            // Check localStorage
+            checkLocalStorage();
+            
+            addResult('info', 'Diagnostics Complete', 'Please review the results above and contact support if issues persist.');
+        }
+
+        function checkBrowserEnvironment() {
+            try {
+                const userAgent = navigator.userAgent;
+                const platform = navigator.platform;
+                
+                addResult('success', 'Browser Environment', 
+                    `Platform: ${platform}<br>User Agent: ${userAgent.substring(0, 100)}...`);
+            } catch (e) {
+                addResult('error', 'Browser Environment Check Failed', e.message);
+            }
+        }
+
+        function checkRequiredObjects() {
+            const requiredObjects = [
+                'CSInterface',
+                'window',
+                'document',
+                'console',
+                'localStorage',
+                'sessionStorage'
+            ];
+            
+            const missing = [];
+            const present = [];
+            
+            requiredObjects.forEach(obj => {
+                try {
+                    if (eval(`typeof ${obj} !== 'undefined'`)) {
+                        present.push(obj);
+                    } else {
+                        missing.push(obj);
+                    }
+                } catch (e) {
+                    missing.push(obj);
+                }
+            });
+            
+            if (missing.length === 0) {
+                addResult('success', 'Required Objects', `All required objects present: ${present.join(', ')}`);
+            } else {
+                addResult('error', 'Required Objects Missing', 
+                    `Missing: ${missing.join(', ')}<br>Present: ${present.join(', ')}`);
+            }
+        }
+
+        function checkCSInterface() {
+            try {
+                if (typeof CSInterface !== 'undefined') {
+                    const cs = new CSInterface();
+                    const extensionPath = cs.getSystemPath(SystemPath.EXTENSION);
+                    addResult('success', 'CSInterface', 
+                        `CSInterface is available<br>Extension Path: ${extensionPath}`);
+                } else {
+                    addResult('error', 'CSInterface', 'CSInterface is not available. This panel must run in Adobe CEP environment.');
+                }
+            } catch (e) {
+                addResult('error', 'CSInterface Check Failed', e.message);
+            }
+        }
+
+        function checkLocalStorage() {
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                addResult('success', 'LocalStorage', 'LocalStorage is working properly');
+            } catch (e) {
+                addResult('error', 'LocalStorage', `LocalStorage error: ${e.message}`);
+            }
+        }
+
+        function checkLicense() {
+            try {
+                if (typeof CompXLicense !== 'undefined') {
+                    const status = CompXLicense.check();
+                    if (status && status.licensed) {
+                        addResult('success', 'License Status', 'License is valid and active');
+                    } else {
+                        addResult('error', 'License Status', 
+                            `License is not valid or active<br>Reason: ${status ? status.reason : 'Unknown'}`);
+                    }
+                } else {
+                    addResult('error', 'License Check', 'CompXLicense object is not available');
+                }
+            } catch (e) {
+                addResult('error', 'License Check Failed', e.message);
+            }
+        }
+
+        function checkHostConnection() {
+            try {
+                if (typeof CSInterface !== 'undefined') {
+                    const cs = new CSInterface();
+                    cs.evalScript('orbitGetTrackList()', function(result) {
+                        if (result && !result.error) {
+                            addResult('success', 'Host Connection', 'Successfully connected to Premiere Pro host');
+                        } else {
+                            addResult('error', 'Host Connection', 
+                                `Failed to connect to host<br>Error: ${result ? result.error : 'Unknown error'}`);
+                        }
+                    });
+                } else {
+                    addResult('error', 'Host Connection', 'CSInterface is not available');
+                }
+            } catch (e) {
+                addResult('error', 'Host Connection Failed', e.message);
+            }
+        }
+
+        function checkJavaScriptErrors() {
+            const errors = [];
+            
+            // Capture console errors
+            const originalError = console.error;
+            console.error = function(...args) {
+                errors.push(args.join(' '));
+                originalError.apply(console, args);
+            };
+            
+            setTimeout(() => {
+                console.error = originalError;
+                
+                if (errors.length === 0) {
+                    addResult('success', 'JavaScript Errors', 'No JavaScript errors detected');
+                } else {
+                    addResult('error', 'JavaScript Errors', 
+                        `Found ${errors.length} error(s)<br>Errors: ${errors.join('<br>')}`);
+                }
+            }, 1000);
+        }
+
+        // Auto-run basic checks on load
+        window.addEventListener('load', function() {
+            addResult('info', 'Diagnostic Helper Loaded', 'Click the buttons above to run specific checks');
+        });
+    </script>
+</body>
+</html>

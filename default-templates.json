@@ -1,0 +1,7872 @@
+{
+  "templates": [
+    {
+      "id": "t1776871220546",
+      "settings": {
+        "fontFamily": "Alexandria",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": "gradient",
+            "color": "#F7D600",
+            "color2": "#FFF198",
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#F7D600",
+          "color2": "#FFF198",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 3
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 3
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 3
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 3,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "pop",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 36,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 0
+    },
+    {
+      "id": "t1776764370980",
+      "settings": {
+        "fontFamily": "Impact",
+        "fontStyle": "normal",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 5,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 14,
+        "showHL": true,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 16,
+        "hlPadBottom": 10,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 1
+    },
+    {
+      "id": "t1778870516979",
+      "settings": {
+        "fontFamily": "Cinzel",
+        "fontStyle": "bold",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 4
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 4
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 4
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 4,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "dissolve",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 36,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 0,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 16,
+        "hlPadBottom": 10,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 0,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 20,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 20,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 20,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 20,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 0,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 0,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": false,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "order": 2
+    },
+    {
+      "id": "t1778870358916",
+      "settings": {
+        "fontFamily": "League Spartan",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#7EFBC6",
+            "color2": "#CBFFEE",
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#7EFBC6",
+          "color2": "#CBFFEE",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 0,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "order": 3
+    },
+    {
+      "id": "t1778870243557",
+      "settings": {
+        "fontFamily": "Alexandria",
+        "fontStyle": "600",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokeWidth": 8,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 42,
+        "showHL": true,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#0081FF",
+          "color2": "#00ABFF",
+          "angle": 315,
+          "opacity": 100
+        },
+        "hlColor": "#0081FF",
+        "hlOpacity": 100,
+        "hlRadius": 36,
+        "hlPadTop": 32,
+        "hlPadBottom": 14,
+        "hlPadLeft": 24,
+        "hlPadRight": 24,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 0,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": 100,
+            "blur": 40,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 40,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 0,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 0,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "order": 4
+    },
+    {
+      "id": "t1777207921247",
+      "settings": {
+        "fontFamily": "Silkscreen",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#14F008",
+            "color2": "#88E7C8",
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#14F008",
+          "color2": "#88E7C8",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 12
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 12
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 12
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 12
+        },
+        "strokeWidth": 12,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 36,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 16,
+          "y": 16
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 16,
+          "y": 16
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 16,
+          "y": 16
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 16,
+          "y": 16
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 5
+    },
+    {
+      "id": "t1778891490456",
+      "settings": {
+        "fontFamily": "Candal",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": "gradient",
+            "color": "#EC3AC4",
+            "color2": "#FF90E6",
+            "angle": 45,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#EC3AC4",
+          "color2": "#FF90E6",
+          "angle": 45,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 10
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 10
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 10
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 10
+        },
+        "strokeWidth": 10,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 0,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 6
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "order": 6
+    },
+    {
+      "id": "t1778880860398",
+      "settings": {
+        "fontFamily": "League Spartan",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#6047FF",
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#6047FF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": false,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 30,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": true,
+        "cbgMode": "line",
+        "cbgCorner": "merge",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#FFFFFF",
+        "cbgOpacity": 100,
+        "cbgRadius": 10,
+        "cbgPadTop": 22,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 10,
+        "cbgPadRight": 10,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": false,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "order": 7
+    },
+    {
+      "id": "t1776858933733",
+      "settings": {
+        "fontFamily": "Poppins",
+        "fontStyle": "bold",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "lowercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 25
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 25
+        },
+        "strokeEnable": false,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 5,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "dissolve",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "post",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 12,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": true,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#754DFE",
+          "color2": "#A77AFE",
+          "angle": 45,
+          "opacity": 100
+        },
+        "cbgColor": "#754DFE",
+        "cbgOpacity": 100,
+        "cbgRadius": 48,
+        "cbgPadTop": 44,
+        "cbgPadBottom": 36,
+        "cbgPadLeft": 42,
+        "cbgPadRight": 42,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 4,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 8
+    },
+    {
+      "id": "t1777198112801",
+      "settings": {
+        "fontFamily": "Komika Axis",
+        "fontStyle": "300",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "solo",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 7,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 14,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 16,
+        "hlPadBottom": 10,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 40,
+          "x": 5,
+          "y": 4
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 40,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 40,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 40,
+          "x": 5,
+          "y": 4
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": false,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 9
+    },
+    {
+      "id": "t1777987726103",
+      "settings": {
+        "fontFamily": "Carter One",
+        "fontStyle": "bold",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "solo",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#EAFF00",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#EAFF00",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#EAFF00",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#EAFF00",
+          "angle": 90,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 4
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 4
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 4
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 4,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 14,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 16,
+        "hlPadBottom": 10,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": false,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 10
+    },
+    {
+      "id": "t1778354178289",
+      "settings": {
+        "fontFamily": "Readex Pro",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": 72
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "line",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": "gradient",
+            "color": "#93D6FF",
+            "color2": "#C4FEFF",
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#93D6FF",
+          "color2": "#C4FEFF",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 8,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 11
+    },
+    {
+      "id": "t1776854826016",
+      "settings": {
+        "fontFamily": "Open Sans",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "none",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "line",
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#000000",
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 40,
+        "showHL": true,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 12
+    },
+    {
+      "id": "t1778881395042",
+      "settings": {
+        "fontFamily": "Poppins",
+        "fontStyle": "600",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "lowercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "line",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#EAEAEA",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 50
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 50
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#EAEAEA",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 50
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#EAEAEA",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#EAEAEA",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 50
+        },
+        "strokeEnable": false,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 42,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": true,
+        "cbgMode": "line",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 100,
+        "cbgRadius": 0,
+        "cbgPadTop": 25,
+        "cbgPadBottom": 16,
+        "cbgPadLeft": 18,
+        "cbgPadRight": 18,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": false,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "order": 13
+    },
+    {
+      "id": "t1776935618807",
+      "settings": {
+        "fontFamily": "Poppins",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "lowercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "off",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": false,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 43,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": true,
+        "cbgMode": "line",
+        "cbgCorner": "merge",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#FFFFFF",
+        "cbgOpacity": 100,
+        "cbgRadius": 24,
+        "cbgPadTop": 28,
+        "cbgPadBottom": 18,
+        "cbgPadLeft": 18,
+        "cbgPadRight": 18,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false
+      },
+      "hidden": false,
+      "order": 14
+    },
+    {
+      "id": "t1777208689614",
+      "settings": {
+        "fontFamily": "Montserrat",
+        "fontStyle": "900",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "off",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#DEDEDE",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#DEDEDE",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#DEDEDE",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#DEDEDE",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": false,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 10,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": false,
+        "cbgMode": "line",
+        "cbgCorner": "merge",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#FFFFFF",
+        "cbgOpacity": 100,
+        "cbgRadius": 24,
+        "cbgPadTop": 28,
+        "cbgPadBottom": 18,
+        "cbgPadLeft": 18,
+        "cbgPadRight": 18,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 15
+    },
+    {
+      "id": "t1778766162844",
+      "settings": {
+        "fontFamily": "Alexandria",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": "gradient",
+            "color": "#F7D600",
+            "color2": "#FFF198",
+            "angle": 270,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#F7D600",
+          "color2": "#FFF198",
+          "angle": 270,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 0,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 0,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeWidth": 5,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 36,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 0,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 0,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 8,
+          "y": 7
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 0,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 0,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar",
+        "shadowFollow": "both"
+      },
+      "order": 16
+    },
+    {
+      "id": "t1778845087488",
+      "settings": {
+        "fontFamily": "Lalezar",
+        "fontStyle": "normal",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#7EFBC6",
+            "color2": "#CBFFEE",
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#7EFBC6",
+          "color2": "#CBFFEE",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 9
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 9
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 9
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 9
+        },
+        "strokeWidth": 9,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 36,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 9,
+          "y": 5
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 9,
+          "y": 5
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 9,
+          "y": 5
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 9,
+          "y": 5
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar"
+      },
+      "order": 17
+    },
+    {
+      "id": "t1778351444084",
+      "settings": {
+        "fontFamily": "Alexandria",
+        "fontStyle": "bold",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 5,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "pop",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 42,
+        "showHL": true,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#0081FF",
+          "color2": "#00ABFF",
+          "angle": 315,
+          "opacity": 100
+        },
+        "hlColor": "#0081FF",
+        "hlOpacity": 100,
+        "hlRadius": 36,
+        "hlPadTop": 32,
+        "hlPadBottom": 14,
+        "hlPadLeft": 24,
+        "hlPadRight": 24,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 0,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": 100,
+            "blur": 40,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 40,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 0,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 0,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar",
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 18
+    },
+    {
+      "id": "t1778351470590",
+      "settings": {
+        "fontFamily": "Amiri",
+        "fontStyle": "900",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 5,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "dissolve",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 36,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 16,
+        "hlPadBottom": 10,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 16,
+          "x": 5,
+          "y": 2
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 16,
+          "x": 5,
+          "y": 2
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 16,
+          "x": 5,
+          "y": 2
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 16,
+          "x": 5,
+          "y": 2
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": false,
+        "cbgShadowEnable": false,
+        "language": "ar",
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 19
+    },
+    {
+      "id": "t1778351500882",
+      "settings": {
+        "fontFamily": "Jomhuria",
+        "fontStyle": "normal",
+        "fontSize": 120,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "solo",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#F7CD7C",
+          "angle": 45,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0
+          }
+        },
+        "preFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#F7CD7C",
+          "angle": 45,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#F7CD7C",
+          "angle": 45,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#F7CD7C",
+          "angle": 45,
+          "opacity": 0
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 8
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 8,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "pop",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 14,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 16,
+        "hlPadBottom": 10,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 12,
+          "y": 12
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 12,
+          "y": 12
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 12,
+          "y": 12
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 12,
+          "y": 12
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": false,
+        "cbgShadowEnable": false,
+        "language": "ar"
+      },
+      "hidden": false,
+      "order": 20
+    },
+    {
+      "id": "t1778351479642",
+      "settings": {
+        "fontFamily": "Readex Pro",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": 75
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "line",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": "gradient",
+            "color": "#93D6FF",
+            "color2": "#C4FEFF",
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#93D6FF",
+          "color2": "#C4FEFF",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 16,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 16,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar",
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 21
+    },
+    {
+      "id": "t1778351489516",
+      "settings": {
+        "fontFamily": "Alyamama",
+        "fontStyle": "900",
+        "fontSize": 70,
+        "letterSpacing": 0,
+        "textTransform": "none",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "line",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#000000",
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "pop",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 48,
+        "showHL": true,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#FFF198",
+          "angle": 135,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 28,
+        "hlPadBottom": 18,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 6,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": true,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 74,
+          "blur": 36,
+          "x": 0,
+          "y": 8
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar",
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 22
+    },
+    {
+      "id": "t1778350932499",
+      "settings": {
+        "fontFamily": "Readex Pro",
+        "fontStyle": "bold",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "lowercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "off",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": false,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "frameWidth": 84,
+        "lineGap": 54,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": true,
+        "cbgMode": "line",
+        "cbgCorner": "merge",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#FFFFFF",
+        "cbgOpacity": 100,
+        "cbgRadius": 24,
+        "cbgPadTop": 28,
+        "cbgPadBottom": 18,
+        "cbgPadLeft": 18,
+        "cbgPadRight": 18,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar",
+        "shadowFollow": "both"
+      },
+      "hidden": false,
+      "order": 23
+    },
+    {
+      "id": "t1783681440985",
+      "settings": {
+        "fontFamily": "Alexandria",
+        "fontStyle": "bold",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 7
+        },
+        "strokeWidth": 7,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 14,
+        "showHL": true,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 30,
+        "hlPadBottom": 22,
+        "hlPadLeft": 16,
+        "hlPadRight": 16,
+        "showCBG": false,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 60,
+        "cbgRadius": 12,
+        "cbgPadTop": 8,
+        "cbgPadBottom": 8,
+        "cbgPadLeft": 12,
+        "cbgPadRight": 12,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 0,
+          "x": 5,
+          "y": 4
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar"
+      },
+      "order": 19
+    },
+    {
+      "id": "t1784244632407",
+      "settings": {
+        "fontFamily": "Readex Pro",
+        "fontStyle": "bold",
+        "fontSize": 72,
+        "letterSpacing": 0,
+        "textTransform": "lowercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": "#C49FFB",
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#C49FFB",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": false,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": 0,
+            "width": 0
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 5
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 0,
+          "width": 0
+        },
+        "strokeWidth": 5,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "dissolve",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "post",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 12,
+        "showHL": false,
+        "hlFill": {
+          "type": "gradient",
+          "color": "#B21218",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#B21218",
+        "hlOpacity": 100,
+        "hlRadius": 18,
+        "hlPadTop": 8,
+        "hlPadBottom": 8,
+        "hlPadLeft": 8,
+        "hlPadRight": 8,
+        "showCBG": true,
+        "cbgMode": "full",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "gradient",
+          "color": "#754DFE",
+          "color2": "#A77AFE",
+          "angle": 285,
+          "opacity": 100
+        },
+        "cbgColor": "#754DFE",
+        "cbgOpacity": 100,
+        "cbgRadius": 33,
+        "cbgPadTop": 40,
+        "cbgPadBottom": 36,
+        "cbgPadLeft": 42,
+        "cbgPadRight": 42,
+        "shadowAll": {
+          "color": "#1F0048",
+          "opacity": 41,
+          "blur": 33,
+          "x": 5,
+          "y": 4
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#1F0048",
+          "opacity": 41,
+          "blur": 33,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPre": {
+          "color": "#1F0048",
+          "opacity": 41,
+          "blur": 33,
+          "x": 5,
+          "y": 4
+        },
+        "shadowPost": {
+          "color": "#1F0048",
+          "opacity": 41,
+          "blur": 33,
+          "x": 5,
+          "y": 4
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "gradient",
+            "color": "#FFFFFF",
+            "color2": "#D7C2FF",
+            "angle": 75,
+            "opacity": 100
+          },
+          "opacity": 57,
+          "width": 4,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar"
+      },
+      "order": 20
+    },
+    {
+      "id": "t1784242665577",
+      "settings": {
+        "fontFamily": "Alexandria",
+        "fontStyle": "600",
+        "fontSize": 60,
+        "letterSpacing": 0,
+        "textTransform": "lowercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "word",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "solid",
+          "color": "#9C9C9C",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": "#FFFFFF",
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "solid",
+          "color": "#9C9C9C",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "solid",
+          "color": "#9C9C9C",
+          "color2": "#999999",
+          "angle": 90,
+          "opacity": 100
+        },
+        "strokeEnable": false,
+        "shadowEnable": false,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": true,
+        "animType": "dissolve",
+        "animBoxType": "none",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "post",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 42,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": true,
+        "cbgMode": "line",
+        "cbgCorner": "separate",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#000000",
+        "cbgOpacity": 100,
+        "cbgRadius": 22,
+        "cbgPadTop": 44,
+        "cbgPadBottom": 33,
+        "cbgPadLeft": 28,
+        "cbgPadRight": 28,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 30,
+          "x": 0,
+          "y": 0
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": false,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar"
+      },
+      "order": 23
+    },
+    {
+      "id": "t1784283188689",
+      "settings": {
+        "fontFamily": "Rakkas",
+        "fontStyle": "normal",
+        "fontSize": 90,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
+        "typoOverrides": {
+          "pre": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "cur": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          },
+          "post": {
+            "fontFamily": null,
+            "fontStyle": null,
+            "fontSize": null
+          }
+        },
+        "activeMode": "off",
+        "holdSilence": true,
+        "fillAll": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#FBFF63",
+          "angle": 135,
+          "opacity": 100
+        },
+        "fillOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null
+          }
+        },
+        "preFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#FBFF63",
+          "angle": 135,
+          "opacity": 100
+        },
+        "curFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#FBFF63",
+          "angle": 135,
+          "opacity": 100
+        },
+        "postFill": {
+          "type": "gradient",
+          "color": "#FFFFFF",
+          "color2": "#FBFF63",
+          "angle": 135,
+          "opacity": 100
+        },
+        "strokeEnable": true,
+        "shadowEnable": true,
+        "strokeAll": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeOv": {
+          "pre": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "cur": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          },
+          "post": {
+            "type": null,
+            "color": null,
+            "color2": null,
+            "angle": null,
+            "opacity": null,
+            "width": null
+          }
+        },
+        "strokeCur": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePre": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokePost": {
+          "type": "solid",
+          "color": "#000000",
+          "color2": "#888888",
+          "angle": 90,
+          "opacity": 100,
+          "width": 6
+        },
+        "strokeWidth": 6,
+        "strokePosition": "outside",
+        "animate": false,
+        "animType": "none",
+        "animBoxType": "pop",
+        "direction": "auto",
+        "wrapMode": "fixed",
+        "curInCtx": "off",
+        "bakeCurWB": false,
+        "shadowFollow": "both",
+        "frameWidth": 84,
+        "lineGap": 10,
+        "showHL": false,
+        "hlFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#FE332C",
+          "angle": 90,
+          "opacity": 100
+        },
+        "hlColor": "#FFFFFF",
+        "hlOpacity": 100,
+        "hlRadius": 24,
+        "hlPadTop": 24,
+        "hlPadBottom": 14,
+        "hlPadLeft": 18,
+        "hlPadRight": 18,
+        "showCBG": false,
+        "cbgMode": "line",
+        "cbgCorner": "merge",
+        "cbgFill": {
+          "type": "solid",
+          "color": "#FFFFFF",
+          "color2": "#333333",
+          "angle": 90,
+          "opacity": 100
+        },
+        "cbgColor": "#FFFFFF",
+        "cbgOpacity": 100,
+        "cbgRadius": 24,
+        "cbgPadTop": 28,
+        "cbgPadBottom": 18,
+        "cbgPadLeft": 18,
+        "cbgPadRight": 18,
+        "shadowAll": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "shadowOv": {
+          "pre": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "cur": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          },
+          "post": {
+            "color": null,
+            "opacity": null,
+            "blur": null,
+            "x": null,
+            "y": null
+          }
+        },
+        "shadowCur": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "shadowPre": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "shadowPost": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 6,
+          "x": 5,
+          "y": 3
+        },
+        "hlStroke": {
+          "enable": false,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "cbgStroke": {
+          "enable": true,
+          "fill": {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "color2": "#AAAAAA",
+            "angle": 90,
+            "opacity": 100
+          },
+          "opacity": 100,
+          "width": 2,
+          "position": "center"
+        },
+        "hlStrokeEnable": false,
+        "cbgStrokeEnable": true,
+        "hlShadow": {
+          "color": "#000000",
+          "opacity": 100,
+          "blur": 29,
+          "x": 0,
+          "y": 4
+        },
+        "cbgShadow": {
+          "color": "#000000",
+          "opacity": 0,
+          "blur": 8,
+          "x": 0,
+          "y": 2
+        },
+        "hlShadowEnable": true,
+        "cbgShadowEnable": false,
+        "language": "ar"
+      },
+      "order": 26
+    }
+  ],
+  "force_remove": [
+    "t1778002301750",
+    "t1777987761735",
+    "t1776772803369",
+    "t1778351410932"
+  ]
+}

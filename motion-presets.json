@@ -1,0 +1,275 @@
+[
+  {
+    "id": "pop-in",
+    "name": "Pop",
+    "category": "in",
+    "duration": 12,
+    "properties": {
+      "scale": [
+        { "frame": 0, "value": 70 },
+        { "frame": 7, "value": 108 },
+        { "frame": 12, "value": 100 }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 0 },
+        { "frame": 4, "value": 100 }
+      ]
+    }
+  },
+  {
+    "id": "zoom-in",
+    "name": "Zoom",
+    "category": "in",
+    "duration": 12,
+    "properties": {
+      "scale": [
+        { "frame": 0, "value": 85 },
+        { "frame": 12, "value": 100 }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 0 },
+        { "frame": 12, "value": 100 }
+      ]
+    }
+  },
+  {
+    "id": "slide-in",
+    "name": "Slide",
+    "category": "in",
+    "duration": 12,
+    "properties": {
+      "position": [
+        { "frame": 0, "value": { "x": 0, "y": 150, "relative": true } },
+        { "frame": 12, "value": { "x": 0, "y": 0, "relative": true } }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 0 },
+        { "frame": 7, "value": 100 }
+      ]
+    }
+  },
+  {
+    "id": "bounce-in",
+    "name": "Bounce",
+    "category": "in",
+    "duration": 16,
+    "properties": {
+      "scale": [
+        { "frame": 0, "value": 50 },
+        { "frame": 8, "value": 115 },
+        { "frame": 11, "value": 94 },
+        { "frame": 14, "value": 104 },
+        { "frame": 16, "value": 100 }
+      ]
+    }
+  },
+  {
+    "id": "rotate-in",
+    "name": "Rotate",
+    "category": "in",
+    "duration": 14,
+    "properties": {
+      "scale": [
+        { "frame": 0, "value": 75 },
+        { "frame": 14, "value": 100 }
+      ],
+      "rotation": [
+        { "frame": 0, "value": -8 },
+        { "frame": 14, "value": 0 }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 0 },
+        { "frame": 6, "value": 100 }
+      ]
+    }
+  },
+  {
+    "id": "fade-in",
+    "name": "Fade",
+    "category": "in",
+    "duration": 12,
+    "properties": {
+      "opacity": [
+        { "frame": 0, "value": 0 },
+        { "frame": 12, "value": 100 }
+      ]
+    }
+  },
+  {
+    "id": "fade-out",
+    "name": "Fade",
+    "category": "out",
+    "duration": 12,
+    "properties": {
+      "opacity": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 0 }
+      ]
+    }
+  },
+  {
+    "id": "zoom-out",
+    "name": "Zoom Out",
+    "category": "out",
+    "duration": 12,
+    "properties": {
+      "scale": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 120 }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 0 }
+      ]
+    }
+  },
+  {
+    "id": "slide-out",
+    "name": "Slide",
+    "category": "out",
+    "duration": 12,
+    "properties": {
+      "position": [
+        { "frame": 0, "value": { "x": 0, "y": 0, "relative": true } },
+        { "frame": 12, "value": { "x": 0, "y": 150, "relative": true } }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 0 }
+      ]
+    }
+  },
+  {
+    "id": "drop-out",
+    "name": "Drop",
+    "category": "out",
+    "duration": 14,
+    "properties": {
+      "position": [
+        { "frame": 0, "value": { "x": 0, "y": 0, "relative": true } },
+        { "frame": 14, "value": { "x": 0, "y": 180, "relative": true } }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 0 }
+      ]
+    }
+  },
+  {
+    "id": "shrink-out",
+    "name": "Shrink",
+    "category": "out",
+    "duration": 12,
+    "properties": {
+      "scale": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 60 }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 100 },
+        { "frame": 12, "value": 0 }
+      ]
+    }
+  },
+  {
+    "id": "rotate-out",
+    "name": "Rotate",
+    "category": "out",
+    "duration": 14,
+    "properties": {
+      "rotation": [
+        { "frame": 0, "value": 0 },
+        { "frame": 14, "value": 12 }
+      ],
+      "scale": [
+        { "frame": 0, "value": 100 },
+        { "frame": 14, "value": 110 }
+      ],
+      "opacity": [
+        { "frame": 0, "value": 100 },
+        { "frame": 14, "value": 0 }
+      ]
+    }
+  },
+  {
+    "id": "pop-fade",
+    "name": "Pop/Fade",
+    "category": "combo",
+    "in": {
+      "duration": 12,
+      "properties": {
+        "scale": [
+          { "frame": 0, "value": 70 },
+          { "frame": 7, "value": 108 },
+          { "frame": 12, "value": 100 }
+        ],
+        "opacity": [
+          { "frame": 0, "value": 0 },
+          { "frame": 4, "value": 100 }
+        ]
+      }
+    },
+    "out": {
+      "duration": 10,
+      "properties": {
+        "opacity": [
+          { "frame": 0, "value": 100 },
+          { "frame": 10, "value": 0 }
+        ]
+      }
+    }
+  },
+  {
+    "id": "slide-fade",
+    "name": "Slide/Fade",
+    "category": "combo",
+    "in": {
+      "duration": 12,
+      "properties": {
+        "position": [
+          { "frame": 0, "value": { "x": 0, "y": 150, "relative": true } },
+          { "frame": 12, "value": { "x": 0, "y": 0, "relative": true } }
+        ],
+        "opacity": [
+          { "frame": 0, "value": 0 },
+          { "frame": 7, "value": 100 }
+        ]
+      }
+    },
+    "out": {
+      "duration": 10,
+      "properties": {
+        "opacity": [
+          { "frame": 0, "value": 100 },
+          { "frame": 10, "value": 0 }
+        ]
+      }
+    }
+  },
+  {
+    "id": "bounce-fade",
+    "name": "Bounce/Fade",
+    "category": "combo",
+    "in": {
+      "duration": 16,
+      "properties": {
+        "scale": [
+          { "frame": 0, "value": 50 },
+          { "frame": 8, "value": 115 },
+          { "frame": 11, "value": 94 },
+          { "frame": 14, "value": 104 },
+          { "frame": 16, "value": 100 }
+        ]
+      }
+    },
+    "out": {
+      "duration": 10,
+      "properties": {
+        "opacity": [
+          { "frame": 0, "value": 100 },
+          { "frame": 10, "value": 0 }
+        ]
+      }
+    }
+  }
+]

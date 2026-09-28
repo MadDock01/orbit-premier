@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="default-src 'self' data: blob: file:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: file:; media-src 'self' data: blob: file:; connect-src 'self' data: blob: https://esiiawfjzmuqplzzdoog.supabase.co https://esiiawfjzmuqplzzdoog.functions.supabase.co https://fwblhtzkddywrqouqyyt.supabase.co wss://fwblhtzkddywrqouqyyt.supabase.co https://*.supabase.co wss://*.supabase.co https://*.modal.run https://machicut.store https://compxorbit.com; object-src 'none'; base-uri 'none'; frame-src 'none';" http-equiv="Content-Security-Policy"/>
+<title>CompX Orbit Studio - Premiere</title>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/library-visual.css" rel="stylesheet"/>
+
+
+<link href="css/orbit-shell.css" rel="stylesheet"/>
+
+<link href="css/orbit-library.css" rel="stylesheet"/>
+
+<link href="css/orbit-final.css" rel="stylesheet"/>
+<link href="css/orbit-compact.css" rel="stylesheet"/>
+<link href="css/premiere-edition.css" rel="stylesheet"/>
+<link href="css/premiere-library-upgrade.css?v=10" rel="stylesheet"/>
+<link href="css/license-gate.css" rel="stylesheet"/>
+<link href="css/machicut-orbit.css" rel="stylesheet"/>
+<link href="css/orbit-redesign.css?v=6" rel="stylesheet"/>
+<link href="css/beat-advanced.css" rel="stylesheet"/>
+<link href="css/rail-order.css?v=4" rel="stylesheet"/>
+<link href="css/srt-animator.css" rel="stylesheet"/>
+<link href="css/silence-premium.css" rel="stylesheet"/>
+<link href="css/caption-power.css" rel="stylesheet"/>
+<link href="css/orbit-core.css" rel="stylesheet"/>
+<link href="css/project-doctor.css" rel="stylesheet"/>
+<link href="fonts/fonts.css" rel="stylesheet"/>
+<link href="lib/pickr.min.css" rel="stylesheet"/>
+<link href="css/studio-theme.css?v=1" rel="stylesheet"/>
+<link href="css/premiere-reference.css?v=6" rel="stylesheet"/>
+<link href="css/orbit-compact-22.css?v=6" rel="stylesheet"/>
+<link href="css/sfx-studio.css?v=1" rel="stylesheet"/>
+<link href="css/motion-lab.css?v=1" rel="stylesheet"/>
+<link href="css/orbit-dock.css?v=10" rel="stylesheet"/>
+<link href="css/library-compact.css?v=1" rel="stylesheet"/>
+<script src="utils/panelSwitcher.js"></script>
+</head>
+<body>
+<!-- ===== CompX license gate (added) ===== -->
+<div class="cx-gate" hidden="" id="cx-gate">
+<div class="cx-gate__card">
+<div class="cx-gate__brand">
+<div aria-hidden="true" class="cx-gate__mark"><img alt="" src="assets/compx-mark.png"/></div>
+<div>
+<h1 class="cx-gate__title" id="cx-gate-title">Orbit Premiere</h1>
+<p class="cx-gate__sub">SFX &amp; MOGRT</p>
+</div>
+</div>
+<label class="cx-gate__label" for="cx-gate-key">License key</label>
+<input autocomplete="off" class="cx-gate__input" id="cx-gate-key" maxlength="29" placeholder="CX-XXXX-XXXX-XXXX-XXXX" spellcheck="false" type="text"/>
+<p aria-live="polite" class="cx-gate__msg" id="cx-gate-msg" role="status"></p>
+<button class="cx-gate__btn" id="cx-gate-submit" type="button">Activate</button>
+<div class="cx-gate__device">
+<span aria-hidden="true" class="cx-gate__device-dot"></span>
+<span id="cx-gate-device">Detecting device...</span>
+</div>
+<p class="cx-gate__note">
+      One license activates one computer. After Effects and Premiere Pro on
+      the same machine share a single seat. Need to move to a new computer?
+      Release it here or request a reset from your account dashboard
+      - device changes are limited to once every 24 hours.
+    </p>
+<div class="cx-gate__links">
+<a href="#" id="cx-gate-buy">Buy a license</a>
+<span aria-hidden="true"> - </span>
+<a href="#" id="cx-gate-dashboard">My account</a>
+<span aria-hidden="true"> - </span>
+<a href="#" id="cx-gate-release">Release this device</a>
+</div>
+</div>
+</div>
+<!-- Thin banner shown inside the app while running on offline grace -->
+<div class="cx-grace" hidden="" id="cx-grace">
+<span id="cx-grace-text">Offline mode</span>
+<button class="cx-grace__retry" id="cx-grace-retry" type="button">Reconnect</button>
+</div>
+<!-- ===== end license gate ===== -->
+<div id="app"><header class="orbit-shell-header">
+<div aria-hidden="true" class="orbit-header-logo"><img alt="" src="assets/compx-mark.png"/></div>
+<div class="orbit-header-copy"><strong>Orbit Premiere</strong><em>PRO STUDIO SUITE</em></div>
+</header><nav class="orbit-right-dock" id="orbitRightDock" aria-label="Orbit dock">
+  <div class="orbit-dock-center">
+    <button type="button" class="orbit-dock-btn" data-dock-action="cut-at-playhead" title="Cut at playhead">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M8 5H3v14h5M16 5h5v14h-5"/></svg>
+    </button>
+    <button type="button" class="orbit-dock-btn" data-dock-action="trim-before" title="Trim before playhead">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v20M10 5h11M10 19h11M17 9l-3 3 3 3"/></svg>
+    </button>
+    <button type="button" class="orbit-dock-btn" data-dock-action="trim-after" title="Trim after playhead">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2v20M3 5h11M3 19h11M7 9l3 3-3 3"/></svg>
+    </button>
+    <span class="orbit-dock-sep" aria-hidden="true"></span>
+    <button type="button" class="orbit-dock-btn" data-dock-action="flip-h" title="Flip horizontal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" stroke-dasharray="3 2.5"/><path d="M9.5 6.5 4.5 12l5 5.5z"/><path d="M14.5 6.5 19.5 12l-5 5.5z"/></svg>
+    </button>
+    <button type="button" class="orbit-dock-btn" data-dock-action="flip-v" title="Flip vertical">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18" stroke-dasharray="3 2.5"/><path d="M6.5 9.5 12 4.5l5.5 5z"/><path d="M6.5 14.5 12 19.5l5.5-5z"/></svg>
+    </button>
+    <button type="button" class="orbit-dock-btn" data-dock-action="fit" title="Fit to frame — the whole shot inside the frame">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><rect x="7" y="8" width="10" height="8" rx="1"/></svg>
+    </button>
+    <button type="button" class="orbit-dock-btn" data-dock-action="fill" title="Fill frame — cover the frame, crop the overhang">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="1"/><path d="M2.5 5.5v13M21.5 5.5v13"/></svg>
+    </button>
+    <button type="button" class="orbit-dock-btn" data-dock-action="scale-reset" title="Reset scale to 100%">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 1 1-2.6-5.4"/><path d="M20 3v5h-5"/></svg>
+    </button>
+    <span class="orbit-dock-sep" aria-hidden="true"></span>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="nest" title="Nest / Unnest" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><rect x="6" y="8.5" width="12" height="7" rx="1.2"/></svg>
+    </button>
+    <div class="orbit-dock-pop is-menu" id="nestBlock">
+    <div class="slider-label"><span>NEST</span></div>
+    <div class="orbit-dock-menu">
+    <button type="button" data-dock-action="nest">Nest selected clips</button>
+    <button type="button" data-dock-action="unnest">Unnest selected nest</button>
+    </div>
+    </div>
+    </div>
+    <button type="button" class="orbit-dock-btn" data-dock-action="paste-image" title="Paste image from the clipboard at the playhead">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3H9z"/><path d="M15 4.5h3v16H6v-16h3"/><circle cx="10" cy="11" r="1.3"/><path d="M6.5 17.5 10 14l2.5 2.5L15 14.5l3 3"/></svg>
+    </button>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="guides" title="Safe margins" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><rect x="6" y="7.5" width="12" height="9" rx="1" stroke-dasharray="3 2.5"/></svg>
+    </button>
+    <div class="orbit-dock-pop is-menu" id="guidesBlock">
+    <div class="slider-label"><span>SAFE MARGINS</span></div>
+    <div class="orbit-dock-menu">
+    <button type="button" data-dock-action="guides-16x9">16:9 guides</button>
+    <button type="button" data-dock-action="guides-9x16">9:16 guides</button>
+    <button type="button" data-dock-action="guides-off">Remove guides</button>
+    </div>
+    <p class="orbit-dock-note">Guides are a clip on the top video track. Remove them before you export.</p>
+    </div>
+    </div>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="sequence" title="Create sequence" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M19 9v9M21.5 9v9"/><path d="M6 12h6M9 9v6"/></svg>
+    </button>
+    <div class="orbit-dock-pop is-menu" id="sequenceBlock">
+    <div class="slider-label"><span>NEW SEQUENCE</span></div>
+    <div class="orbit-dock-menu">
+    <button type="button" data-dock-action="seq-selection">From selected clips</button>
+    <button type="button" data-dock-action="seq-16x9">Blank 1920&times;1080</button>
+    <button type="button" data-dock-action="seq-9x16">Blank 1080&times;1920</button>
+    </div>
+    </div>
+    </div>
+    <button type="button" class="orbit-dock-btn" data-dock-action="color-matte" title="Color matte">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 12h18"/></svg>
+    </button>
+    <span class="orbit-dock-sep" aria-hidden="true"></span>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="volume" title="Volume" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9.5a3.5 3.5 0 0 1 0 5"/><path d="M18.2 7.2a6.5 6.5 0 0 1 0 9.6"/></svg>
+    </button>
+    <div class="orbit-dock-pop" id="volumeBlock">
+    <div class="slider-label"><span>VOLUME</span><span class="val" id="volumeVal">100%</span></div>
+    <input id="volume" max="200" min="0" step="1" type="range" value="100"/>
+    </div>
+    </div>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="pitch" title="Pitch" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3l2.5-6 3 12L15 12h6"/></svg>
+    </button>
+    <div class="orbit-dock-pop" id="pitchBlock">
+    <div class="slider-label"><span>PITCH</span><span class="val" id="pitchVal">0 st</span></div>
+    <input id="pitch" max="12" min="-12" step="1" type="range" value="0"/>
+    </div>
+    </div>
+  </div>
+  <span class="orbit-dock-status" id="orbitDockStatus" aria-live="polite"></span>
+</nav><div aria-label="Studio sections" class="asset-type-row" id="assetTypeRow">
+<button class="shelf" data-type="silence" title="Silence Cutter"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg><span>CUT</span></button>
+<button class="shelf" data-type="captions" title="Auto Captions"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><rect height="16" rx="2" width="18" x="3" y="4"/><path d="M7 10h10"/><path d="M7 14h6"/></svg><span>CAP</span></button>
+
+<button class="shelf" data-type="beat" title="Beat Sync"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>BEAT</span></button>
+<button class="shelf" data-type="audio" title="AI Voice Cleaner"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg><span>AUDIO</span></button>
+<button class="shelf" data-type="motion" title="Motion Lab"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M3 17c4-10 14-10 18 0"/><circle cx="7" cy="14" r="2"/><circle cx="17" cy="14" r="2"/></svg><span>MOTION</span></button>
+<button class="shelf active" data-type="sfx" title="SFX library"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M3 10v4h3l4 3V7l-4 3H3z"/><path d="M14 9.5a3.5 3.5 0 0 1 0 5"/><path d="M16.5 7a7 7 0 0 1 0 10"/></svg><span>SFX</span></button>
+<button class="shelf" data-type="mogrt" title="MOGRT library"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><rect height="14" rx="2" width="18" x="3" y="5"/><path d="M7 15V9l3 3 3-3v6"/><path d="M17 9v6"/></svg><span>MOGRT</span></button>
+<button class="shelf" data-type="doctor" title="Project Doctor"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M12 3 5 6v5c0 4.6 2.8 8.1 7 10 4.2-1.9 7-5.4 7-10V6l-7-3Z"/><path d="M8 12h2l1-3 2 6 1-3h2"/></svg><span>DOCTOR</span></button>
+</div><div class="app-panel active" id="panel-sfx">
+<div id="sfxMogrtView">
+
+<div class="library-filter-strip">
+<div class="search-row"><input id="search" placeholder="Search assets..." type="text"/></div>
+<div class="tabs-row" id="tabsRow">
+<button class="tab active" data-view="all">All Files</button>
+<button class="tab" data-view="favorites" title="Show favorite-marked assets">Favorites</button>
+</div>
+<div class="controls-group">
+<select class="select-control" id="sortBy">
+<option value="name">Sort: Name</option>
+<option value="duration">Sort: Duration</option>
+</select>
+</div>
+</div>
+<div class="lib-toolbar">
+<span class="lib-item-count" id="libItemCount">0 items</span>
+<div class="actions-row lib-action-icons">
+<button class="lib-icon-btn lib-icon-btn--primary" id="btnAddFiles" data-lib-tip="Add sound files" type="button" aria-label="Add files"><svg class="lib-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 11v6M9 14h6"/></svg></button>
+<button class="lib-icon-btn" id="btnAddFolder" data-lib-tip="Import folder" type="button" aria-label="Import folder"><svg class="lib-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7h6l2 2h10v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7z"/></svg></button>
+<button class="lib-icon-btn lib-icon-btn--warn" id="btnRemoveMarkedSfx" data-lib-tip="Remove marked favorites" type="button" aria-label="Remove marked favorites"><svg class="lib-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2.4 4.9L20 8l-3.8 3.7L17 18l-5-2.6L7 18l.8-6.3L4 8l5.6-1.1L12 2z"/><path d="M8 8l8 8M16 8l-8 8"/></svg></button>
+<button class="lib-icon-btn lib-icon-btn--danger" id="btnReset" data-lib-tip="Reset library shelf" type="button" aria-label="Reset library"><svg class="lib-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+<div hidden="hidden" aria-hidden="true">
+<button id="btnFolderView" type="button"></button>
+<button id="btnRemoveSelected" type="button"></button>
+<button id="btnBatchMode" type="button"></button>
+<button id="btnClearMogrtCache" type="button"></button>
+<span id="mogrtCacheInfo"></span>
+</div>
+</div>
+<div class="lib-toolbar-end">
+<div class="lib-view-toggle">
+<button class="lib-view-btn active" id="btnGridView" data-lib-tip="Grid view" type="button" aria-label="Grid view"><svg class="lib-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect height="8" rx="1" width="8" x="3" y="3"/><rect height="8" rx="1" width="8" x="13" y="3"/><rect height="8" rx="1" width="8" x="3" y="13"/><rect height="8" rx="1" width="8" x="13" y="13"/></svg></button>
+<button class="lib-view-btn" id="btnListView" data-lib-tip="List view" type="button" aria-label="List view"><svg class="lib-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+</div>
+<div class="card-size-row" id="cardSizeRow" data-lib-tip="Preview card size">
+<span class="card-size-label">SIZE</span>
+<input id="cardSizeSlider" max="220" min="90" step="5" type="range" value="130"/>
+<span class="card-size-val" id="cardSizeVal">130</span>
+</div>
+</div>
+<div class="lib-tooltip" hidden="" id="libTooltip" role="tooltip"></div>
+</div>
+<div class="collections-row" id="collectionsRow" style="display:none;"></div>
+<div class="batch-bar" id="batchBar" style="display:none;">
+<span id="batchCount">0 selected</span>
+<div class="batch-actions">
+<button class="btn small" id="batchColor">Color</button>
+<button class="btn small" id="batchCollection">Add to...</button>
+<button class="btn small danger" id="batchDelete">Remove</button>
+</div>
+</div>
+<div class="main-layout" id="mainLayout" data-dock-anchor>
+<div class="sidebar" id="sidebar">
+<div class="sidebar-header"><span class="title">LIBRARY</span></div>
+<div class="lib-sidebar-subhead">FOLDERS</div>
+<div class="folder-tree" id="folderTree"></div>
+<div class="lib-sidebar-footer"><span id="libSidebarFooter">0 items</span></div>
+</div>
+<div class="content-view">
+<div class="toolbar">
+<div class="breadcrumb-container">
+<button class="btn-collapse" id="btnCollapse" type="button" title="Toggle Sidebar">&lt;</button>
+<div class="breadcrumb" id="breadcrumb">All</div>
+</div>
+</div>
+<div class="library grid" id="library"></div>
+</div>
+</div>
+<div class="transport">
+<div class="transport-main">
+<div class="now-playing" id="nowPlaying"><span class="label">Selected:</span> -</div>
+</div>
+<div class="hint" id="playHint" style="display:none;">Click a sound to play  -  click again to stop</div>
+<div class="tag-editor-row" id="tagEditorRow" style="display:none!important;"><input id="tagEditor" type="hidden"/></div>
+<div class="hint" id="hostHint">Connecting to host...</div>
+</div>
+</div><!-- /sfxMogrtView -->
+
+<!-- ===== Silence Cutter View ===== -->
+<div id="silenceCutterView" class="orbit-view-panel" style="display:none;">
+      <div id="panel-silence-cutter" class="panel">
+
+        <!-- "" Smart Jump Cut header """"""""""""""""""""""""""""""""" -->
+        <div class="sc-title-row">
+          <span class="sc-title">Smart Jump Cut</span>
+          <span class="sc-title-badge">v2.4</span>
+        </div>
+
+        <!-- "" Detection """""""""""""""""""""""""""""""""""""""""""" -->
+        <details class="m4-accord" open>
+          <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>Detection</span></summary>
+          <div class="m4-accord-body">
+
+            <!-- Detect from track -->
+            <div class="form-row">
+              <label>Guidance tracks</label>
+              <div id="sc-detect-list" class="sc-detect-chips">
+                <span class="track-list-hint">load tracks</span>
+              </div>
+              <button class="btn-icon btn-icon-sm" id="sc-refresh-tracks" title="Refresh tracks" aria-label="Refresh tracks">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.36L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.36L3 16"/><path d="M3 21v-5h5"/></svg>
+              </button>
+            </div>
+
+            <!-- Threshold / min silence / padding -->
+            <div class="form-row">
+              <label>Scope</label>
+              <select id="sc-scope" class="gen-popup-select" style="flex:1;">
+                <option value="full">Full sequence</option>
+                <option value="inout">Timeline In / Out</option>
+              </select>
+            </div>
+            <div class="form-row sc-threshold-row">
+              <label>Threshold</label>
+              <input type="range" id="sc-threshold" min="-60" max="-10" step="1" value="-35" style="flex:1;"/>
+              <span class="slider-val" id="sc-threshold-val">-35 dB</span>
+              <button class="btn btn-secondary" id="sc-auto-threshold" type="button" title="Estimate the noise floor from this track">Auto</button>
+            </div>
+            <div class="form-row">
+              <label>Min silence</label>
+              <input type="range" id="sc-duration" min="0.1" max="3.0" step="0.1" value="0.5" style="flex:1;"/>
+              <span class="slider-val" id="sc-duration-val">0.5 s</span>
+            </div>
+            <div class="form-row">
+              <label>Before speech</label>
+              <input type="range" id="sc-pre-padding" min="0" max="0.5" step="0.05" value="0.10" style="flex:1;"/>
+              <span class="slider-val" id="sc-pre-padding-val">0.10 s</span>
+            </div>
+            <div class="form-row">
+              <label>After speech</label>
+              <input type="range" id="sc-post-padding" min="0" max="0.5" step="0.05" value="0.10" style="flex:1;"/>
+              <span class="slider-val" id="sc-post-padding-val">0.10 s</span>
+            </div>
+            <div class="form-row">
+              <label>Apply mode</label>
+              <select id="sc-apply-mode" class="gen-popup-select" style="flex:1;">
+                <option value="ripple">Ripple delete</option>
+                <option value="razor">Razor only (keep timeline)</option>
+              </select>
+            </div>
+            <label class="audio-opt"><input id="sc-safety-copy" type="checkbox" checked/><span>Duplicate active sequence before Apply</span></label>
+          </div>
+        </details>
+
+        <!-- "" Cut preview """"""""""""""""""""""""""""""""""""""""" -->
+        <details class="m4-accord" open>
+          <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>Cut Preview</span></summary>
+          <div class="m4-accord-body">
+            <div id="sc-track-list" class="track-check-list sc-cut-chips">
+              <span class="track-list-hint">load tracks</span>
+            </div>
+            <div class="sc-waveform-wrap" id="sc-waveform-wrap">
+              <canvas id="sc-waveform"></canvas>
+              <div class="sc-waveform-hint" id="sc-waveform-hint">Pick a track and hit Analyze to preview cuts</div>
+            </div>
+            <div class="sc-preview-legend" aria-hidden="true"><span class="keep">Keep</span><span class="cut">Cut</span><span class="speech">Speech</span></div>
+          </div>
+        </details>
+
+        <!-- "" Detected cuts - non-destructive preview """"""""""""""" -->
+        <div class="sc-cut-list-wrap hidden" id="sc-cut-list-wrap">
+          <div class="sc-cut-list-head">
+            <span class="sc-cut-list-title">CUTS TO REMOVE</span>
+            <span class="sc-cut-count" id="sc-cut-count"></span>
+          </div>
+          <div class="sc-cut-list" id="sc-cut-list"></div>
+          <div class="sc-cut-hint">Untick a cut to keep it - nothing is removed until you Apply.</div>
+        </div>
+
+        <div class="panel-footer">
+          <div class="sc-detect-row">
+            <button class="btn btn-secondary sc-detect-btn-main" id="sc-detect-btn">
+              <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              Analyze
+            </button>
+            <button class="btn btn-danger sc-cut-btn-inline" id="sc-cut-btn" disabled>
+              <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+              Apply Cuts
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /silence-cutter -->
+
+</div>
+
+<!-- ===== Auto Captions View ===== -->
+<div id="autoCaptionsView" class="orbit-view-panel" style="display:none;">
+      <div id="panel-auto-captions" class="panel">
+
+        <!-- "" Generation popup overlay """"""""""""""""""""""""""""""""" -->
+        <div id="ac-gen-popup" class="gen-popup hidden">
+          <div class="gen-popup-card">
+            <div class="gen-popup-header">
+              <div class="gen-popup-heading">
+                <span class="gen-popup-title">Generate Captions</span>
+                <span class="gen-popup-subtitle">Transcribe, style and place captions in one step</span>
+              </div>
+              <div class="ac-popup-header-actions">
+                <button class="btn-icon btn-icon-sm" id="ac-deps-open" title="Local AI setup" aria-label="Local AI setup">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7 15a1.7 1.7 0 0 0-1.56-1.03h-.08v-3h.08A1.7 1.7 0 0 0 7 9.94a1.7 1.7 0 0 0-.34-1.88L6.6 8l2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.7 4.7v-.08h3v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03h.08v3h-.08A1.7 1.7 0 0 0 19.4 15Z"/></svg>
+                </button>
+                <button class="btn-icon btn-icon-sm" id="ac-popup-close" title="Close" aria-label="Close">&#x2715;</button>
+              </div>
+            </div>
+
+            <section id="ac-deps-panel" class="ac-deps-panel hidden" aria-label="Local AI setup">
+              <div class="ac-deps-title-row">
+                <div><strong>Local AI setup</strong><span>Download once before generating captions</span></div>
+                <button type="button" id="ac-deps-refresh" class="ac-deps-mini-btn">Refresh</button>
+              </div>
+              <label class="ac-deps-model-label" for="ac-deps-model">Whisper model</label>
+              <select id="ac-deps-model" class="gen-popup-select">
+                <option value="tiny">Tiny - 31 MB / fastest</option>
+                <option value="base">Base - 57 MB / balanced</option>
+                <option value="small">Small - 181 MB / accurate</option>
+                <option value="medium">Medium - 514 MB</option>
+                <option value="large-v3-turbo">Large v3 Turbo - 548 MB</option>
+                <option value="large-v3">Large v3 - 1080 MB / best</option>
+              </select>
+              <div class="ac-deps-list">
+                <div class="ac-deps-item"><span class="ac-deps-dot" id="ac-deps-runtime-dot"></span><div><b>Whisper runtime</b><small id="ac-deps-runtime-path">Checking...</small></div><em id="ac-deps-runtime-state">Checking</em></div>
+                <div class="ac-deps-item"><span class="ac-deps-dot" id="ac-deps-ffmpeg-dot"></span><div><b>FFmpeg</b><small id="ac-deps-ffmpeg-path">Checking...</small></div><em id="ac-deps-ffmpeg-state">Checking</em></div>
+                <div class="ac-deps-item"><span class="ac-deps-dot" id="ac-deps-model-dot"></span><div><b id="ac-deps-model-name">Selected model</b><small id="ac-deps-model-path">Checking...</small></div><em id="ac-deps-model-state">Checking</em></div>
+              </div>
+              <div class="ac-deps-progress hidden" id="ac-deps-progress">
+                <div class="ac-deps-progress-head"><span id="ac-deps-progress-label">Preparing...</span><span id="ac-deps-progress-percent">0%</span></div>
+                <div class="ac-deps-progress-track"><i id="ac-deps-progress-fill"></i></div>
+              </div>
+              <div class="ac-deps-root" id="ac-deps-root"></div>
+              <div class="ac-deps-actions">
+                <button type="button" id="ac-deps-folder" class="btn btn-secondary">Open folder</button>
+                <button type="button" id="ac-deps-install" class="btn btn-primary">Download missing files</button>
+              </div>
+            </section>
+
+            <!-- Caption preview card - shown when captions already exist.
+                 Decision-first: read the existing transcript, then choose
+                 Open editor (close popup, scroll to editor) or Regenerate
+                 (transition to the form for a fresh transcription). -->
+            <div class="ac-preview-card" id="ac-popup-preview-card" style="display:none;">
+              <div class="ac-preview-label">Current captions <span class="ac-preview-count" id="ac-popup-existing-count">0</span></div>
+              <div class="ac-preview-text" id="ac-popup-preview-text"></div>
+              <button class="ac-preview-more" id="ac-popup-preview-more" type="button">
+                <span class="ac-preview-more-label">Show more</span>
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="ac-preview-actions">
+                <button class="btn btn-secondary" id="ac-popup-open-editor">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/><path d="m15 5 3 3"/></svg>
+                  Open editor
+                </button>
+                <button class="btn btn-ghost" id="ac-popup-regenerate-from-preview">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+                  Regenerate
+                </button>
+              </div>
+            </div>
+
+            <div id="ac-popup-form">
+
+            <div class="gen-popup-field">
+              <label class="gen-popup-label">Audio Track</label>
+              <select id="ac-track-select" class="gen-popup-select">
+                <option value="">Loading...</option>
+              </select>
+            </div>
+
+            <div class="gen-popup-field gen-popup-edit-hidden">
+              <label class="gen-popup-label">Place on</label>
+              <select id="ac-popup-place-track" class="gen-popup-select">
+                <option value="1">V1</option>
+                <option value="2" selected>V2</option>
+                <option value="3">V3</option>
+                <option value="4">V4</option>
+                <option value="5">V5</option>
+                <option value="new">+ New</option>
+              </select>
+            </div>
+
+            <!-- Position (X / Y as % of frame). Mirrors the editor's
+                 action-bar inputs (ac-bar-pos-x / ac-bar-pos-y). On
+                 Generate / Apply these values get written back to the
+                 bar so the bar stays the single source of truth.
+                 Hidden in regenerate-edit mode since the user is
+                 already in the editor with the bar visible. -->
+            <div class="gen-popup-field gen-popup-edit-hidden">
+              <label class="gen-popup-label">Position</label>
+              <div class="gen-popup-pos-wrap">
+                <span class="gen-popup-pos-label">X</span>
+                <input type="number" id="ac-popup-pos-x" class="gen-popup-pos-input" min="0" max="100" value="50"/>
+                <span class="gen-popup-pos-suffix">%</span>
+                <span class="gen-popup-pos-sep"></span>
+                <span class="gen-popup-pos-label">Y</span>
+                <input type="number" id="ac-popup-pos-y" class="gen-popup-pos-input" min="0" max="100" value="70"/>
+                <span class="gen-popup-pos-suffix">%</span>
+              </div>
+            </div>
+            <div class="gen-popup-field">
+              <label class="gen-popup-label">Engine</label>
+              <select id="ac-transcription-mode" class="gen-popup-select">
+                <option value="local" selected>Local - Free &amp; private</option>
+                <option value="cloud">Cloud - Fast &amp; paid quota</option>
+              </select>
+            </div>
+
+            <div class="gen-popup-field" id="ac-local-model-row">
+              <label class="gen-popup-label">Local model</label>
+              <select id="ac-local-model-select" class="gen-popup-select">
+                <option value="tiny">Tiny - 31 MB / fastest</option>
+                <option value="base" selected>Base - 57 MB / balanced</option>
+                <option value="small">Small - 181 MB / accurate</option>
+                <option value="medium">Medium - 514 MB</option>
+                <option value="large-v3-turbo">Large v3 Turbo - 548 MB</option>
+                <option value="large-v3">Large v3 - 1080 MB / best</option>
+              </select>
+            </div>
+
+            <div class="gen-popup-field" id="ac-local-options-row">
+              <label class="gen-popup-label">Local options</label>
+              <label style="display:flex;align-items:center;gap:7px;color:#c7cad1;font-size:12px;">
+                <input id="ac-local-translate" type="checkbox"/>
+                Translate speech to English
+              </label>
+            </div>
+
+            <div id="ac-engine-hint" class="track-list-hint" style="margin:-4px 0 8px;">
+              Runs privately on this PC. No sign-in or per-minute AI charge.
+            </div>
+
+            <div class="gen-popup-field">
+              <label class="gen-popup-label">Language</label>
+              <select id="ac-language" class="gen-popup-select">
+                <option value="auto" selected>Auto-detect</option>
+                <option value="en">English</option>
+                <option value="bn">Bangla</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="pt">Portuguese</option>
+                <option value="ru">Russian</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="ar">Arabic</option>
+                <option value="tr">Turkish</option>
+                <option value="nl">Dutch</option>
+                <option value="pl">Polish</option>
+              </select>
+            </div>
+
+            <div class="gen-popup-field gen-popup-field-dual">
+              <label class="gen-popup-label">Lines / block</label>
+              <div class="gen-popup-stepper-wrap">
+                <div class="postgen-stepper">
+                  <button class="postgen-step-btn" id="ac-popup-lines-dec">&#x2212;</button>
+                  <span class="postgen-step-val" id="ac-max-lines-val">1</span>
+                  <button class="postgen-step-btn" id="ac-popup-lines-inc">&#x2B;</button>
+                </div>
+              </div>
+              <div class="postgen-sep"></div>
+              <label class="gen-popup-label">Max chars</label>
+              <div class="gen-popup-stepper-wrap">
+                <div class="postgen-stepper">
+                  <button class="postgen-step-btn" id="ac-popup-chars-dec">&#x2212;</button>
+                  <span class="postgen-step-val" id="ac-max-chars-val">20</span>
+                  <button class="postgen-step-btn" id="ac-popup-chars-inc">&#x2B;</button>
+                </div>
+              </div>
+              <input type="hidden" id="ac-max-lines-select" value="1"/>
+              <input type="hidden" id="ac-max-chars-input" value="20"/>
+            </div>
+
+            <div class="gen-popup-field">
+              <label class="gen-popup-label">Silence gap</label>
+              <div class="gen-popup-stepper-wrap">
+                <div class="postgen-stepper">
+                  <button class="postgen-step-btn" id="ac-popup-gap-dec">&#x2212;</button>
+                  <span class="postgen-step-val" id="ac-popup-gap-val">0.1s</span>
+                  <button class="postgen-step-btn" id="ac-popup-gap-inc">&#x2B;</button>
+                </div>
+              </div>
+            </div>
+
+
+            </div><!-- /#ac-popup-form -->
+
+            <!-- Templates section - shown in preview + generate modes,
+                 hidden in regenerate mode (where the user has explicitly
+                 chosen to re-transcribe and isn't picking a style). -->
+            <div class="gen-popup-tpl-section" id="ac-popup-tpl-section">
+              <span class="gen-popup-label">Style</span>
+              <div id="ac-gen-popup-tpl-grid" class="gen-popup-tpl-grid"></div>
+            </div>
+
+            <!-- Limit banner. Filled + revealed from the catch handler
+                 when the server returns 429; stays visible until popup closes. -->
+            <div class="gen-popup-limit-banner hidden" id="ac-popup-limit-banner" role="alert">
+              <svg class="gen-popup-limit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              <span class="gen-popup-limit-msg" id="ac-popup-limit-msg"></span>
+            </div>
+
+            <!-- Upgrade card - shown when a FREE user exhausts their
+                 one-time free minutes (server 402). Revealed from the
+                 catch handler; Subscribe opens checkout. -->
+            <div class="gen-popup-upgrade hidden" id="ac-popup-upgrade">
+              <div class="gpu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.8 19a1.4 1.4 0 0 0 1.2 2h16a1.4 1.4 0 0 0 1.2-2L12 3Z"/><path d="M12 9v5"/><path d="M12 18h.01"/></svg>
+              </div>
+              <div class="gpu-copy">
+                <div class="gpu-title" id="ac-popup-upgrade-title">Free minutes used</div>
+                <div class="gpu-sub" id="ac-popup-upgrade-sub">Continue with 300 cloud-transcription minutes every month.</div>
+              </div>
+              <button class="btn btn-primary" id="ac-popup-upgrade-btn">View plan  -  $9/mo</button>
+            </div>
+
+            <!-- Monthly usage meter - hidden below 50% so light users never
+                 think about limits; amber >=80%, red at 100%. Driven by
+                 _renderUsage() from the get_my_usage preflight and from
+                 each transcribe response. -->
+            <div class="gen-popup-usage hidden" id="ac-popup-usage">
+              <div class="gen-popup-usage-bar"><div class="gen-popup-usage-fill" id="ac-popup-usage-fill"></div></div>
+              <div class="gen-popup-usage-text" id="ac-popup-usage-text"></div>
+            </div>
+
+            <section id="ac-live-pipeline" class="ac-live-pipeline hidden" aria-live="polite">
+              <div class="ac-live-head"><strong>Generation activity</strong><span id="ac-live-elapsed">00:00</span></div>
+              <div class="ac-live-stages">
+                <span data-ac-stage="track"><i></i>Track</span>
+                <span data-ac-stage="ffmpeg"><i></i>FFmpeg</span>
+                <span data-ac-stage="audio"><i></i>Audio</span>
+                <span data-ac-stage="whisper"><i></i>Whisper</span>
+                <span data-ac-stage="captions"><i></i>Captions</span>
+              </div>
+              <div class="ac-live-current" id="ac-live-current">Waiting to start</div>
+              <div class="ac-live-detail" id="ac-live-detail">The current processing step will appear here.</div>
+              <div class="ac-live-progress"><i id="ac-live-progress-fill"></i></div>
+            </section>
+
+            <button class="btn btn-primary btn-full" id="ac-generate-btn" style="margin-top:4px;">
+              <span class="ac-generate-btn-icon">&#x25B6;</span>
+              <span class="ac-generate-btn-label">Generate Captions</span>
+            </button>
+
+            <div class="progress-wrap" id="ac-progress">
+              <div class="progress-bar"><div class="progress-fill" id="ac-progress-fill"></div></div>
+              <div class="progress-label" id="ac-progress-label"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- "" Manual captions popup """""""""""""""""""""""""""""""""""""
+             Bring-your-own text: one caption per line, timed against the
+             detected speech on the selected track. Same visual system as
+             the Generate popup. No transcription, no quota. -->
+        <div id="ac-manual-popup" class="gen-popup hidden">
+          <div class="gen-popup-card">
+            <div class="gen-popup-header">
+              <div class="gen-popup-heading">
+                <span class="gen-popup-title">Type Captions</span>
+                <span class="gen-popup-subtitle">Paste text and time it automatically to speech</span>
+              </div>
+              <button class="btn-icon btn-icon-sm" id="ac-manual-close" title="Close" aria-label="Close">&#x2715;</button>
+            </div>
+
+            <div class="gen-popup-field ac-manual-field">
+              <div class="ac-manual-labelrow">
+                <label class="gen-popup-label">One caption per line</label>
+                <div class="ac-dir-toggle">
+                  <button type="button" id="ac-manual-ltr" title="Left-to-right">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 5h12"/><path d="M4 9h9"/><path d="M4 13h12"/>
+                      <path d="M4 19h13"/><path d="m14 16 3 3-3 3"/>
+                    </svg>
+                  </button>
+                  <button type="button" id="ac-manual-rtl" title="Right-to-left (Arabic)">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 5h12"/><path d="M11 9h9"/><path d="M8 13h12"/>
+                      <path d="M20 19H7"/><path d="m10 16-3 3 3 3"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <textarea id="ac-manual-input" class="ac-manual-textarea" rows="9"></textarea>
+              <div class="ac-manual-meta">
+                <span id="ac-manual-count">0 lines</span>
+                <span class="ac-manual-hint">Timed to your speech automatically</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="ac-manual-go" style="margin-top:4px;">
+              <span class="ac-generate-btn-icon">&#x270E;</span>
+              <span class="ac-generate-btn-label">Create Captions</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- "" Per-caption advanced editor (spike: shell + playback only) ""
+             Opens via the pencil icon on a caption row. Shows the caption
+             time-slice as a waveform, with word blocks below the waveform
+             aligned to their start/end times. Press Play to hear the slice;
+             playhead scrubs across both lanes. Edit operations come later. -->
+        <div id="ac-edit-popup" class="edit-popup hidden">
+          <div class="edit-popup-card">
+            <div class="edit-popup-header">
+              <span class="edit-popup-title">Edit captions</span>
+              <button class="btn-icon btn-icon-sm" id="ac-edit-close" title="Close">&#x2715;</button>
+            </div>
+
+            <div class="edit-popup-toolbar">
+              <button class="edit-popup-play" id="ac-edit-play" title="Play / pause">&#x25B6;</button>
+              <span class="edit-popup-time" id="ac-edit-time">0:00 / 0:00</span>
+              <!-- Playback speed - fixed-option dropdown applied to
+                   the popup's HTMLAudioElement via playbackRate. -->
+              <select class="edit-popup-speed" id="ac-edit-speed" title="Playback speed">
+                <option value="0.5">0.5&times;</option>
+                <option value="0.75">0.75&times;</option>
+                <option value="1" selected>1&times;</option>
+                <option value="1.25">1.25&times;</option>
+                <option value="1.5">1.5&times;</option>
+                <option value="2">2&times;</option>
+              </select>
+              <!-- Undo / redo for the live-edit history. Disabled when the
+                   respective stack is empty. Keyboard: Ctrl+Z / Ctrl+Y. -->
+              <button class="edit-popup-undo" id="ac-edit-undo" title="Undo (Ctrl+Z)" disabled>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 5h6a3 3 0 0 1 0 6H6"/>
+                  <path d="M5 3 3 5l2 2"/>
+                </svg>
+              </button>
+              <button class="edit-popup-undo" id="ac-edit-redo" title="Redo (Ctrl+Y)" disabled>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5H4a3 3 0 0 0 0 6h3"/>
+                  <path d="M8 3l2 2-2 2"/>
+                </svg>
+              </button>
+
+              <span class="edit-popup-spacer"></span>
+              <span class="edit-popup-zoom-label">Zoom</span>
+              <input type="range" id="ac-edit-zoom" class="edit-popup-zoom" min="1" max="8" step="0.25" value="4"/>
+
+              <!-- Caption grouping settings (Lines / Chars / Gap) - hidden
+                   behind a gear icon to declutter the toolbar. Clicking
+                   opens a small popover anchored below this button. -->
+              <button class="edit-popup-undo edit-popup-gear" id="ac-edit-grouping-btn" title="Caption grouping settings">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>
+                </svg>
+              </button>
+              <div id="ac-edit-grouping-popover" class="edit-popup-popover" style="display:none">
+                <div class="postgen-bar edit-popup-popover-inner">
+                  <span class="postgen-label">Lines</span>
+                  <div class="postgen-stepper">
+                    <button class="postgen-step-btn" id="ac-edit-lines-dec">&#x2212;</button>
+                    <span class="postgen-step-val" id="ac-edit-lines-display">2</span>
+                    <button class="postgen-step-btn" id="ac-edit-lines-inc">&#x2B;</button>
+                  </div>
+                  <div class="postgen-sep"></div>
+                  <span class="postgen-label">Chars</span>
+                  <div class="postgen-stepper">
+                    <button class="postgen-step-btn" id="ac-edit-chars-dec">&#x2212;</button>
+                    <span class="postgen-step-val" id="ac-edit-chars-display">80</span>
+                    <button class="postgen-step-btn" id="ac-edit-chars-inc">&#x2B;</button>
+                  </div>
+                  <div class="postgen-sep"></div>
+                  <span class="postgen-label">Gap</span>
+                  <div class="postgen-stepper">
+                    <button class="postgen-step-btn" id="ac-edit-gap-dec">&#x2212;</button>
+                    <span class="postgen-step-val" id="ac-edit-gap-display">0.2s</span>
+                    <button class="postgen-step-btn" id="ac-edit-gap-inc">&#x2B;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline: waveform on top, word lane below, playhead overlays both.
+                 The inner wrapper sits at the timeline's content area
+                 (inside the 14px gutter) and clips word blocks /
+                 playhead head at its edges so they never bleed into
+                 the gutter. -->
+            <div class="edit-popup-timeline" id="ac-edit-timeline">
+             <div class="edit-popup-timeline-inner">
+              <!-- Timecode ruler - generated by _drawEditRuler() based on
+                   the current view range. Sits above the waveform. -->
+              <div class="edit-popup-timeline-ruler" id="ac-edit-timeline-ruler"></div>
+              <div class="edit-popup-waveform-wrap">
+                <canvas id="ac-edit-waveform"></canvas>
+              </div>
+              <div class="edit-popup-word-lane" id="ac-edit-word-lane"></div>
+              <div class="edit-popup-playhead" id="ac-edit-playhead">
+                <div class="edit-popup-playhead-head"></div>
+              </div>
+              <!-- Contextual word-action bar - shown only when a word is
+                   selected. Positioned above the selected word by JS.
+                   Icons read left/right to match the timeline's
+                   horizontal flow; the corresponding captions-page bar
+                   uses the same icons in vertical (up/down) form. -->
+              <div class="edit-popup-word-actions" id="ac-edit-word-actions" style="display:none">
+                <button id="ac-edit-word-up" title="Move to previous line / caption">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 1.5v9"/>
+                    <path d="M6 6H1.5"/>
+                    <path d="M3.5 4L1.5 6l2 2"/>
+                  </svg>
+                </button>
+                <button id="ac-edit-word-down" title="Move to next line / caption">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 1.5v9"/>
+                    <path d="M6 6h4.5"/>
+                    <path d="M8.5 4l2 2-2 2"/>
+                  </svg>
+                </button>
+                <button id="ac-edit-word-split" title="Split caption at this word">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1.2" y="3.5" width="3.6" height="5" rx="0.6"/>
+                    <rect x="7.2" y="3.5" width="3.6" height="5" rx="0.6"/>
+                    <path d="M6 1.5v9" stroke-dasharray="1.4 1.4"/>
+                  </svg>
+                </button>
+              </div>
+             </div><!-- /edit-popup-timeline-inner -->
+
+              <!-- Premiere-style zoom scrollbar. Thumb width = (viewEnd
+                   - viewStart) / audioDuration of the track; thumb left
+                   = viewStart / audioDuration. Drag either handle to
+                   zoom (resize the view); drag the thumb body to pan;
+                   click track outside thumb to jump-center. Layout +
+                   wiring in autoCaptions.js. -->
+              <div class="edit-popup-scrollbar" id="ac-edit-scrollbar">
+                <div class="edit-popup-scrollbar-thumb" id="ac-edit-scrollbar-thumb">
+                  <div class="edit-popup-scrollbar-handle handle-left"  data-sb-handle="left"></div>
+                  <div class="edit-popup-scrollbar-grip"></div>
+                  <div class="edit-popup-scrollbar-handle handle-right" data-sb-handle="right"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Model-4 preview, driven by the playhead position so
+                 the user sees what the final render will look like as
+                 they edit timing / words. Nav buttons float on the left
+                 and right edges of the preview and seek the playhead to
+                 the prev/next caption. -->
+            <div class="edit-popup-m4-preview-wrap">
+              <canvas id="ac-edit-m4-preview" class="edit-popup-m4-preview"></canvas>
+              <button class="edit-popup-nav-btn edit-popup-nav-prev" id="ac-edit-prev" title="Previous caption" aria-label="Previous caption">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button class="edit-popup-nav-btn edit-popup-nav-next" id="ac-edit-next" title="Next caption" aria-label="Next caption">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+
+            <div class="edit-popup-text" id="ac-edit-text-preview"></div>
+
+            <div class="edit-popup-footer">
+              <button class="btn btn-secondary" id="ac-edit-cancel">Close</button>
+              <button class="btn btn-primary"   id="ac-edit-apply-one" title="Update only this caption on the timeline (fast). Full Apply styled is still on the Style tab.">Apply this caption</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="ac-workflow-bar">
+          <span class="ac-workflow-title">SRT Captions</span>
+          <div id="ac-sub-tabs" class="ac-sub-tabs">
+            <button class="ac-sub-tab active" type="button" data-ac-tab="captions" aria-selected="true">
+              <svg class="ac-sub-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="15" x2="3" y1="12" y2="12"/><line x1="17" x2="3" y1="18" y2="18"/></svg><span>Edit</span>
+            </button>
+            <button class="ac-sub-tab" type="button" data-ac-tab="apply" aria-selected="false">
+              <svg class="ac-sub-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.12 0-.93.74-1.67 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></svg><span>Style</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- "" Captions tab """""""""""""""""""""""""""""""""""""""""""""" -->
+        <div id="ac-tab-captions" class="ac-tab-panel active">
+
+          <!-- Caption list header -->
+          <div class="preview-header-row">
+            <span class="preview-header-title">Captions <span class="badge" id="ac-count">0</span></span>
+            <div id="ac-word-edit-bar" style="display:none;">
+              <span id="ac-word-edit-hint">click a word</span>
+              <button class="btn-icon btn-icon-sm" id="ac-word-up"    disabled title="Move to previous line / caption">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1.5 8h9"/><path d="M6 6V1.5"/><path d="M4 3.5L6 1.5l2 2"/>
+                </svg>
+              </button>
+              <button class="btn-icon btn-icon-sm" id="ac-word-down"  disabled title="Move to next line / caption">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1.5 4h9"/><path d="M6 6v4.5"/><path d="M4 8.5L6 10.5l2-2"/>
+                </svg>
+              </button>
+              <button class="btn-icon btn-icon-sm" id="ac-word-split" disabled title="Split caption at this word">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1.2" y="3.5" width="3.6" height="5" rx="0.6"/>
+                  <rect x="7.2" y="3.5" width="3.6" height="5" rx="0.6"/>
+                  <path d="M6 1.5v9" stroke-dasharray="1.4 1.4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="ac-import-summary" class="ac-import-summary" style="display:none;" role="status" aria-live="polite"></div>
+
+          <details class="ac-smart-lab" id="ac-smart-lab">
+            <summary><span class="ac-smart-spark" aria-hidden="true"></span><span><b>Smart Caption Lab</b><small>SRT enhancement - styling - timing safety</small></span><i aria-hidden="true"></i></summary>
+            <div class="ac-smart-body">
+              <div class="ac-smart-preset-row">
+                <label><span>Caption preset</span><select id="ac-smart-preset"><option value="creator">Creator Punch</option><option value="karaoke">Karaoke Flow</option><option value="clean">Clean Minimal</option><option value="podcast">Podcast Speaker</option></select></label>
+                <button class="btn btn-primary" id="ac-smart-preset-apply" type="button">Apply style</button>
+              </div>
+              <div class="ac-smart-options">
+                <label><input id="ac-smart-lines" type="checkbox" checked/><span>Auto line break</span></label>
+                <label><input id="ac-smart-keywords" type="checkbox" checked/><span>Keyword emphasis</span></label>
+                <label><input id="ac-smart-emoji" type="checkbox"/><span>Emoji insert</span></label>
+                <label><input id="ac-smart-speakers" type="checkbox"/><span>Speaker colors</span></label>
+                <label><input id="ac-smart-profanity" type="checkbox"/><span>Profanity mask</span></label>
+                <label><input id="ac-smart-collisions" type="checkbox" checked/><span>Fix collisions</span></label>
+              </div>
+              <div class="ac-smart-actions">
+                <button class="btn btn-primary" id="ac-smart-enhance" type="button">Enhance captions</button>
+                <button class="btn btn-secondary" id="ac-smart-undo" type="button" disabled>Undo</button>
+                <span class="ac-smart-status" id="ac-smart-status" aria-live="polite"></span>
+              </div>
+              <div class="ac-smart-footer">
+                <div class="ac-smart-position"><span>Safe position</span><button type="button" data-ac-safe-pos="top">Top</button><button type="button" data-ac-safe-pos="center">Center</button><button class="active" type="button" data-ac-safe-pos="bottom">Bottom</button></div>
+                <div class="ac-smart-brand"><button class="btn btn-secondary" id="ac-brand-save" type="button">Save Brand Style</button><button class="btn btn-secondary" id="ac-brand-apply" type="button">Apply Brand</button></div>
+              </div>
+            </div>
+          </details>
+
+          <div id="ac-subtitle-export-bar" class="sc-detect-row" style="display:none; margin-bottom:8px;">
+            <span class="track-list-hint" style="flex:1;">Caption tools</span>
+            <button class="btn btn-secondary" id="ac-create-chapters-btn" type="button">Chapters</button>
+            <button class="btn btn-secondary" id="ac-clean-text-btn" type="button">Clean text</button>
+            <button class="btn btn-secondary" id="ac-text-edit-btn" type="button">Text edit</button>
+          </div>
+
+          <!-- Top: Generate Captions Card matching Mockup -->
+          <div id="captions-preview">
+            <div class="captions-empty-state">
+              <div class="captions-empty-icon" aria-hidden="true">Aa</div>
+              <div class="captions-empty-title">No captions yet</div>
+              <div class="captions-empty-sub">Import a timed SRT subtitle file</div>
+              <div class="captions-empty-actions">
+                <button class="btn btn-primary" id="ac-empty-import-srt"><span class="cea-icon">SRT</span> Upload SRT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="postgen-bar" id="ac-postgen-bar">
+            <span class="postgen-label">Lines</span>
+            <div class="postgen-stepper"><button class="postgen-step-btn" id="ac-lines-dec" type="button">-</button><span class="postgen-step-val" id="ac-lines-display">1</span><button class="postgen-step-btn" id="ac-lines-inc" type="button">+</button></div>
+            <div class="postgen-sep"></div>
+            <span class="postgen-label">Chars</span>
+            <div class="postgen-stepper"><button class="postgen-step-btn" id="ac-chars-dec" type="button">-</button><span class="postgen-step-val" id="ac-chars-display">20</span><button class="postgen-step-btn" id="ac-chars-inc" type="button">+</button></div>
+            <div class="postgen-sep"></div>
+            <span class="postgen-label">Gap</span>
+            <div class="postgen-stepper"><button class="postgen-step-btn" id="ac-gap-dec" type="button">-</button><span class="postgen-step-val" id="ac-gap-display">0.1s</span><button class="postgen-step-btn" id="ac-gap-inc" type="button">+</button></div>
+            <select id="ac-max-lines-select-main" style="display:none;"><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option></select>
+            <input type="number" id="ac-max-chars-input-main" style="display:none;" value="20" min="10" max="500"/>
+            <div class="postgen-spacer"></div>
+            <button class="btn btn-icon postgen-io-btn" id="ac-export-captions-btn" disabled title="Export captions as JSON">DN</button>
+            <button class="btn btn-icon postgen-io-btn" id="ac-import-captions-btn" title="Import captions from JSON">UP</button>
+            <button class="btn btn-icon postgen-io-btn" id="ac-import-srt-btn" title="Import SRT subtitles">SRT</button>
+          </div>
+          <div id="ac-track-list" style="display:none;"></div>
+          <input type="range" id="ac-max-lines" min="1" max="3" step="1" value="2" style="display:none;"/>
+          <input type="range" id="ac-max-chars" min="10" max="500" step="5" value="80" style="display:none;"/>
+          <input type="range" id="ac-gap" min="0.1" max="2.0" step="0.1" value="0.1" style="display:none;"/>
+          <span id="ac-gap-val" style="display:none;">0.1 s</span>
+          <details id="ac-grouping-details" style="display:none;"><summary></summary></details>
+          <button id="ac-reset-grouping-btn" style="display:none;"></button>
+          <div class="panel-footer ac-captions-footer">
+            <p class="ac-delivery-hint" id="ac-edit-delivery-hint">
+              Edit text here -> <b>Place editable</b> for Premiere captions, or <b>Style</b> for animated look.
+            </p>
+            <div class="ac-footer-btns">
+              <button class="btn btn-secondary ac-footer-generate" id="ac-open-gen-popup" type="button">Generate</button>
+              <button class="btn btn-primary ac-footer-editable" id="ac-apply-srt-btn" type="button" disabled title="Place a Premiere caption track you can edit in Captions">Place editable</button>
+              <button class="btn btn-secondary ac-footer-style" id="ac-goto-apply-btn" type="button" disabled title="Open Style tab for templates and animated captions">Style</button>
+              <button class="btn btn-danger ac-footer-delete" id="ac-clear-captions-btn" type="button" disabled>Delete</button>
+            </div>
+          </div>
+
+        </div><!-- /captions -->
+
+        <!-- "" Apply """"""""""""""""""""""""""""""""""""""""""""""""""""" -->
+        <div id="ac-tab-apply" class="ac-tab-panel">
+
+          <!-- "" Model 4 """"""""""""""""""""""""""""""""""""""""""""""" -->
+          <div id="ac-method-model4" class="method-panel active">
+
+            <div class="m4-preview-wrap" id="m4-preview-wrap">
+              <canvas id="m4-preview" width="480" height="140"></canvas>
+              <button class="m4-preview-pin-btn" id="m4-preview-pin" title="Pin preview" aria-pressed="false">-</button>
+              <div class="m4-zoom-btns"><button class="m4-zoom-btn" id="m4-zoom-out">-</button><span class="m4-zoom-label" id="m4-zoom-label">1x</span><button class="m4-zoom-btn" id="m4-zoom-in">+</button></div>
+              <button class="edit-popup-nav-btn m4-preview-nav m4-preview-nav-prev" id="m4-preview-prev" title="Previous caption"><</button>
+              <button class="edit-popup-nav-btn m4-preview-nav m4-preview-nav-next" id="m4-preview-next" title="Next caption">></button>
+              <button class="m4-preview-edit-btn" id="m4-preview-edit" title="Edit this caption"><span>Edit caption</span></button>
+            </div>
+
+            <div class="m4-delivery-modes" role="group" aria-label="Caption delivery">
+              <button type="button" class="m4-delivery-card" id="ac-place-editable-btn" disabled>
+                <strong>Editable captions</strong>
+                <span>Premiere caption track  -  edit text &amp; timing in Captions</span>
+              </button>
+              <div class="m4-delivery-card m4-delivery-card-active" aria-current="true">
+                <strong>Styled captions</strong>
+                <span>Animated look  -  edit words in CompX, then re-apply</span>
+              </div>
+            </div>
+
+            <div class="m4-style-flow" role="note">
+              <span><b>1</b> Import / edit SRT</span>
+              <span><b>2</b> Pick template</span>
+              <span><b>3</b> Apply styled</span>
+            </div>
+
+            <div class="m4-style-tabs" id="m4-style-tabs">
+              <button class="m4-style-tab active" data-style-tab="templates">Templates</button>
+              <button class="m4-style-tab" data-style-tab="custom">Custom</button>
+            </div>
+
+            <div class="m4-style-panel m4-template-gallery" data-style-tab="templates">
+              <div class="m4-tpl-strip" id="m4-tpl-strip"></div>
+            </div>
+
+            <!-- Custom panel (8 Cards Grid) -->
+            <div class="m4-style-panel hidden" data-style-tab="custom">
+
+            <details class="m4-accord" open>
+              <summary class="m4-accord-hdr"><span class="m4-accord-label">Active</span></summary>
+              <div class="m4-accord-body">
+                <div class="form-row">
+                  <label>Mode</label>
+                  <div class="m4-wrap-btns">
+                    <button class="m4-mode-btn m4-active-btn active" data-active="word">Word</button>
+                    <button class="m4-mode-btn m4-active-btn" data-active="line">Line</button>
+                    <button class="m4-mode-btn m4-active-btn" data-active="solo">Solo</button>
+                    <button class="m4-mode-btn m4-active-btn" data-active="off">Off</button>
+                  </div>
+                  <input type="hidden" id="m4-active-mode" value="word"/>
+                </div>
+                <div class="form-row">
+                  <label>Hold on silence</label>
+                  <label class="settings-dev-switch"><input type="checkbox" id="m4-hold-silence" checked/><span class="settings-dev-switch-track"></span></label>
+                </div>
+              </div>
+            </details>
+
+            <!-- "" Typography """"""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord" open>
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>Typography</span></summary>
+              <div class="m4-accord-body">
+
+                <!-- Per-state tabs: All / Pre / Cur / Post -->
+                <div class="m4-typo-tabs">
+                  <button class="m4-typo-tab active" data-typo="all">All</button>
+                  <button class="m4-typo-tab" data-typo="pre">Pre<span class="m4-typo-dot" id="m4-typo-dot-pre"></span></button>
+                  <button class="m4-typo-tab" data-typo="cur">Active<span class="m4-typo-dot" id="m4-typo-dot-cur"></span></button>
+                  <button class="m4-typo-tab" data-typo="post">Post<span class="m4-typo-dot" id="m4-typo-dot-post"></span></button>
+                  <button class="m4-typo-reset-tab" id="m4-typo-reset-tab" title="Reset to All" disabled><-</button>
+                </div>
+
+                <div class="form-row">
+                  <label>Font</label>
+                  <div class="m4-font-picker" id="m4-font-picker">
+                    <input type="text" id="m4-font-search" class="m4-font-input" placeholder="Search font..." autocomplete="off" spellcheck="false"/>
+                    <div class="m4-font-dropdown" id="m4-font-dropdown"></div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>Style</label>
+                  <select id="m4-font-style" style="flex:1;">
+                    <option value="100">Thin</option>
+                    <option value="italic 100">Thin Italic</option>
+                    <option value="200">Extra Light</option>
+                    <option value="italic 200">Extra Light Italic</option>
+                    <option value="300">Light</option>
+                    <option value="italic 300">Light Italic</option>
+                    <option value="normal">Regular</option>
+                    <option value="italic">Italic</option>
+                    <option value="500">Medium</option>
+                    <option value="italic 500">Medium Italic</option>
+                    <option value="600">Semi Bold</option>
+                    <option value="italic 600">Semi Bold Italic</option>
+                    <option value="bold">Bold</option>
+                    <option value="italic bold">Bold Italic</option>
+                    <option value="800">Extra Bold</option>
+                    <option value="italic 800">Extra Bold Italic</option>
+                    <option value="900">Black</option>
+                    <option value="italic 900">Black Italic</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label>Size</label>
+                  <input type="range" id="m4-fontsize" min="12" max="120" value="24" style="flex:1;"/>
+                  <span id="m4-fontsize-val" class="slider-val">24px</span>
+                </div>
+
+                <!-- Global typography extras (All state only) -->
+                <div id="m4-typo-global-extras">
+                  <div class="form-row">
+                    <label>Spacing</label>
+                    <input type="range" id="m4-letter-spacing" min="0" max="20" value="0" style="flex:1;"/>
+                    <span id="m4-letter-spacing-val" class="slider-val">0px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Line Gap</label>
+                    <input type="range" id="m4-line-gap" min="0" max="100" value="4" style="flex:1;"/>
+                    <span id="m4-line-gap-val" class="slider-val">4px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Case</label>
+                    <input type="hidden" id="m4-text-transform" value="none"/>
+                    <div class="m4-case-btns">
+                      <button class="m4-case-btn active" data-case="none"  title="No transform">Aa</button>
+                      <button class="m4-case-btn"        data-case="uppercase"  title="Uppercase">AA</button>
+                      <button class="m4-case-btn"        data-case="capitalize" title="Capitalize">Aa*</button>
+                      <button class="m4-case-btn"        data-case="lowercase"  title="Lowercase">aa</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </details>
+
+            <!-- "" Fill """"""""""""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord" open>
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5-2 1.6-3 3.5-3 5.5a7 7 0 0 0 7 7z"/></svg>Fill</span></summary>
+              <div class="m4-accord-body">
+
+                <!-- State tabs -->
+                <div class="m4-typo-tabs">
+                  <button class="m4-typo-tab active" data-fill-tab="all">All</button>
+                  <button class="m4-typo-tab" data-fill-tab="pre">Pre<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-tab" data-fill-tab="cur">Active<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-tab" data-fill-tab="post">Post<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-reset-tab" id="m4-fill-tab-reset" title="Reset to All" disabled><-</button>
+                </div>
+                <div class="form-row">
+                  <label>Color</label>
+                  <div class="m4-fill-row" id="m4-fill-row">
+                    <div class="m4-sg-btns">
+                      <button class="m4-sg-btn active" id="m4-fill-solid" title="Solid"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/></svg></button>
+                      <button class="m4-sg-btn"        id="m4-fill-grad"  title="Gradient"><svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="gd-fill" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor"/></linearGradient></defs><rect x="5" y="5" width="14" height="14" rx="2.5" fill="url(#gd-fill)"/></svg></button>
+                    </div>
+                    <div class="m4-fill-swatches">
+                      <input type="hidden" id="m4-fill-color" value="#ffe44d"/><button class="m4-pickr-btn" data-for="m4-fill-color"></button>
+                      <span class="m4-swatch2-wrap"><input type="hidden" id="m4-fill-color2" value="#ff8800"/><button class="m4-pickr-btn" data-for="m4-fill-color2"></button></span>
+                    </div>
+                    <button class="m4-fill-dir-btn" id="m4-fill-dir" title="Drag or click inside to set gradient direction" data-angle="0" style="--angle:0deg"><span class="m4-fill-dir-tick"></span></button>
+                    <input type="hidden" id="m4-fill-angle" value="0"/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>Opacity</label>
+                  <input type="range" id="m4-fill-opacity" min="0" max="100" value="100" style="flex:1;"/>
+                  <span id="m4-fill-opacity-val" class="slider-val">100%</span>
+                </div>
+
+              </div>
+            </details>
+
+            <!-- "" Stroke """""""""""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord" id="m4-stroke-accord">
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3a2 2 0 0 0-2 2"/><path d="M19 3a2 2 0 0 1 2 2"/><path d="M21 19a2 2 0 0 1-2 2"/><path d="M5 21a2 2 0 0 1-2-2"/><path d="M9 3h1"/><path d="M9 21h1"/><path d="M14 3h1"/><path d="M14 21h1"/><path d="M3 9v1"/><path d="M21 9v1"/><path d="M3 14v1"/><path d="M21 14v1"/></svg>Stroke</span><label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-stroke-enable" checked/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label></summary>
+              <div class="m4-accord-body">
+                <!-- State tabs -->
+                <div class="m4-typo-tabs">
+                  <button class="m4-typo-tab active" data-stroke-tab="all">All</button>
+                  <button class="m4-typo-tab" data-stroke-tab="pre">Pre<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-tab" data-stroke-tab="cur">Active<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-tab" data-stroke-tab="post">Post<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-reset-tab" id="m4-stroke-tab-reset" title="Reset to All" disabled><-</button>
+                </div>
+                <div class="form-row">
+                  <label>Color</label>
+                  <div class="m4-fill-row" id="m4-stroke-row">
+                    <input type="hidden" id="m4-stroke-type" value="solid"/>
+                    <div class="m4-sg-btns">
+                      <button class="m4-sg-btn active" id="m4-stroke-solid" title="Solid"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/></svg></button>
+                      <button class="m4-sg-btn" id="m4-stroke-grad" title="Gradient"><svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="gd-sk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor"/></linearGradient></defs><rect x="5" y="5" width="14" height="14" rx="2.5" fill="url(#gd-sk)"/></svg></button>
+                    </div>
+                    <div class="m4-fill-swatches m4-stroke-swatches">
+                      <input type="hidden" id="m4-stroke-color" value="#000000"/><button class="m4-pickr-btn" data-for="m4-stroke-color"></button>
+                      <span class="m4-swatch2-wrap"><input type="hidden" id="m4-stroke-color2" value="#888888"/><button class="m4-pickr-btn" data-for="m4-stroke-color2"></button></span>
+                    </div>
+                    <button class="m4-fill-dir-btn" id="m4-stroke-dir" title="Drag or click inside to set gradient direction" data-angle="0" style="--angle:0deg"><span class="m4-fill-dir-tick"></span></button>
+                    <input type="hidden" id="m4-stroke-angle" value="0"/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>Opacity</label>
+                  <input type="range" id="m4-stroke-opacity" min="0" max="100" value="100" style="flex:1;"/>
+                  <span id="m4-stroke-opacity-val" class="slider-val">100%</span>
+                </div>
+                <div class="form-row">
+                  <label>Width</label>
+                  <input type="range" id="m4-stroke-width" min="0" max="20" value="0" style="flex:1;"/>
+                  <span id="m4-stroke-width-val" class="slider-val">0px</span>
+                </div>
+                <div class="form-row">
+                  <label>Position</label>
+                  <div class="m4-stroke-pos-group">
+                    <button class="m4-stroke-pos-btn active" data-pos="outside">Outside</button>
+                    <button class="m4-stroke-pos-btn" data-pos="center">Center</button>
+                    <button class="m4-stroke-pos-btn" data-pos="inside">Inside</button>
+                  </div>
+                  <input type="hidden" id="m4-stroke-position" value="outside"/>
+                </div>
+              </div>
+            </details>
+
+            <!-- "" Shadow """""""""""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord" id="m4-shadow-accord">
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Shadow</span><label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-shadow-enable" checked/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label></summary>
+              <div class="m4-accord-body">
+                <!-- State tabs -->
+                <div class="m4-typo-tabs">
+                  <button class="m4-typo-tab active" data-shadow-tab="all">All</button>
+                  <button class="m4-typo-tab" data-shadow-tab="pre">Pre<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-tab" data-shadow-tab="cur">Active<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-tab" data-shadow-tab="post">Post<span class="m4-typo-dot"></span></button>
+                  <button class="m4-typo-reset-tab" id="m4-shadow-tab-reset" title="Reset to All" disabled><-</button>
+                </div>
+                <div id="m4-shadow-row">
+                  <div class="form-row">
+                    <label>Color</label>
+                    <input type="hidden" id="m4-shadow-color" value="#000000"/>
+                    <button class="m4-pickr-btn" data-for="m4-shadow-color"></button>
+                  </div>
+                  <div class="form-row">
+                    <label>Opacity</label>
+                    <input type="range" id="m4-shadow-opacity" min="0" max="100" value="0" style="flex:1;"/>
+                    <span id="m4-shadow-opacity-val" class="slider-val">0%</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Blur</label>
+                    <input type="range" id="m4-shadow-blur" min="0" max="40" value="4" style="flex:1;"/>
+                    <span id="m4-shadow-blur-val" class="slider-val">4px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>X</label>
+                    <input type="range" id="m4-shadow-x" min="-20" max="20" value="0" style="flex:1;"/>
+                    <span id="m4-shadow-x-val" class="slider-val">0px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Y</label>
+                    <input type="range" id="m4-shadow-y" min="-20" max="20" value="2" style="flex:1;"/>
+                    <span id="m4-shadow-y-val" class="slider-val">2px</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- Position is no longer a template/style concern - it's a
+                 placement decision the user makes via the action bar at
+                 the bottom (alongside "Place on V2"). Templates carry
+                 look only; placement carries the where. The hidden
+                 inputs below mirror the action-bar values so the existing
+                 renderer/preview code (which reads m4-pos-x/y) keeps
+                 working without a code-wide rename. frame-width stays
+                 hidden too - renderer reads it for layout math; wrap is
+                 always fixed now. -->
+            <input type="hidden" id="m4-frame-width" value="84"/>
+            <input type="hidden" id="m4-pos-y" value="70"/>
+            <input type="hidden" id="m4-pos-x" value="50"/>
+
+            <!-- "" Active Box """""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord m4-accord-wbsection m4-section-off" id="m4-hl-accord">
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>Active Box</span><label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-hl-enable"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label></summary>
+              <div class="m4-accord-body">
+                <div class="form-row">
+                  <label>Color</label>
+                  <div class="m4-fill-row" id="m4-hl-fill-row">
+                    <input type="hidden" id="m4-hl-fill-type" value="solid"/>
+                    <div class="m4-sg-btns">
+                      <button class="m4-sg-btn active" id="m4-hl-fill-solid" title="Solid"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/></svg></button>
+                      <button class="m4-sg-btn"        id="m4-hl-fill-grad"  title="Gradient"><svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="gd-hl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor"/></linearGradient></defs><rect x="5" y="5" width="14" height="14" rx="2.5" fill="url(#gd-hl)"/></svg></button>
+                    </div>
+                    <div class="m4-fill-swatches">
+                      <input type="hidden" id="m4-hl-color" value="#ffe44d"/><button class="m4-pickr-btn" data-for="m4-hl-color"></button>
+                      <span class="m4-swatch2-wrap"><input type="hidden" id="m4-hl-color2" value="#ff8800"/><button class="m4-pickr-btn" data-for="m4-hl-color2"></button></span>
+                    </div>
+                    <button class="m4-fill-dir-btn" id="m4-hl-fill-dir" title="Drag or click inside to set gradient direction" data-angle="0" style="--angle:0deg"><span class="m4-fill-dir-tick"></span></button>
+                    <input type="hidden" id="m4-hl-fill-angle" value="0"/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>Opacity</label>
+                  <input type="range" id="m4-hl-opacity" min="0" max="100" value="80" style="flex:1;"/>
+                  <span id="m4-hl-opacity-val" class="slider-val">80%</span>
+                </div>
+                <div class="form-row">
+                  <label>Radius</label>
+                  <input type="range" id="m4-hl-radius" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-hl-radius-val" class="slider-val">8px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Top</label>
+                  <input type="range" id="m4-hl-pad-top" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-hl-pad-top-val" class="slider-val">8px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Bottom</label>
+                  <input type="range" id="m4-hl-pad-bottom" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-hl-pad-bottom-val" class="slider-val">8px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Left</label>
+                  <input type="range" id="m4-hl-pad-left" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-hl-pad-left-val" class="slider-val">8px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Right</label>
+                  <input type="range" id="m4-hl-pad-right" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-hl-pad-right-val" class="slider-val">8px</span>
+                </div>
+                <!-- Stroke sub-section -->
+                <div class="form-row" style="margin-top:8px;">
+                  <label>Stroke</label>
+                  <label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-hl-stroke-enable"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label>
+                </div>
+                <div class="m4-enable-body m4-disabled" id="m4-hl-stroke-body">
+                  <div class="form-row">
+                    <label>Color</label>
+                    <div class="m4-fill-row" id="m4-hl-stroke-fill-row">
+                      <input type="hidden" id="m4-hl-stroke-fill-type" value="solid"/>
+                      <div class="m4-sg-btns">
+                        <button class="m4-sg-btn active" id="m4-hl-stroke-fill-solid" title="Solid"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/></svg></button>
+                        <button class="m4-sg-btn"        id="m4-hl-stroke-fill-grad"  title="Gradient"><svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="gd-hlsk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor"/></linearGradient></defs><rect x="5" y="5" width="14" height="14" rx="2.5" fill="url(#gd-hlsk)"/></svg></button>
+                      </div>
+                      <div class="m4-fill-swatches">
+                        <input type="hidden" id="m4-hl-stroke-color" value="#ffffff"/><button class="m4-pickr-btn" data-for="m4-hl-stroke-color"></button>
+                        <span class="m4-swatch2-wrap"><input type="hidden" id="m4-hl-stroke-color2" value="#aaaaaa"/><button class="m4-pickr-btn" data-for="m4-hl-stroke-color2"></button></span>
+                      </div>
+                      <button class="m4-fill-dir-btn" id="m4-hl-stroke-fill-dir" title="Drag or click inside to set gradient direction" data-angle="0" style="--angle:0deg"><span class="m4-fill-dir-tick"></span></button>
+                      <input type="hidden" id="m4-hl-stroke-fill-angle" value="0"/>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label>Opacity</label>
+                    <input type="range" id="m4-hl-stroke-opacity" min="0" max="100" value="100" style="flex:1;"/>
+                    <span id="m4-hl-stroke-opacity-val" class="slider-val">100%</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Width</label>
+                    <input type="range" id="m4-hl-stroke-width" min="1" max="20" value="2" style="flex:1;"/>
+                    <span id="m4-hl-stroke-width-val" class="slider-val">2px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Position</label>
+                    <div class="m4-stroke-pos-group">
+                      <button class="m4-hl-stroke-pos-btn" data-pos="outside">Outside</button>
+                      <button class="m4-hl-stroke-pos-btn active" data-pos="center">Center</button>
+                      <button class="m4-hl-stroke-pos-btn" data-pos="inside">Inside</button>
+                    </div>
+                    <input type="hidden" id="m4-hl-stroke-position" value="center"/>
+                  </div>
+                </div><!-- /m4-hl-stroke-body -->
+                <!-- Shadow sub-section -->
+                <div class="form-row" style="margin-top:8px;">
+                  <label>Shadow</label>
+                  <label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-hl-shadow-enable"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label>
+                </div>
+                <div class="m4-enable-body m4-disabled" id="m4-hl-shadow-body">
+                  <div class="form-row">
+                    <label>Color</label>
+                    <input type="hidden" id="m4-hl-shadow-color" value="#000000"/>
+                    <button class="m4-pickr-btn" data-for="m4-hl-shadow-color"></button>
+                  </div>
+                  <div class="form-row">
+                    <label>Opacity</label>
+                    <input type="range" id="m4-hl-shadow-opacity" min="0" max="100" value="0" style="flex:1;"/>
+                    <span id="m4-hl-shadow-opacity-val" class="slider-val">0%</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Blur</label>
+                    <input type="range" id="m4-hl-shadow-blur" min="0" max="40" value="8" style="flex:1;"/>
+                    <span id="m4-hl-shadow-blur-val" class="slider-val">8px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>X</label>
+                    <input type="range" id="m4-hl-shadow-x" min="-20" max="20" value="0" style="flex:1;"/>
+                    <span id="m4-hl-shadow-x-val" class="slider-val">0px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Y</label>
+                    <input type="range" id="m4-hl-shadow-y" min="-20" max="20" value="2" style="flex:1;"/>
+                    <span id="m4-hl-shadow-y-val" class="slider-val">2px</span>
+                  </div>
+                </div><!-- /m4-hl-shadow-body -->
+              </div>
+            </details>
+
+            <!-- "" Caption BG """"""""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord m4-section-off" id="m4-cbg-accord">
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/></svg>Caption BG</span><label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-cbg-enable"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label></summary>
+              <div class="m4-accord-body">
+                <div class="form-row">
+                  <label>Mode</label>
+                  <div class="m4-cbg-mode-group">
+                    <button class="m4-cbg-mode-btn active" data-cbg-mode="full">Full</button>
+                    <button class="m4-cbg-mode-btn" data-cbg-mode="line">Line</button>
+                  </div>
+                  <input type="hidden" id="m4-cbg-mode" value="full"/>
+                </div>
+                <div class="form-row" id="m4-cbg-corner-row" style="display:none">
+                  <label>Corner</label>
+                  <div class="m4-cbg-mode-group">
+                    <button class="m4-cbg-corner-btn active" data-corner="separate">Separate</button>
+                    <button class="m4-cbg-corner-btn" data-corner="merge">Merge</button>
+                  </div>
+                  <input type="hidden" id="m4-cbg-corner" value="separate"/>
+                </div>
+                <div class="form-row">
+                  <label>Color</label>
+                  <div class="m4-fill-row" id="m4-cbg-fill-row">
+                    <input type="hidden" id="m4-cbg-fill-type" value="solid"/>
+                    <div class="m4-sg-btns">
+                      <button class="m4-sg-btn active" id="m4-cbg-fill-solid" title="Solid"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/></svg></button>
+                      <button class="m4-sg-btn"        id="m4-cbg-fill-grad"  title="Gradient"><svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="gd-cbg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor"/></linearGradient></defs><rect x="5" y="5" width="14" height="14" rx="2.5" fill="url(#gd-cbg)"/></svg></button>
+                    </div>
+                    <div class="m4-fill-swatches">
+                      <input type="hidden" id="m4-cbg-color" value="#000000"/><button class="m4-pickr-btn" data-for="m4-cbg-color"></button>
+                      <span class="m4-swatch2-wrap"><input type="hidden" id="m4-cbg-color2" value="#333333"/><button class="m4-pickr-btn" data-for="m4-cbg-color2"></button></span>
+                    </div>
+                    <button class="m4-fill-dir-btn" id="m4-cbg-fill-dir" title="Drag or click inside to set gradient direction" data-angle="0" style="--angle:0deg"><span class="m4-fill-dir-tick"></span></button>
+                    <input type="hidden" id="m4-cbg-fill-angle" value="0"/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>Opacity</label>
+                  <input type="range" id="m4-cbg-opacity" min="0" max="100" value="60" style="flex:1;"/>
+                  <span id="m4-cbg-opacity-val" class="slider-val">60%</span>
+                </div>
+                <div class="form-row">
+                  <label>Radius</label>
+                  <input type="range" id="m4-cbg-radius" min="0" max="60" value="12" style="flex:1;"/>
+                  <span id="m4-cbg-radius-val" class="slider-val">12px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Top</label>
+                  <input type="range" id="m4-cbg-pad-top" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-cbg-pad-top-val" class="slider-val">8px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Bottom</label>
+                  <input type="range" id="m4-cbg-pad-bottom" min="0" max="60" value="8" style="flex:1;"/>
+                  <span id="m4-cbg-pad-bottom-val" class="slider-val">8px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Left</label>
+                  <input type="range" id="m4-cbg-pad-left" min="0" max="60" value="12" style="flex:1;"/>
+                  <span id="m4-cbg-pad-left-val" class="slider-val">12px</span>
+                </div>
+                <div class="form-row">
+                  <label>Pad Right</label>
+                  <input type="range" id="m4-cbg-pad-right" min="0" max="60" value="12" style="flex:1;"/>
+                  <span id="m4-cbg-pad-right-val" class="slider-val">12px</span>
+                </div>
+                <!-- Stroke sub-section -->
+                <div class="form-row" style="margin-top:8px;">
+                  <label>Stroke</label>
+                  <label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-cbg-stroke-enable"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label>
+                </div>
+                <div class="m4-enable-body m4-disabled" id="m4-cbg-stroke-body">
+                  <div class="form-row">
+                    <label>Color</label>
+                    <div class="m4-fill-row" id="m4-cbg-stroke-fill-row">
+                      <input type="hidden" id="m4-cbg-stroke-fill-type" value="solid"/>
+                      <div class="m4-sg-btns">
+                        <button class="m4-sg-btn active" id="m4-cbg-stroke-fill-solid" title="Solid"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5" fill="currentColor"/></svg></button>
+                        <button class="m4-sg-btn"        id="m4-cbg-stroke-fill-grad"  title="Gradient"><svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="gd-cbgsk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor"/></linearGradient></defs><rect x="5" y="5" width="14" height="14" rx="2.5" fill="url(#gd-cbgsk)"/></svg></button>
+                      </div>
+                      <div class="m4-fill-swatches">
+                        <input type="hidden" id="m4-cbg-stroke-color" value="#ffffff"/><button class="m4-pickr-btn" data-for="m4-cbg-stroke-color"></button>
+                        <span class="m4-swatch2-wrap"><input type="hidden" id="m4-cbg-stroke-color2" value="#aaaaaa"/><button class="m4-pickr-btn" data-for="m4-cbg-stroke-color2"></button></span>
+                      </div>
+                      <button class="m4-fill-dir-btn" id="m4-cbg-stroke-fill-dir" title="Drag or click inside to set gradient direction" data-angle="0" style="--angle:0deg"><span class="m4-fill-dir-tick"></span></button>
+                      <input type="hidden" id="m4-cbg-stroke-fill-angle" value="0"/>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label>Opacity</label>
+                    <input type="range" id="m4-cbg-stroke-opacity" min="0" max="100" value="100" style="flex:1;"/>
+                    <span id="m4-cbg-stroke-opacity-val" class="slider-val">100%</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Width</label>
+                    <input type="range" id="m4-cbg-stroke-width" min="1" max="20" value="2" style="flex:1;"/>
+                    <span id="m4-cbg-stroke-width-val" class="slider-val">2px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Position</label>
+                    <div class="m4-stroke-pos-group">
+                      <button class="m4-cbg-stroke-pos-btn" data-pos="outside">Outside</button>
+                      <button class="m4-cbg-stroke-pos-btn active" data-pos="center">Center</button>
+                      <button class="m4-cbg-stroke-pos-btn" data-pos="inside">Inside</button>
+                    </div>
+                    <input type="hidden" id="m4-cbg-stroke-position" value="center"/>
+                  </div>
+                </div><!-- /m4-cbg-stroke-body -->
+                <!-- Shadow sub-section -->
+                <div class="form-row" style="margin-top:8px;">
+                  <label>Shadow</label>
+                  <label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-cbg-shadow-enable"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label>
+                </div>
+                <div class="m4-enable-body m4-disabled" id="m4-cbg-shadow-body">
+                  <div class="form-row">
+                    <label>Color</label>
+                    <input type="hidden" id="m4-cbg-shadow-color" value="#000000"/>
+                    <button class="m4-pickr-btn" data-for="m4-cbg-shadow-color"></button>
+                  </div>
+                  <div class="form-row">
+                    <label>Opacity</label>
+                    <input type="range" id="m4-cbg-shadow-opacity" min="0" max="100" value="0" style="flex:1;"/>
+                    <span id="m4-cbg-shadow-opacity-val" class="slider-val">0%</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Blur</label>
+                    <input type="range" id="m4-cbg-shadow-blur" min="0" max="40" value="8" style="flex:1;"/>
+                    <span id="m4-cbg-shadow-blur-val" class="slider-val">8px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>X</label>
+                    <input type="range" id="m4-cbg-shadow-x" min="-20" max="20" value="0" style="flex:1;"/>
+                    <span id="m4-cbg-shadow-x-val" class="slider-val">0px</span>
+                  </div>
+                  <div class="form-row">
+                    <label>Y</label>
+                    <input type="range" id="m4-cbg-shadow-y" min="-20" max="20" value="2" style="flex:1;"/>
+                    <span id="m4-cbg-shadow-y-val" class="slider-val">2px</span>
+                  </div>
+                </div><!-- /m4-cbg-shadow-body -->
+              </div>
+            </details>
+
+            <!-- "" Animation """"""""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord m4-section-off" id="m4-animate-accord">
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>Animation</span><label class="m4-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="m4-animate"/><span class="m4-toggle-track"><span class="m4-toggle-thumb"></span></span></label></summary>
+              <div class="m4-accord-body">
+                <div class="form-row">
+                  <label>Active</label>
+                  <select id="m4-anim-type" style="flex:1;">
+                    <option value="none">No animation</option>
+                    <option value="pop">Pop</option>
+                    <option value="push">Push</option>
+                    <option value="dissolve">Dissolve</option>
+                    <optgroup label="Orbit Motion - New">
+                      <option value="slide">Slide</option>
+                      <option value="zoom-blur">Zoom Blur</option>
+                      <option value="spin-3d">3D Spin</option>
+                      <option value="blur-dissolve">Blur Dissolve</option>
+                      <option value="linear-wipe">Linear Wipe</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label>Active Box</label>
+                  <select id="m4-anim-box-type" style="flex:1;">
+                    <option value="none">No animation</option>
+                    <option value="pop">Pop</option>
+                    <option value="push">Push</option>
+                    <option value="dissolve">Dissolve</option>
+                    <optgroup label="Orbit Motion - New">
+                      <option value="slide">Slide</option>
+                      <option value="zoom-blur">Zoom Blur</option>
+                      <option value="spin-3d">3D Spin</option>
+                      <option value="blur-dissolve">Blur Dissolve</option>
+                      <option value="linear-wipe">Linear Wipe</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </details>
+
+            <!-- "" Advanced """""""""""""""""""""""""""""""""""""""""""" -->
+            <details class="m4-accord">
+              <summary class="m4-accord-hdr"><span class="m4-accord-label"><svg class="m4-accord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>Advanced</span></summary>
+              <div class="m4-accord-body">
+
+                <div class="form-row">
+                  <label>Cur in Ctx</label>
+                  <div class="m4-wrap-btns">
+                    <button class="m4-cur-in-ctx-btn" data-cur-in-ctx="pre">Pre</button>
+                    <button class="m4-cur-in-ctx-btn" data-cur-in-ctx="post">Post</button>
+                    <button class="m4-cur-in-ctx-btn active" data-cur-in-ctx="off">Off</button>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>Bake Cur+WB</label>
+                  <div class="m4-wrap-btns">
+                    <button class="m4-bake-btn active" data-bake="off">Off</button>
+                    <button class="m4-bake-btn" data-bake="on">On</button>
+                  </div>
+                </div>
+                <!-- Shadow source: "Text" (default) attaches the drop shadow
+                     to the fill silhouette - Canvas/CSS default behaviour.
+                     "Stroke" attaches it to the stroked outline instead,
+                     so thick strokes finally cast a shadow that wraps the
+                     visible glyph edge. Only meaningful when stroke
+                     position is `outside` or `center`. -->
+                <div class="form-row">
+                  <label>Shadow on</label>
+                  <div class="m4-wrap-btns">
+                    <button class="m4-shadow-on-btn" data-shadow-on="fill">Text</button>
+                    <button class="m4-shadow-on-btn" data-shadow-on="stroke">Stroke</button>
+                    <button class="m4-shadow-on-btn active" data-shadow-on="both">Both</button>
+                  </div>
+                </div>
+
+                <!-- Language baked onto the next saved template. Existing
+                     templates keep their own language. Visible to everyone
+                     so users can build their own Arabic template library. -->
+                <div class="form-row" id="m4-tpl-lang-row">
+                  <label>Tpl Lang</label>
+                  <div class="m4-wrap-btns">
+                    <button class="m4-tpl-lang-btn active" data-tpl-lang="en">English</button>
+                    <button class="m4-tpl-lang-btn"        data-tpl-lang="ar">Arabic</button>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <div class="m4-bottom-bar"><button class="btn m4-save-tpl-btn" id="m4-save-tpl-btn">+ Save Template</button></div>
+            </div><!-- /m4-style-panel data-style-tab="custom" -->
+
+            <div class="panel-footer ac-apply-footer">
+              <div class="action-bar">
+                <div class="action-bar-track-wrap"><span class="action-bar-track-label">Place on</span><select id="m4-track" class="action-bar-select action-bar-track" title="Video track"><option value="1">V1</option><option value="2" selected>V2</option><option value="3">V3</option><option value="4">V4</option><option value="5">V5</option><option value="new">+ New</option></select></div>
+                <div class="action-bar-pos-wrap" title="Caption position"><span class="action-bar-pos-label">X</span><input type="number" id="ac-bar-pos-x" class="action-bar-pos-input" min="0" max="100" value="50"/><span class="action-bar-pos-suffix">%</span><span class="action-bar-pos-sep"></span><span class="action-bar-pos-label">Y</span><input type="number" id="ac-bar-pos-y" class="action-bar-pos-input" min="0" max="100" value="70"/><span class="action-bar-pos-suffix">%</span></div>
+                <button class="btn btn-primary action-bar-apply" id="ac-apply-model4-btn" disabled title="Render styled PNG captions onto the timeline">Apply styled</button>
+              </div>
+            </div>
+
+          </div><!-- /model4 -->
+
+        </div><!-- /apply -->
+
+      </div><!-- /auto-captions -->
+
+</div>
+
+
+
+<!-- ===== Motion Engine View ===== -->
+
+<!-- ===== Beat Sync View ===== -->
+<div id="beatView" class="orbit-view-panel" style="display:none;">
+  <div class="orbit-beat beat-pro" id="beatPanel">
+    <div class="beat-header">
+      <div class="beat-head-left">
+        <span class="beat-title">Beat Lab</span>
+        <span class="beat-meta">beats + onsets  -  preview  -  markers  -  motion</span>
+      </div>
+      <button class="beat-refresh" id="beatRefresh" title="Refresh tracks" aria-label="Refresh tracks">&#x21BB;</button>
+    </div>
+
+    <div class="beat-track-list" id="beatTrackList"></div>
+
+    <div class="beat-wave-wrap" id="beatWaveWrap">
+      <canvas id="beatWaveform"></canvas>
+      <span class="beat-wave-hint" id="beatWaveHint">Pick a music track, then Analyze</span>
+    </div>
+
+    <div class="beat-preview-bar">
+      <button id="beatPreviewPlay" class="beat-mini-btn" disabled="">&#9654; Preview</button>
+      <label>Audio <input id="beatAudioVolume" type="range" min="0" max="100" value="80"/></label>
+      <label>Tick <input id="beatTickVolume" type="range" min="0" max="100" value="45"/></label>
+    </div>
+
+    <div class="beat-stats">
+      <div class="beat-stat"><span>BPM</span><b id="beatBpm">&mdash;</b></div>
+      <div class="beat-stat"><span>Selected</span><b id="beatBeatCount">0</b></div>
+      <div class="beat-stat"><span>Onsets</span><b id="beatOnsetCount">0</b></div>
+      <div class="beat-stat"><span>Length</span><b id="beatDur">&mdash;</b></div>
+    </div>
+
+    <details class="beat-card" open="">
+      <summary>Detection &amp; grid</summary>
+      <div class="beat-grid-controls">
+        <label><span>Manual BPM</span><input id="beatManualBpm" type="number" min="30" max="400" step="0.1" placeholder="Auto"/></label>
+        <div class="beat-inline-buttons">
+          <button id="beatBpmHalf" class="beat-mini-btn">Half</button>
+          <button id="beatBpmDouble" class="beat-mini-btn">Double</button>
+        </div>
+        <label class="beat-wide"><span>Grid offset</span><input id="beatOffset" type="range" min="-1000" max="1000" step="5" value="0"/><b id="beatOffsetValue">0 ms</b></label>
+        <label class="beat-check beat-wide"><input id="beatIncludeOnsets" type="checkbox"/><span>Include speech / percussion onsets</span></label>
+        <label><span>Subdivisions</span><select id="beatSubdivision"><option value="1">1/1</option><option value="2">1/2</option><option value="3">1/3 (Triplet)</option><option value="4">1/4</option></select></label>
+        <label><span>Every Nth</span><input id="beatEveryNth" type="number" min="1" max="32" value="1"/></label>
+      </div>
+    </details>
+
+    <details class="beat-card" open="">
+      <summary>Advanced selection</summary>
+      <div class="beat-slider-row"><span>Strength</span><input id="beatStrength" type="range" min="0" max="100" value="70"/><b id="beatStrengthValue">70%</b></div>
+      <div class="beat-slider-row"><span>Amount</span><input id="beatAmount" type="range" min="1" max="100" value="100"/><b id="beatAmountValue">100%</b></div>
+      <div class="beat-slider-row"><span>Chaos</span><input id="beatChaos" type="range" min="0" max="100" value="0"/><b id="beatChaosValue">0%</b></div>
+      <div class="beat-slider-row"><span>Min gap</span><input id="beatMinDistance" type="range" min="0" max="2000" step="25" value="0"/><b id="beatMinDistanceValue">0 ms</b></div>
+      <div class="beat-seed-row"><label>Random seed <input id="beatSeed" type="number" min="1" value="1337"/></label><button id="beatRandomizeSeed" class="beat-mini-btn">Randomize</button></div>
+      <div class="beat-legend"><span class="selected">Selected</span><span class="deselected">Deselected</span><span class="onset">Onset</span><small>Click a beat to toggle. Shift-drag to highlight a region.</small></div>
+      <div class="beat-tool-row">
+        <button type="button" class="beat-mini-btn" data-beat-region="replace">Select region only</button>
+        <button type="button" class="beat-mini-btn" data-beat-region="add">Add region</button>
+        <button type="button" class="beat-mini-btn" data-beat-region="remove">Deselect region</button>
+        <button type="button" class="beat-mini-btn" data-beat-region="clear">Clear highlight</button>
+      </div>
+    </details>
+
+    <div class="beat-action">
+      <label class="beat-action-opt"><input name="beatAction" type="radio" value="markers" checked=""/><span>Markers</span></label>
+      <label class="beat-action-opt"><input name="beatAction" type="radio" value="cut"/><span>Cut</span></label>
+      <label class="beat-action-opt"><input name="beatAction" type="radio" value="arrange"/><span>Arrange</span></label>
+      <label class="beat-action-opt"><input name="beatAction" type="radio" value="motion"/><span>Motion</span></label>
+      <label class="beat-action-opt"><input name="beatAction" type="radio" value="montage"/><span>Montage</span></label>
+    </div>
+
+    <details class="beat-card" id="beatMarkerOptions" open="">
+      <summary>Marker toolkit</summary>
+      <div class="beat-grid-controls">
+        <label><span>Marker target</span><select id="beatMarkerType"><option value="sequence">Sequence</option><option value="clip">Selected clips</option></select></label>
+        <label><span>Scope</span><select id="beatScope"><option value="full">Full sequence</option><option value="workarea">Work area</option></select></label>
+      </div>
+      <div class="beat-tool-row">
+        <button class="beat-mini-btn beat-marker-command" data-command="move">Move to playhead</button>
+        <button class="beat-mini-btn beat-marker-command" data-command="copy">Copy</button>
+        <button class="beat-mini-btn beat-marker-command" data-command="paste">Paste</button>
+        <button class="beat-mini-btn danger beat-marker-command" data-command="delete">Delete</button>
+      </div>
+    </details>
+
+    <details class="beat-card" id="beatMotionOptions">
+      <summary>Beat Motion  -  Curve Lab Lite</summary>
+      <div class="beat-grid-controls">
+        <label><span>Property</span><select id="beatMotionProperty"><option value="scale">Scale</option><option value="position">Position Y</option><option value="rotation">Rotation</option><option value="opacity">Opacity</option></select></label>
+        <label><span>Curve</span><select id="beatMotionCurve"><option value="pulse">Pulse</option><option value="bounce">Bounce</option><option value="overshoot">Overshoot</option></select></label>
+        <label><span>Amount</span><input id="beatMotionAmount" type="number" min="-500" max="500" value="12"/></label>
+        <label><span>Duration</span><input id="beatMotionDuration" type="number" min="2" max="60" value="8"/></label>
+        <label><span>Repeat every</span><input id="beatMotionRepeat" type="number" min="1" max="32" value="1"/></label>
+        <label><span>Stagger frames</span><input id="beatMotionStagger" type="number" min="0" max="60" value="0"/></label>
+      </div>
+    </details>
+
+    <details class="beat-card" id="beatMontageOptions" open="">
+      <summary>Auto Montage Builder</summary>
+      <div class="beat-montage-source">
+        <div><b id="beatMontageSourceCount">No Project clips selected</b><small>Select clips or a bin in the Project panel.</small></div>
+        <button id="beatMontageRefreshSources" class="beat-mini-btn" type="button">Refresh sources</button>
+      </div>
+      <div class="beat-grid-controls">
+        <label><span>Edit mode</span><select id="beatMontageMode"><option value="beat">Selected beats</option><option value="constant">Constant time</option><option value="markers">Sequence markers</option></select></label>
+        <label><span>Target track</span><input id="beatMontageTrack" type="number" min="1" max="64" value="2"/></label>
+        <label id="beatMontageConstantRow"><span>Constant cut</span><input id="beatMontageConstant" type="number" min="0.1" max="120" step="0.1" value="2.5"/></label>
+        <label><span>Total duration</span><input id="beatMontageDuration" type="number" min="0" max="86400" step="0.1" placeholder="Audio length"/></label>
+        <label><span>Clip order</span><select id="beatMontageOrder"><option value="sequential">Sequential</option><option value="shuffle">Shuffle</option></select></label>
+        <label><span>Source start</span><select id="beatMontageSourceStart"><option value="random">Random in-point</option><option value="beginning">Beginning</option></select></label>
+        <label><span>Minimum shot</span><input id="beatMontageMinShot" type="number" min="0.1" max="120" step="0.1" value="0.5"/></label>
+        <label><span>Maximum shot</span><input id="beatMontageMaxShot" type="number" min="0.1" max="120" step="0.1" value="4"/></label>
+        <label><span>Transition</span><select id="beatMontageTransition"><option value="">None</option><option value="Cross Dissolve">Cross Dissolve</option><option value="Film Dissolve">Film Dissolve</option><option value="Dip To Black">Dip To Black</option><option value="Dip To White">Dip To White</option></select></label>
+        <label><span>Transition frames</span><input id="beatMontageTransitionFrames" type="number" min="1" max="120" value="6"/></label>
+        <label class="beat-check beat-wide"><input id="beatMontageRepeat" type="checkbox" checked=""/><span>Repeat sources until the edit duration ends</span></label>
+        <label class="beat-check beat-wide"><input id="beatMontagePlayhead" type="checkbox" checked=""/><span>Start montage at the playhead</span></label>
+        <label class="beat-check beat-wide"><input id="beatMontageSafety" type="checkbox" checked=""/><span>Duplicate the active sequence before building</span></label>
+        <label class="beat-check beat-wide"><input id="beatMontageSourceAudio" type="checkbox"/><span>Keep source clip audio</span></label>
+        <label class="beat-check beat-wide"><input id="beatMontageOverwrite" type="checkbox"/><span>Allow replacing clips already on the target track</span></label>
+      </div>
+      <div class="beat-montage-actions">
+        <button id="beatMontagePreview" class="beat-mini-btn" type="button">Preview plan</button>
+        <span id="beatMontagePlan">Select Project clips, choose Montage, then preview.</span>
+      </div>
+    </details>
+
+    <label class="beat-ripple"><input id="beatRipple" type="checkbox"/><span>Ripple cut (jump-cut beat intervals)</span></label>
+
+    <div class="beat-footer-actions">
+      <button id="beatAnalyze" class="beat-analyze">Analyze</button>
+      <button id="beatSync" class="beat-sync" disabled="">Apply Selected</button>
+    </div>
+    <div class="beat-status" id="beatStatus"></div>
+  </div>
+</div>
+<!-- ===== Auto Punch / Smart Zoom View ===== -->
+
+<div id="audioView" class="orbit-view-panel" style="display:none;">
+      <div class="orbit-audio" id="audioPanel">
+
+        <div class="audio-header">
+          <div class="audio-head-left">
+            <span class="audio-title">AI Voice Cleaner</span>
+            <span class="audio-meta">spectral denoise - non-destructive</span>
+          </div>
+          <button class="audio-refresh" id="audioRefresh" title="Refresh selection" aria-label="Refresh selection">&#x21BB;</button>
+        </div>
+
+        <div class="audio-selection" id="audioSelection">Select an audio clip</div>
+
+        <div class="audio-clip-list-wrap hidden" id="audioClipListWrap">
+          <div class="audio-clip-list-head">
+            <span class="audio-clip-list-title">SELECTED CLIPS</span>
+            <span class="audio-count-badge" id="audioClipCount">0</span>
+          </div>
+          <div class="audio-clip-list" id="audioClipList"></div>
+        </div>
+
+        <div class="audio-presets">
+          <button class="audio-preset-btn" data-preset="subtle" type="button">Subtle</button>
+          <button class="audio-preset-btn active" data-preset="voice" type="button">Voice</button>
+          <button class="audio-preset-btn" data-preset="strong" type="button">Strong</button>
+        </div>
+
+        <div class="audio-control">
+          <div class="control-row"><span>Noise Reduction</span><span id="audioNoiseValue">80%</span></div>
+          <input id="audioNoiseAmount" type="range" min="0" max="100" value="80"/>
+        </div>
+
+        <div class="audio-control">
+          <div class="control-row"><span>Mix</span><span id="audioMixValue">100%</span></div>
+          <input id="audioMix" type="range" min="0" max="100" value="100"/>
+        </div>
+
+        <label class="audio-opt"><input id="audioNormalize" type="checkbox" checked=""/><span>Normalize output (-1 dBFS)</span></label>
+
+        <div class="audio-mode">
+          <label class="audio-mode-opt"><input checked="" name="audioOutputMode" type="radio" value="new"/><span>New Track</span></label>
+          <label class="audio-mode-opt"><input name="audioOutputMode" type="radio" value="replace"/><span>Replace (mute original)</span></label>
+          <label class="audio-mode-opt"><input id="audioModeFile" name="audioOutputMode" type="radio" value="file"/><span>File Only</span></label>
+        </div>
+
+        <button class="audio-preview" id="audioPreview">Preview (5s around playhead)</button>
+        <button class="audio-clean" id="audioClean">Enhance Voice</button>
+
+        <div class="smart-tool-card">
+          <strong>Audio Auto Mix</strong><span>Set a consistent role-based level on selected clips</span>
+          <div class="smart-tool-row"><select id="audioMixRole"><option value="voice">Voice -6 dB</option><option value="music">Music -18 dB</option><option value="sfx">SFX -12 dB</option></select><button id="audioAutoMix" class="audio-clean" type="button">Apply Mix</button></div>
+        </div>
+
+        <button class="audio-ab" id="audioBeforeAfter">&#9654; Play cleaned audio</button>
+
+        <div class="audio-progress-wrap" id="audioProgressWrap" style="display:none;">
+          <div class="audio-progress-bar"><i id="audioProgressBar"></i></div>
+          <span id="audioProgressText">0%</span>
+        </div>
+
+        <div class="audio-status" id="audioStatus"></div>
+
+      </div>
+</div>
+<div id="motionView" class="orbit-view-panel" style="display:none;">
+<div class="ml-shell" id="motionPanel">
+<div class="ml-head">
+<div><span class="ml-kicker">KEYFRAME CONTROL</span>
+<h2>Motion Lab</h2>
+<p>presets - easing - keyframe tools</p></div>
+<button class="ml-refresh" id="mlRefresh" type="button">Refresh</button>
+</div>
+<div class="ml-selection" id="mlSelection">Select one or more timeline clips</div>
+
+<section class="ml-card">
+<div class="ml-card-head"><strong>PRESETS</strong><span>for clips with no keyframes</span></div>
+<div class="ml-preset-grid" id="mlPresetGrid"></div>
+<div class="ml-row">
+<label class="ml-field"><span>Place</span>
+<select id="mlMode"><option value="in">At clip start</option><option value="out">At clip end</option></select></label>
+<label class="ml-field"><span>Direction</span>
+<select id="mlDirection"><option value="none">Preset</option><option value="left">Left</option><option value="right">Right</option><option value="up">Up</option><option value="down">Down</option></select></label>
+</div>
+<div class="ml-row">
+<label class="ml-slider"><span>Intensity</span><i class="val" id="mlIntensityValue">100%</i>
+<input id="mlIntensity" type="range" min="10" max="200" step="5" value="100"/></label>
+<label class="ml-slider"><span>Duration</span><i class="val" id="mlDurationValue">12f</i>
+<input id="mlDuration" type="range" min="2" max="90" step="1" value="12"/></label>
+</div>
+<button class="ml-primary" id="mlApplyPreset" type="button">Apply preset</button>
+</section>
+
+<section class="ml-card">
+<div class="ml-card-head"><strong>EASING</strong><span>re-curve existing keyframes</span></div>
+<div class="ml-ease-top">
+<svg class="ml-curve" viewBox="0 0 100 60" aria-hidden="true" preserveAspectRatio="none">
+<path id="mlCurveBase" class="ml-curve-base" d="M6 54L94 6"/>
+<path id="mlCurvePath" class="ml-curve-line" d=""/>
+</svg>
+<div class="ml-ease-fields">
+<label class="ml-field"><span>Curve</span>
+<select id="mlShape">
+<option value="sine">Sine</option><option value="quad">Quad</option>
+<option value="cubic" selected>Cubic</option><option value="quart">Quart</option>
+<option value="quint">Quint</option><option value="expo">Expo</option>
+<option value="circ">Circ</option><option value="back">Back</option>
+<option value="elastic">Elastic</option><option value="bounce">Bounce</option>
+<option value="linear">Linear</option></select></label>
+<label class="ml-field"><span>Direction</span>
+<select id="mlDir"><option value="in">Ease in</option><option value="out" selected>Ease out</option><option value="inOut">Ease both</option></select></label>
+</div>
+</div>
+<div class="ml-row">
+<label class="ml-slider"><span>Strength</span><i class="val" id="mlStrengthValue">100%</i>
+<input id="mlStrength" type="range" min="0" max="100" step="5" value="100"/></label>
+<label class="ml-slider" id="mlDecayRow" style="display:none;"><span>Bounce</span><i class="val" id="mlDecayValue">100%</i>
+<input id="mlDecay" type="range" min="0" max="100" step="5" value="100"/></label>
+</div>
+<label class="ml-slider"><span>Bake every</span><i class="val" id="mlIntervalValue">1f</i>
+<input id="mlInterval" type="range" min="1" max="10" step="1" value="1"/></label>
+<div class="ml-props" id="mlProps"><div class="ml-empty">Refresh to list animated properties.</div></div>
+<button class="ml-primary" id="mlApplyEase" type="button">Apply easing</button>
+</section>
+
+<section class="ml-card">
+<div class="ml-card-head"><strong>LOOP</strong><span>repeat keyframes, loopOut() style</span></div>
+<div class="ml-row">
+<label class="ml-field"><span>Direction</span>
+<select id="mlLoopDir"><option value="out">Loop out</option><option value="in">Loop in</option></select></label>
+<label class="ml-field"><span>Mode</span>
+<select id="mlLoopType"><option value="cycle">Cycle</option><option value="pingpong">Ping-pong</option><option value="offset">Offset</option></select></label>
+</div>
+<div class="ml-row">
+<label class="ml-field"><span>Use</span>
+<select id="mlLoopKeys"><option value="0">All keyframes</option><option value="2">2 keyframes</option><option value="3">3 keyframes</option><option value="4">4 keyframes</option><option value="5">5 keyframes</option></select></label>
+<label class="ml-field"><span>Until</span>
+<select id="mlLoopEnd"><option value="clip">Clip end</option><option value="playhead">Playhead</option></select></label>
+</div>
+<label class="ml-check"><input id="mlLoopSmooth" type="checkbox"/><span>Keep easing</span><i>samples the shape instead of copying key values</i></label>
+<button class="ml-primary" id="mlApplyLoop" type="button">Apply loop</button>
+</section>
+<section class="ml-card">
+<div class="ml-card-head"><strong>KEYFRAMES</strong><span>on the ticked properties</span></div>
+<div class="ml-keyops" id="mlKeyOps">
+<button data-ml-key="shift-back" type="button" title="Shift keyframes earlier by the bake interval">&#8592; Nudge</button>
+<button data-ml-key="shift-fwd" type="button" title="Shift keyframes later by the bake interval">Nudge &#8594;</button>
+<button data-ml-key="swap" type="button" title="Swap the first and last keyframe values">Swap ends</button>
+<button data-ml-key="clear" type="button" title="Remove every keyframe on the ticked properties">Clear</button>
+</div>
+</section>
+
+<div class="ml-status" id="mlStatus"></div>
+</div>
+</div>
+<div id="sfxStudioView" class="orbit-view-panel" style="display:none;">
+  <div class="sfxs-top">
+    <div class="sfxs-searchrow">
+      <input id="sfxsSearch" type="text" placeholder="Search local sounds…" autocomplete="off"/>
+      <button type="button" class="sfxs-icon" data-sfxs-action="add-folder" title="Add a sound folder">+</button>
+      <button type="button" class="sfxs-icon" data-sfxs-action="rescan" title="Rescan every folder">⟳</button>
+      <button type="button" class="sfxs-icon" data-sfxs-action="settings" title="Settings">⚙</button>
+    </div>
+    <div class="sfxs-filters">
+      <button type="button" class="sfxs-chip active" data-sfxs-filter="all">All<i class="n" id="sfxsCountAll">0</i></button>
+      <button type="button" class="sfxs-chip" data-sfxs-filter="oneshot">One shots<i class="n" id="sfxsCountOneshot">0</i></button>
+      <button type="button" class="sfxs-chip" data-sfxs-filter="ambience">Ambience<i class="n" id="sfxsCountAmbience">0</i></button>
+      <button type="button" class="sfxs-chip" data-sfxs-filter="favorites">Favorites<i class="n" id="sfxsCountFav">0</i></button>
+    </div>
+  </div>
+
+  <div class="sfxs-settings" id="sfxsSettings" hidden>
+    <label class="sfxs-setting"><span>Insert at</span>
+      <select id="sfxsTarget">
+        <option value="playhead">Playhead</option>
+        <option value="clip">Start of the selected clip</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="sfxs-body">
+    <div class="sfxs-sources" id="sfxsSources">
+      <div class="sfxs-srchead">
+        <div>
+          <em>LIBRARY</em>
+          <strong id="sfxsSourceCount">No source</strong>
+        </div>
+        <button type="button" class="sfxs-icon" data-sfxs-action="rescan" title="Rescan every folder">&#8635;</button>
+        <button type="button" class="sfxs-icon" data-sfxs-action="add-folder" title="Add a sound folder">+</button>
+      </div>
+      <input id="sfxsFolderFilter" type="text" placeholder="Filter local folders…" autocomplete="off"/>
+      <div class="sfxs-folders" id="sfxsFolders"></div>
+      <div class="sfxs-srcfoot" id="sfxsIndexedCount">0 indexed sounds</div>
+    </div>
+
+    <div class="sfxs-main">
+      <div class="sfxs-resultbar">
+        <button type="button" class="sfxs-icon sfxs-srctoggle" data-sfxs-action="sources" title="Show or hide the folder list">&#9776;</button>
+        <span id="sfxsCount">0 results</span>
+        <label class="sfxs-sortedby">Sorted by
+          <select id="sfxsSort">
+            <option value="name">Name</option>
+            <option value="duration">Duration</option>
+            <option value="label">Label</option>
+          </select>
+        </label>
+      </div>
+      <div class="sfxs-list" id="sfxsList"></div>
+    </div>
+  </div>
+
+  <div class="sfxs-preview" id="sfxsPreview">
+    <div class="sfxs-prevhead">
+      <strong id="sfxsName">Select a sound</strong>
+      <span class="sfxs-zoomlevel" id="sfxsZoom">1.0&times;</span>
+      <button type="button" class="sfxs-icon" data-sfxs-action="zoom-out" title="Zoom out">&minus;</button>
+      <button type="button" class="sfxs-icon" data-sfxs-action="zoom-in" title="Zoom in">+</button>
+    </div>
+    <canvas class="sfxs-wave" id="sfxsWave" height="56"></canvas>
+    <div class="sfxs-factline" id="sfxsFacts"></div>
+    <div class="sfxs-modes">
+      <button type="button" data-sfxs-action="mono">Mono</button>
+      <button type="button" class="active" data-sfxs-action="stereo">Stereo</button>
+      <button type="button" data-sfxs-action="reverse-toggle">Rev</button>
+      <span class="sfxs-seg">
+        <input id="sfxsIn" type="number" min="0" step="0.01" value="0" title="Segment start"/>
+        <input id="sfxsOut" type="number" min="0" step="0.01" value="0" title="Segment end"/>
+        <button type="button" class="sfxs-icon" data-sfxs-action="full" title="Select the whole sound">&#10530;</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="sfxs-fx" id="sfxsFx" hidden>
+    <div class="sfxs-row2">
+      <label class="sfxs-slider"><span>GAIN<i class="val">0 dB</i></span><input id="sfxsGain" type="range" min="-24" max="12" step="0.5" value="0" data-suffix=" dB"/></label>
+      <label class="sfxs-slider"><span>PITCH<i class="val">0 st</i></span><input id="sfxsPitch" type="range" min="-12" max="12" step="1" value="0" data-suffix=" st"/></label>
+    </div>
+    <div class="sfxs-row2">
+      <label class="sfxs-slider"><span>SPEED<i class="val">100%</i></span><input id="sfxsSpeed" type="range" min="25" max="400" step="5" value="100" data-suffix="%"/></label>
+      <label class="sfxs-slider"><span>FADE IN<i class="val">0 ms</i></span><input id="sfxsFadeIn" type="range" min="0" max="2000" step="10" value="0" data-suffix=" ms"/></label>
+    </div>
+    <div class="sfxs-row2">
+      <label class="sfxs-slider"><span>FADE OUT<i class="val">0 ms</i></span><input id="sfxsFadeOut" type="range" min="0" max="2000" step="10" value="0" data-suffix=" ms"/></label>
+      <div class="sfxs-toggles">
+        <label><input id="sfxsLock" type="checkbox" checked/><span>Lock pitch</span></label>
+        <label><input id="sfxsReverse" type="checkbox"/><span>Reverse</span></label>
+        <label><input id="sfxsNormalize" type="checkbox"/><span>Normalise</span></label>
+      </div>
+    </div>
+    <button type="button" class="sfxs-reset" data-sfxs-action="reset">Reset rack</button>
+  </div>
+
+  <div class="sfxs-bar">
+    <strong class="sfxs-now" id="sfxsNowName">&mdash;</strong>
+    <button type="button" data-sfxs-action="insert-segment" title="Insert only the selected range">Segment</button>
+    <button type="button" class="sfxs-primary" data-sfxs-action="insert">Insert</button>
+    <div class="sfxs-transport">
+      <button type="button" data-sfxs-action="prev" title="Previous sound">&#9198;</button>
+      <button type="button" class="sfxs-play" data-sfxs-action="play" id="sfxsPlay" title="Play / pause">&#9654;</button>
+      <button type="button" data-sfxs-action="next" title="Next sound">&#9197;</button>
+      <button type="button" data-sfxs-action="stop" title="Stop">&#9632;</button>
+      <button type="button" data-sfxs-action="loop" title="Loop">&#8646;</button>
+      <button type="button" data-sfxs-action="fx" id="sfxsFxBtn" title="Effects rack">FX</button>
+    </div>
+  </div>
+  <div class="sfxs-status" id="sfxsStatus" aria-live="polite"></div>
+  <input type="file" id="sfxsFolderInput" webkitdirectory directory multiple style="display:none;"/>
+</div>
+<div id="projectDoctorView" class="orbit-view-panel" style="display:none;">
+  <div class="pd-shell" id="projectDoctorPanel">
+    <header class="pd-head">
+      <div><span class="pd-kicker">PROJECT QUALITY CONTROL</span><h2>Project Doctor</h2><p>media - timeline - sequence - captions</p></div>
+      <button class="pd-scan" id="pdScan" type="button">Scan project</button>
+    </header>
+    <section class="pd-overview">
+      <div class="pd-score" data-grade="idle"><strong id="pdScore">-</strong><span>HEALTH SCORE</span></div>
+      <div class="pd-overview-copy"><h3 id="pdVerdict">Ready for inspection</h3><p id="pdMeta">Open a sequence, then run a complete project scan.</p><div class="pd-severity-strip"><span class="critical"><b id="pdCritical">0</b> Critical</span><span class="warning"><b id="pdWarnings">0</b> Warnings</span><span class="info"><b id="pdInfo">0</b> Info</span></div></div>
+    </section>
+    <section class="pd-stats" aria-label="Project statistics">
+      <div><span>Timeline clips</span><strong id="pdClips">-</strong></div><div><span>Duration</span><strong id="pdDuration">-</strong></div><div><span>Offline media</span><strong id="pdOffline">-</strong></div><div><span>Primary gaps</span><strong id="pdGaps">-</strong></div><div><span>Caption issues</span><strong id="pdCaptions">-</strong></div>
+    </section>
+    <div class="pd-toolbar">
+      <div class="pd-filters" id="pdFilters"><button class="active" data-pd-filter="all">All</button><button data-pd-filter="critical">Critical</button><button data-pd-filter="warning">Warnings</button><button data-pd-filter="info">Info</button></div>
+      <div class="pd-actions"><button id="pdMarkIssues" disabled type="button">Add markers</button><button id="pdSaveProject" type="button">Save project</button><button id="pdCopyReport" disabled type="button">Copy report</button><button id="pdDiagnostic" type="button" title="Collect FFmpeg and platform state for a bug report">Diagnostic</button></div>
+    </div>
+    <section class="pd-results">
+      <div class="pd-results-head"><strong>Inspection results</strong><span id="pdResultCount">No scan yet</span></div>
+      <div class="pd-issue-list" id="pdIssueList"><div class="pd-empty"><strong>No diagnosis yet</strong><p>Project Doctor only reports checks that can be verified reliably from Premiere.</p></div></div>
+    </section>
+    <div class="pd-status" id="pdStatus" aria-live="polite"></div>
+  </div>
+</div>
+
+<!-- ===== Transition & MOGRT Tools View ===== -->
+</div>
+
+<!-- ===== Project Doctor View ===== -->
+<input accept=".mp3,.wav,.aiff,.aif,.m4a,.ogg" id="fileInputFiles" multiple="" type="file"/>
+<input directory="" id="fileInputFolder" multiple="" type="file" webkitdirectory=""/>
+<input accept=".json,application/json" id="fileInputLibraryBackup" style="display:none;" type="file"/>
+<input directory="" id="fileInputRelinkFolder" multiple="" style="display:none;" type="file" webkitdirectory=""/>
+<input accept=".srt" id="fileInputSRT" style="display:none;" type="file"/>
+<input accept=".ffx" id="fileInputFfx" multiple="" style="display:none;" type="file"/>
+<input directory="" id="fileInputFfxFolder" multiple="" style="display:none;" type="file" webkitdirectory=""/>
+<input accept=".srt" id="fileInputCaptionSRT" style="display:none;" type="file"/>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+</div>
+
+</div>
+<div class="modal-backdrop" id="customModal" style="display:none;">
+<div class="modal-box" id="modalBox">
+<div class="modal-header" id="modalTitle">Title</div>
+<div class="modal-body">
+<div class="modal-message" id="modalMessage" style="display:none;"></div>
+<input class="modal-input" id="modalInput" placeholder="Type here..." style="display:none;" type="text"/>
+</div>
+<div class="modal-footer">
+<button class="btn" id="modalBtnCancel">Cancel</button>
+<button class="btn primary" id="modalBtnOk">OK</button>
+</div>
+</div>
+</div>
+<script src="lib/pickr.min.js"></script>
+<script src="js/CSInterface.js"></script>
+<script src="utils/cep.js"></script>
+<script src="utils/orbitCore.js?v=2"></script>
+<script src="utils/ffmpegLocal.js"></script>
+<script src="utils/whisperLocal.js"></script>
+<script src="utils/supabase.js"></script>
+<script src="utils/ux.js"></script>
+<script src="modules/rail-router.js?v=6"></script>
+<script src="modules/silenceCutter.js?v=3"></script>
+<script src="modules/captionRenderer.js"></script>
+<script src="modules/prprojBuilder.js"></script>
+<script src="modules/autoCaptions.js?v=61"></script>
+<script src="modules/srtAnimator.js"></script>
+<script src="modules/srtAnimatorUI.js"></script>
+<script src="modules/srtAnimatorInit.js"></script>
+
+<script src="modules/beat-engine.js"></script>
+<script src="modules/beat-panel.js?v=2"></script>
+<script src="modules/audio-engine.js"></script>
+<script src="modules/audio-panel.js?v=3"></script>
+<script src="modules/motion-engine.js"></script>
+<script src="modules/sfx-dsp.js"></script>
+<script src="modules/sfx-library.js"></script>
+<script src="modules/sfx-studio.js"></script>
+<script src="modules/motion-curves.js"></script>
+<script src="modules/motion-loop.js"></script>
+<script src="modules/motion-lab.js"></script>
+<script src="modules/dock-extras.js"></script>
+<script src="modules/composer-tools.js?v=12"></script>
+<script src="modules/project-doctor.js"></script>
+<script src="js/prfpset-catalog.js"></script>
+<script src="js/compxlib.js"></script>
+<script src="js/diagnostics.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/compx-license.js?v=57"></script>
+<script src="js/compx-loader.js?v=79"></script>
+<script src="js/license-gate.js"></script>
+<script src="js/update-checker.js"></script>
+<!-- main.js and premiere-edition.js are injected by js/compx-loader.js only after the licence is verified. -->
+</body>
+</html>
+
