@@ -1,0 +1,42 @@
+const fs=require('fs'),path=require('path'),os=require('os'),cp=require('child_process'),assert=require('assert/strict');
+const root=path.resolve(__dirname,'..');
+(async()=>{
+ const profile=fs.mkdtempSync(path.join(os.tmpdir(),'orbit-srt-test-'));
+ const chrome=cp.spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless','--disable-gpu','--no-first-run','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{windowsHide:true,stdio:'ignore'});
+ let ws;
+ try{
+  const pf=path.join(profile,'DevToolsActivePort');
+  for(let i=0;i<100&&!fs.existsSync(pf);i++)await new Promise(r=>setTimeout(r,100));
+  const port=fs.readFileSync(pf,'utf8').split('\n')[0],pages=await(await fetch('http://127.0.0.1:'+port+'/json')).json();
+  ws=new WebSocket(pages.find(p=>p.type==='page').webSocketDebuggerUrl);await new Promise((r,j)=>{ws.onopen=r;ws.onerror=j});
+  let id=0;const pending=new Map();ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id&&pending.has(m.id)){pending.get(m.id)(m);pending.delete(m.id)}};
+  const call=(method,params={})=>new Promise(r=>{const n=++id;pending.set(n,r);ws.send(JSON.stringify({id:n,method,params}))});
+  await call('Page.navigate',{url:require('url').pathToFileURL(path.join(root,'theme-preview.html')).href+'#captions'});
+  await new Promise(r=>setTimeout(r,400));
+  const evaluate=async expression=>{const m=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(m.result?.exceptionDetails)throw Error(JSON.stringify(m.result.exceptionDetails));return m.result?.result?.value};
+  await evaluate("window.CEP={evalScript:function(name){return Promise.resolve(name==='getSequenceInfo'?{width:1920,height:1080,timebase:8467200000}:[])},getExtensionPath:function(){return ''}};window.showAlert=function(m){window.__alert=m};");
+  await evaluate(fs.readFileSync(path.join(root,'modules/autoCaptions.js'),'utf8'));
+  console.log('INITIAL',await evaluate("JSON.stringify({importer:!!window.OrbitSubtitleImport,loaded:window.__orbitAutoCaptionsLoaded,alert:window.__alert})"));
+  const srt='1\n00:00:01,250 --> 00:00:02,500\nবাংলা caption\n\n2\n00:00:03,000 --> 00:00:04,100\nSecond line\n';
+  await evaluate('window.OrbitSubtitleImport.importData('+JSON.stringify(srt)+',"fixture.srt")');
+  await new Promise(r=>setTimeout(r,300));
+  console.log('IMPORTED',await evaluate("JSON.stringify({alert:window.__alert,text:document.getElementById('autoCaptionsView').innerText.slice(-4500)})"));
+  assert.equal(await evaluate("document.getElementById('ac-count').textContent.trim()"),'2');
+  assert.ok(await evaluate("document.getElementById('autoCaptionsView').innerText.includes('বাংলা caption')"));
+  assert.ok(await evaluate("document.getElementById('autoCaptionsView').innerText.includes('00:01.25 → 00:02.50')"));
+  await evaluate('window.__pickCount=0;window.cep={fs:{showOpenDialogEx:function(){window.__pickCount++;return {err:0,data:["C:/fixture.srt"]}},readFile:function(){return {err:0,data:'+JSON.stringify(srt)+'}}}}');
+  await evaluate("document.getElementById('ac-import-srt-btn').click()");
+  assert.equal(await evaluate('window.__pickCount'),1);
+  assert.equal(await evaluate("document.getElementById('ac-count').textContent.trim()"),'2');
+  const utf16=Array.from(Buffer.concat([Buffer.from([255,254]),Buffer.from(srt,'utf16le')]));
+  await evaluate('window.require=function(name){if(name!=="fs")throw Error(name);return {readFileSync:function(){return new Uint8Array('+JSON.stringify(utf16)+')}}};window.cep.fs.readFile=function(){throw Error("UTF-16 bytes must be read before CEP text fallback")};');
+  await evaluate("document.getElementById('ac-import-srt-btn').click()");
+  assert.equal(await evaluate('window.__pickCount'),2);
+  assert.ok(await evaluate("document.getElementById('autoCaptionsView').innerText.includes('বাংলা caption')"));
+  await evaluate('window.OrbitSubtitleImport.importData("not an SRT","bad.srt")');
+  assert.equal(await evaluate("document.getElementById('ac-import-status').dataset.state"),'error');
+  assert.equal(await evaluate("document.getElementById('ac-count').textContent.trim()"),'2');
+  console.log('PASS real DOM import: Bengali text, cue count, timestamps, one native picker request, invalid-file error and preserved captions. Host APIs simulated.');
+  await call('Browser.close');
+ }finally{if(ws)ws.close();chrome.kill()}
+})().catch(e=>{console.error(e);process.exitCode=1});
