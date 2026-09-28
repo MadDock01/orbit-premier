@@ -34,7 +34,7 @@
 <link href="css/orbit-compact-22.css?v=6" rel="stylesheet"/>
 <link href="css/sfx-studio.css?v=1" rel="stylesheet"/>
 <link href="css/motion-lab.css?v=1" rel="stylesheet"/>
-<link href="css/orbit-dock.css?v=10" rel="stylesheet"/>
+<link href="css/orbit-dock.css?v=11" rel="stylesheet"/>
 <link href="css/library-compact.css?v=1" rel="stylesheet"/>
 <script src="utils/panelSwitcher.js"></script>
 </head>
@@ -108,6 +108,46 @@
     <button type="button" class="orbit-dock-btn" data-dock-action="scale-reset" title="Reset scale to 100%">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 1 1-2.6-5.4"/><path d="M20 3v5h-5"/></svg>
     </button>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="align" title="Align in frame" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><rect x="5" y="6.5" width="7" height="5" rx="1"/></svg>
+    </button>
+    <div class="orbit-dock-pop" id="alignBlock">
+    <div class="slider-label"><span>ALIGN IN FRAME</span></div>
+    <div class="orbit-dock-pad" id="alignPad">
+    <button type="button" data-dock-action="align" data-mode="top-left" title="Align top left" aria-label="Align top left"></button>
+    <button type="button" data-dock-action="align" data-mode="top-center" title="Align top centre" aria-label="Align top centre"></button>
+    <button type="button" data-dock-action="align" data-mode="top-right" title="Align top right" aria-label="Align top right"></button>
+    <button type="button" data-dock-action="align" data-mode="middle-left" title="Align middle left" aria-label="Align middle left"></button>
+    <button type="button" data-dock-action="align" data-mode="center" title="Align centre" aria-label="Align centre"></button>
+    <button type="button" data-dock-action="align" data-mode="middle-right" title="Align middle right" aria-label="Align middle right"></button>
+    <button type="button" data-dock-action="align" data-mode="bottom-left" title="Align bottom left" aria-label="Align bottom left"></button>
+    <button type="button" data-dock-action="align" data-mode="bottom-center" title="Align bottom centre" aria-label="Align bottom centre"></button>
+    <button type="button" data-dock-action="align" data-mode="bottom-right" title="Align bottom right" aria-label="Align bottom right"></button>
+    </div>
+    <p class="orbit-dock-note">Moves the clip so its edges meet the frame. Video and image clips only.</p>
+    </div>
+    </div>
+    <div class="orbit-dock-drawer">
+    <button type="button" class="orbit-dock-btn" data-dock-drawer="anchor" title="Anchor point" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="3 2.5"/><path d="M12 8v8M8 12h8"/></svg>
+    </button>
+    <div class="orbit-dock-pop" id="anchorBlock">
+    <div class="slider-label"><span>ANCHOR POINT</span></div>
+    <div class="orbit-dock-pad" id="anchorPad">
+    <button type="button" data-dock-action="anchor" data-mode="top-left" title="Anchor top left" aria-label="Anchor top left"></button>
+    <button type="button" data-dock-action="anchor" data-mode="top-center" title="Anchor top centre" aria-label="Anchor top centre"></button>
+    <button type="button" data-dock-action="anchor" data-mode="top-right" title="Anchor top right" aria-label="Anchor top right"></button>
+    <button type="button" data-dock-action="anchor" data-mode="middle-left" title="Anchor middle left" aria-label="Anchor middle left"></button>
+    <button type="button" data-dock-action="anchor" data-mode="center" title="Anchor centre" aria-label="Anchor centre"></button>
+    <button type="button" data-dock-action="anchor" data-mode="middle-right" title="Anchor middle right" aria-label="Anchor middle right"></button>
+    <button type="button" data-dock-action="anchor" data-mode="bottom-left" title="Anchor bottom left" aria-label="Anchor bottom left"></button>
+    <button type="button" data-dock-action="anchor" data-mode="bottom-center" title="Anchor bottom centre" aria-label="Anchor bottom centre"></button>
+    <button type="button" data-dock-action="anchor" data-mode="bottom-right" title="Anchor bottom right" aria-label="Anchor bottom right"></button>
+    </div>
+    <p class="orbit-dock-note">Moves the pivot for scale and rotation. The clip stays where it is.</p>
+    </div>
+    </div>
     <span class="orbit-dock-sep" aria-hidden="true"></span>
     <div class="orbit-dock-drawer">
     <button type="button" class="orbit-dock-btn" data-dock-drawer="nest" title="Nest / Unnest" aria-expanded="false">
@@ -2120,7 +2160,7 @@
 <script src="modules/motion-loop.js"></script>
 <script src="modules/motion-lab.js"></script>
 <script src="modules/dock-extras.js"></script>
-<script src="modules/composer-tools.js?v=12"></script>
+<script src="modules/composer-tools.js?v=13"></script>
 <script src="modules/project-doctor.js"></script>
 <script src="js/prfpset-catalog.js"></script>
 <script src="js/compxlib.js"></script>

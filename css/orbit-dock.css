@@ -551,3 +551,40 @@ html body #app { padding-right: 32px !important; }
 #app #sfxMogrtView #btnRemoveSelected:disabled {
   opacity: .4;
 }
+/* Align / Anchor: a 3x3 pad. Each cell's dot shows which part of the frame
+   (or clip) it means, so the pad needs no labels. */
+.orbit-dock-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 26px);
+  grid-auto-rows: 22px;
+  gap: 3px;
+}
+.orbit-dock-pad button {
+  position: relative;
+  padding: 0;
+  border: 1px solid #2a382f;
+  border-radius: 5px;
+  background: #09110c;
+  cursor: pointer;
+}
+.orbit-dock-pad button::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7d9488;
+}
+.orbit-dock-pad button[data-mode^="top"]::after { top: 3px; }
+.orbit-dock-pad button[data-mode^="middle"]::after,
+.orbit-dock-pad button[data-mode="center"]::after { top: 7px; }
+.orbit-dock-pad button[data-mode^="bottom"]::after { bottom: 3px; }
+.orbit-dock-pad button[data-mode$="left"]::after { left: 3px; }
+.orbit-dock-pad button[data-mode$="center"]::after,
+.orbit-dock-pad button[data-mode="center"]::after { left: 9px; }
+.orbit-dock-pad button[data-mode$="right"]::after { right: 3px; }
+.orbit-dock-pad button:hover { border-color: #43844f; background: #122017; }
+.orbit-dock-pad button:hover::after,
+.orbit-dock-pad button.is-last::after { background: #8fe3a6; }
+.orbit-dock-pad button.is-last { border-color: #43844f; }
+.orbit-dock-pad button:disabled { opacity: .45; cursor: not-allowed; }

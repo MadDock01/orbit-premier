@@ -23,19 +23,60 @@ test('Safety copy restores original sequence, playhead and clip selection',()=>{
  ctx.app.project.openSequence=()=>{};
  assert.equal(ctx.ppro_duplicateActiveSequence(true).success,false);
 });
-function fixture(){
+// A 200x100 clip in a 1000x500 sequence unless a test passes its own clip.
+function fixture(opts){
+ opts=opts||{};
  const prop=v=>({value:v,getValue(){return this.value},setValue(v){this.value=v;return 0},isTimeVarying(){return false}});
  const props={'Position':prop([.5,.5]),'Anchor Point':prop([.5,.5]),'Rotation':prop(0),'Scale':prop(100),'Uniform Scale':prop(true),'Scale Width':prop(100)};
- const clip={projectItem:{getVideoInfo:()=> '200 x 100'}},seq={frameSizeHorizontal:1000,frameSizeVertical:500};
- const c=load({app:{},_composerSelected:()=>({seq,items:[clip]}),_composerIntrinsicMotionProperty:(clip,name)=>props[name],_composerMotionPositionProperty:()=>props.Position},
- ['_composerFrameSize','_composerParseSize','_composerColumnSize','_composerSourceSize','_composerMotionScale','_composerRotatedBounds','_composerAnchorTarget','_composerNormalizedMotionPoint','_composerWriteMotionValue','composerAlignSelection','composerSetAnchorPoint']);
+ const clip=opts.clip||{projectItem:{getVideoInfo:()=> '200 x 100'}},seq={frameSizeHorizontal:1000,frameSizeVertical:500};
+ const items=opts.items||[clip];
+ const c=load({app:{},_composerSelected:()=>({seq,items}),_composerIntrinsicMotionProperty:(clip,name)=>props[name],_composerMotionPositionProperty:()=>props.Position},
+ ['_composerFrameSize','_composerParseSize','_composerColumnSize','_composerPixelAspect','_composerSourceSize','_composerMotionScale','_composerRotatedBounds','_composerAnchorTarget','_composerNormalizedMotionPoint','_composerWriteMotionValue','_composerVisualItems','_composerClipLabel','_composerAlignAxis','composerAlignSelection','composerSetAnchorPoint']);
+ loadConsts(c,['_COMPOSER_UNKNOWN_SIZE']);
  return {c,props};
 }
-test('Align writes the pressed spot directly so every clip visibly moves',()=>{
- const {c,props}=fixture();assert.equal(JSON.parse(c.composerAlignSelection('top-left')).moved,1);
- assert.deepEqual([...props.Position.value],[.05,.05]);
+const near=(actual,expected)=>expected.forEach((v,i)=>assert.ok(Math.abs(actual[i]-v)<1e-9,'got '+JSON.stringify([...actual])+', wanted '+JSON.stringify(expected)));
+// Position is where the anchor sits. Writing the pad spot straight into it put
+// a default clip's centre on the frame corner, with most of the clip off screen.
+test('Align puts the clip edges on the frame edges, not its centre',()=>{
+ const {c,props}=fixture();
+ assert.equal(JSON.parse(c.composerAlignSelection('top-left')).moved,1);
+ near(props.Position.value,[.1,.1]);           // centre 100px/50px in: the corner is flush
  assert.equal(JSON.parse(c.composerAlignSelection('bottom-right')).moved,1);
- assert.deepEqual([...props.Position.value],[.95,.95]);
+ near(props.Position.value,[.9,.9]);
+ assert.equal(JSON.parse(c.composerAlignSelection('middle-left')).moved,1);
+ near(props.Position.value,[.1,.5]);
+});
+test('Align measures a rotated clip by its rotated bounds',()=>{
+ const {c,props}=fixture();props.Rotation.value=90;  // now 100 wide, 200 tall
+ assert.equal(JSON.parse(c.composerAlignSelection('top-left')).moved,1);
+ near(props.Position.value,[.05,.2]);
+});
+test('Anchor top-left then Align top-left lands the corner exactly on the frame corner',()=>{
+ const {c,props}=fixture();
+ assert.equal(JSON.parse(c.composerSetAnchorPoint('top-left')).changed,1);
+ near(props.Position.value,[.4,.4]);           // the picture did not move
+ assert.equal(JSON.parse(c.composerAlignSelection('top-left')).moved,1);
+ near(props.Position.value,[0,0]);
+});
+test('Anamorphic footage is measured at its display width',()=>{
+ const clip={projectItem:{getProjectColumnsMetadata:()=>JSON.stringify([{ColumnName:'Video Info',ColumnValue:'1440 x 1080 (1.3333)'}])}};
+ const {c}=fixture({clip});
+ const size=c._composerSourceSize(clip,{width:1920,height:1080},null);
+ assert.ok(Math.abs(size.width-1920)<0.1,'width '+size.width);assert.equal(size.height,1080);
+});
+test('Graphics with no known size are left alone with a clear reason',()=>{
+ const {c,props}=fixture({clip:{}});
+ assert.match(JSON.parse(c.composerAlignSelection('top-left')).error,/Essential Graphics/);
+ assert.match(JSON.parse(c.composerSetAnchorPoint('top-left')).error,/Essential Graphics/);
+ assert.deepEqual([...props.Position.value],[.5,.5]);assert.deepEqual([...props['Anchor Point'].value],[.5,.5]);
+});
+test('The linked audio half of a selection is ignored, not reported as skipped',()=>{
+ const clip={projectItem:{getVideoInfo:()=> '200 x 100'}};
+ const {c}=fixture({clip,items:[clip,{mediaType:'Audio'}]});
+ const res=JSON.parse(c.composerAlignSelection('top-left'));
+ assert.equal(res.moved,1);assert.equal(res.skipped,0);assert.equal(res.errors.length,0);
+ assert.match(JSON.parse(fixture({items:[{mediaType:'Audio'}]}).c.composerAlignSelection('center')).error,/video or image/);
 });
 test('Anchor compensates position and supports rotated static clips',()=>{
  const {c,props}=fixture();props.Rotation.value=90;
@@ -71,20 +112,19 @@ test('XMP frame-size attributes are read, not just element text',()=>{
  const size=c._composerSourceSize({projectItem:item}, {width:1000,height:500}, null);
  assert.equal(size.width,3840);assert.equal(size.height,2160);
 });
-test('Full-frame clips still move: scale never blocks align',()=>{
- const {c,props}=fixture();props.Scale.value=1000;props.Position.value=[.62,.4];
+test('A clip larger than the frame aligns its edge and keeps the frame covered',()=>{
+ const {c,props}=fixture();props.Scale.value=1000;props.Position.value=[.62,.4];  // 2000x1000
  assert.equal(JSON.parse(c.composerAlignSelection('top-right')).moved,1);
- assert.deepEqual([...props.Position.value],[.95,.05]);
+ near(props.Position.value,[0,1]);             // right edge at 1000, top edge at 0
 });
 // A write that lands on the value already in place is a success, not a
 // rejection. Judging the write by "did the value change" made Align > centre on
 // a centred clip, and Anchor > centre on a default clip, always report failure.
-test('Re-applying the spot a clip already sits on is not reported as rejected',()=>{
+test('Re-applying the spot a clip already sits on is reported as already there, not rejected',()=>{
  const {c,props}=fixture();
- assert.equal(JSON.parse(c.composerAlignSelection('center')).moved,1);
- assert.deepEqual([...props.Position.value],[.5,.5]);
  const res=JSON.parse(c.composerAlignSelection('center'));
- assert.equal(res.moved,1);assert.equal(res.error,undefined);
+ assert.equal(res.error,undefined);assert.equal(res.moved,0);assert.equal(res.alreadyThere,1);
+ assert.deepEqual([...props.Position.value],[.5,.5]);
 });
 test('Anchor centre on a default clip succeeds instead of erroring',()=>{
  const {c,props}=fixture();
@@ -203,7 +243,7 @@ function fitFixture(sourceW,sourceH,uniform=true){
  const seq={frameSizeHorizontal:1000,frameSizeVertical:500};
  const c=load({app:{},_composerSelected:()=>({seq,items:[clip]}),
   _composerIntrinsicMotionProperty:(_clip,name)=>props[name]},
-  ['_composerFrameSize','_composerParseSize','_composerColumnSize','_composerSourceSize','_composerMotionScale',
+  ['_composerFrameSize','_composerParseSize','_composerColumnSize','_composerPixelAspect','_composerSourceSize','_composerMotionScale',
    '_composerWriteMotionValue','composerFitToFrame']);
  return {c,props};
 }

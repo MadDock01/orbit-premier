@@ -4,7 +4,7 @@
   var ENTRY_SCRIPTS = ['js/main.js', 'js/premiere-edition.js'];
   var HOST_FILE = '/jsx/hostscript.jsx';
   var HASHES = {
-    "/jsx/hostscript.jsx": "895c935aa0e9c798c8d71febfd904cda08d3da526239f5064ffc53fa98820aac",
+    "/jsx/hostscript.jsx": "c6c7736559468bd223b97ee19a87cc6bb040cc440e797ebc705bc82571b152f5",
     "js/compx-license.js": "d36f4798facc9b0582e3568d9ab7187af6f2faa9cc07b457d8bfb0b7d1bc0b60",
     "js/license-gate.js": "a5029a09abfee9deeed588153cbd6e5484cad1dbc0e5ee26e1ebacdee5cec26e",
     "js/compxlib.js": "b11b7c15b37bbd4bca4508daa8a2a7b250b663e0529809917607378847f58512",

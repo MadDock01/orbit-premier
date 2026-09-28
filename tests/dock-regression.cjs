@@ -77,23 +77,36 @@ test('Nothing left on the dock confirms or takes a safety copy', () => {
   }
 });
 
-// Ripple Delete, Align and Anchor were dropped at the user's request. The host
-// endpoints stay in jsx/hostscript.jsx, but nothing in the UI may reach them,
-// and ComposerTools must not still advertise the removed methods.
-test('Ripple delete, align and anchor are gone from the dock', () => {
+// Ripple Delete stays off the dock (its host endpoint remains). Align and
+// Anchor came back once Align measured real clip bounds: every one of the 18
+// pad cells must reach its own endpoint with its own mode.
+test('Ripple delete stays gone; every align and anchor cell reaches its endpoint', async () => {
   const { win, doc } = boot();
   assert.equal(doc.querySelector('[data-dock-action="ripple-delete"]'), null, 'ripple delete button survived');
-  assert.equal(doc.querySelectorAll('[data-ct-align],[data-ct-anchor]').length, 0, 'pad cells survived');
-  assert.equal(doc.getElementById('alignPad'), null);
-  assert.equal(doc.getElementById('anchorPad'), null);
-  assert.equal(typeof win.ComposerTools.align, 'undefined');
-  assert.equal(typeof win.ComposerTools.setAnchor, 'undefined');
+  assert.equal(typeof win.ComposerTools.align, 'function');
+  assert.equal(typeof win.ComposerTools.setAnchor, 'function');
+  const modes = ['top-left', 'top-center', 'top-right', 'middle-left', 'center', 'middle-right', 'bottom-left', 'bottom-center', 'bottom-right'];
+  for (const [action, pad, endpoint] of [['align', 'alignPad', 'composerAlignSelection'], ['anchor', 'anchorPad', 'composerSetAnchorPoint']]) {
+    const cells = doc.querySelectorAll('#' + pad + ' [data-dock-action="' + action + '"]');
+    assert.deepEqual(Array.from(cells).map((b) => b.getAttribute('data-mode')), modes, pad + ' cells');
+    for (const mode of modes) {
+      const h = boot();
+      const cell = h.doc.querySelector('#' + pad + ' [data-mode="' + mode + '"]');
+      click(h.win, cell);
+      await flush();
+      // A successful action also refreshes the selection count afterwards.
+      assert.deepEqual(h.calls.map((c) => c.name).filter((n) => n !== 'composerInspectSelection'), [endpoint], action + ' ' + mode);
+      assert.equal(h.calls[0].name, endpoint);
+      assert.equal(h.calls[0].args[0], mode);
+      assert.ok(cell.classList.contains('is-last'), action + ' ' + mode + ' not marked as last used');
+    }
+  }
 });
 
 test('A drawer toggle opens only its own pop', () => {
   const { win, doc } = boot();
   const drawers = doc.querySelectorAll('#orbitRightDock .orbit-dock-drawer');
-  assert.equal(drawers.length, 5, 'nest, guides, sequence, volume, pitch');
+  assert.equal(drawers.length, 7, 'align, anchor, nest, guides, sequence, volume, pitch');
   for (const drawer of drawers) {
     click(win, drawer.querySelector('[data-dock-drawer]'));
     assert.equal(doc.querySelectorAll('#orbitRightDock .orbit-dock-drawer.open').length, 1);
@@ -226,10 +239,10 @@ test('Every control is on the one right-hand rail, in a single column', () => {
     'fit', 'fill', 'scale-reset', 'paste-image', 'color-matte']) {
     assert.ok(rail.querySelector('[data-dock-action="' + action + '"]'), action + ' did not survive the move');
   }
-  for (const drawer of ['nest', 'guides', 'sequence', 'volume', 'pitch']) {
+  for (const drawer of ['align', 'anchor', 'nest', 'guides', 'sequence', 'volume', 'pitch']) {
     assert.ok(rail.querySelector('[data-dock-drawer="' + drawer + '"]'), drawer + ' drawer did not survive the move');
   }
-  assert.equal(rail.querySelectorAll('.orbit-dock-btn').length, 15);
+  assert.equal(rail.querySelectorAll('.orbit-dock-btn').length, 17);
 
   // jsdom has no layout, so the single column is read off the rule that
   // guarantees it rather than measured.

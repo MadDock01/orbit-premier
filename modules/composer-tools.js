@@ -4,9 +4,10 @@
  * The Tools rail (#composerToolsView) was removed; its cut/trim/matte actions
  * live on the dock instead. Everything that only existed to render the old
  * panel — MOGRT parameter rows, diagnostics, the text generator — went with
- * it, and Ripple Delete, Align and Anchor were dropped afterwards. The host
- * endpoints those used still exist in jsx/hostscript.jsx and are covered by
- * tests/tools-regression.cjs.
+ * it. Ripple Delete was dropped afterwards (its host endpoint is still in
+ * jsx/hostscript.jsx). Align and Anchor were dropped too, then brought back on
+ * the dock once Align measured the clip's real bounds instead of writing the
+ * pad spot straight into Position.
  *
  * The dock itself has moved twice: a bar along the bottom, then that plus a
  * transform bar under the header, and now a single vertical rail down the
@@ -232,6 +233,37 @@
     });
   }
 
+  var PAD_NAMES = {
+    'top-left': 'top left', 'top-center': 'top centre', 'top-right': 'top right',
+    'middle-left': 'middle left', 'center': 'centre', 'middle-right': 'middle right',
+    'bottom-left': 'bottom left', 'bottom-center': 'bottom centre', 'bottom-right': 'bottom right'
+  };
+
+  // Mark the last cell used on each pad so the user can see what they chose.
+  function markPad(button) {
+    var pad = button && button.closest ? button.closest('.orbit-dock-pad') : null;
+    if (!pad) return;
+    var cells = pad.querySelectorAll('button');
+    for (var i = 0; i < cells.length; i++) cells[i].classList.toggle('is-last', cells[i] === button);
+  }
+
+  function align(mode) {
+    var where = PAD_NAMES[mode] || mode;
+    return simpleAction('composerAlignSelection', [mode], 'Aligning to ' + where + '…', function (res) {
+      var parts = [];
+      if (res.moved) parts.push('Aligned ' + plural(res.moved, 'clip') + ' to ' + where);
+      if (res.alreadyThere) parts.push(plural(res.alreadyThere, 'clip') + ' already there');
+      return (parts.join(' · ') || 'Nothing to align') + '.';
+    });
+  }
+
+  function setAnchor(mode) {
+    var where = PAD_NAMES[mode] || mode;
+    return simpleAction('composerSetAnchorPoint', [mode], 'Moving the anchor to ' + where + '…', function (res) {
+      return 'Anchor set to ' + where + ' on ' + plural(res.changed || 0, 'clip') + '.';
+    });
+  }
+
   function pasteImage() {
     if (!global.DockExtras) { status('Paste Image is unavailable: dock-extras.js did not load.', true); return Promise.resolve(); }
     busy(true); status('Reading the clipboard…');
@@ -405,6 +437,8 @@
       else if (action === 'fit') fitToFrame('fit');
       else if (action === 'fill') fitToFrame('fill');
       else if (action === 'scale-reset') fitToFrame('reset');
+      else if (action === 'align') { markPad(btn); align(btn.getAttribute('data-mode')); }
+      else if (action === 'anchor') { markPad(btn); setAnchor(btn.getAttribute('data-mode')); }
       else if (action === 'paste-image') pasteImage();
       else if (action === 'guides-16x9') guides('16x9');
       else if (action === 'guides-9x16') guides('9x16');
@@ -433,7 +467,7 @@
   watchRailTop();
   global.ComposerTools = {
     refresh: refresh, timeline: timeline, createMatte: createMatte, createAdj: createAdj,
-    nest: nest, unnest: unnest, flip: flip, fitToFrame: fitToFrame,
+    nest: nest, unnest: unnest, flip: flip, fitToFrame: fitToFrame, align: align, setAnchor: setAnchor,
     pasteImage: pasteImage, guides: guides, guidesOff: guidesOff, createSequence: createSequence,
     syncRailTop: syncRailTop
   };

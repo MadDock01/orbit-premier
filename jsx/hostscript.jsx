@@ -3534,6 +3534,18 @@ function _composerIntrinsicMotionProperty(clip, name, fallbackIndex) {
     return null;
 }
 
+function _composerPixelAspect(clip, videoInfoText) {
+    var bracket = String(videoInfoText || '').match(/\(\s*(\d+(?:\.\d+)?)\s*\)/);
+    var par = bracket ? Number(bracket[1]) : 0;
+    if (!(par > 0.1 && par < 10)) {
+        try {
+            var interp = clip && clip.projectItem && clip.projectItem.getFootageInterpretation ? clip.projectItem.getFootageInterpretation() : null;
+            par = interp ? Number(interp.pixelAspectRatio) : 0;
+        } catch (_) { par = 0; }
+    }
+    return (par > 0.1 && par < 10) ? par : 1;
+}
+
 function _composerSourceSize(clip, frame, anchorValue) {
     var result = { width: 0, height: 0 }, texts = [];
     try {
@@ -3541,9 +3553,12 @@ function _composerSourceSize(clip, frame, anchorValue) {
             var cols = JSON.parse(String(clip.projectItem.getProjectColumnsMetadata() || '[]'));
             for (var ci = 0; ci < cols.length; ci++) {
                 if (String(cols[ci].ColumnName || '') === 'Video Info') {
-                    var columnSize = _composerParseSize(String(cols[ci].ColumnValue || ''));
+                    var columnText = String(cols[ci].ColumnValue || '');
+                    var columnSize = _composerParseSize(columnText);
                     if (columnSize.width > 1 && columnSize.height > 1) {
-                        return { width: columnSize.width, height: columnSize.height, estimated: false };
+                        // "1440 x 1080 (1.333)": the bracket is the pixel aspect
+                        // ratio. Anamorphic footage is that much wider on screen.
+                        return { width: columnSize.width * _composerPixelAspect(clip, columnText), height: columnSize.height, estimated: false };
                     }
                 }
             }
@@ -3569,7 +3584,7 @@ function _composerSourceSize(clip, frame, anchorValue) {
             var wm2 = text.match(/[Ww]idth[^0-9]{1,12}(\d{2,5})/), hm2 = text.match(/[Hh]eight[^0-9]{1,12}(\d{2,5})/);
             if (wm2 && hm2) { w = Number(wm2[1]) || 0; h = Number(hm2[1]) || 0; }
         }
-        if (w > 1 && h > 1) { result.width = w; result.height = h; return result; }
+        if (w > 1 && h > 1) { result.width = w * _composerPixelAspect(clip, ''); result.height = h; return result; }
     }
     // Anchor offset is measured from the clip center, so an anchor parked on a
     // horizontal/vertical edge reveals that axis extent. Last resort only.
@@ -3683,37 +3698,62 @@ function _composerWriteMotionValue(prop, value, seq) {
     return false;
 }
 
+// Video clips only: a linked audio half of the selection has no Motion and is
+// not something the user asked to move, so it is not reported as skipped.
+function _composerVisualItems(items) {
+    var out = [];
+    for (var i = 0; i < items.length; i++) {
+        var mediaType = '';
+        try { mediaType = String(items[i].mediaType || ''); } catch (_) {}
+        if (mediaType !== 'Audio') out.push(items[i]);
+    }
+    return out;
+}
+
+function _composerClipLabel(clip, index) {
+    try { if (clip && clip.name) return String(clip.name); } catch (_) {}
+    return 'Clip ' + (index + 1);
+}
+
+// Graphics and MOGRTs report no source size, and Premiere's scripting API does
+// not expose the bounds of the text or shapes inside them. Moving them by a
+// guessed full-frame size is what made Align and Anchor look broken.
+var _COMPOSER_UNKNOWN_SIZE = ': size unknown (graphic or MOGRT). Use Align in the Essential Graphics panel.';
+
 function composerSetAnchorPoint(mode) {
     try {
         var selected = _composerSelected();
         if (!selected.seq) return JSON.stringify({ error: 'No active sequence.' });
-        if (!selected.items.length) return JSON.stringify({ error: 'Select one or more video, graphic, or MOGRT clips.' });
+        var items = _composerVisualItems(selected.items);
+        if (!items.length) return JSON.stringify({ error: 'Select one or more video or image clips.' });
         var target = _composerAnchorTarget(mode);
         if (!target) return JSON.stringify({ error: 'Unknown anchor target.' });
         var frame = _composerFrameSize(selected.seq), changed = 0, skipped = 0, errors = [];
-        try { app.beginUndoGroup('Orbit - Set Anchor Point'); } catch (_) {}
-        for (var i = 0; i < selected.items.length; i++) {
-            var clip = selected.items[i];
+        for (var i = 0; i < items.length; i++) {
+            var clip = items[i], label = _composerClipLabel(clip, i);
             var anchor = _composerIntrinsicMotionProperty(clip, 'Anchor Point', 5);
             var position = _composerIntrinsicMotionProperty(clip, 'Position', 0);
             var rotation = _composerIntrinsicMotionProperty(clip, 'Rotation', 4);
             var scaleProp = _composerIntrinsicMotionProperty(clip, 'Scale', 1);
-            if (!anchor || !position) { skipped++; continue; }
+            if (!anchor || !position) { skipped++; errors.push(label + ': no Motion effect.'); continue; }
             try {
                 var scaleAnimated = false;
                 try { scaleAnimated = !!(scaleProp && scaleProp.isTimeVarying && scaleProp.isTimeVarying()); } catch (_) {}
-                if (scaleAnimated) { skipped++; errors.push('Clip ' + (i + 1) + ': Animated scale blocks anchor.'); continue; }
+                if (scaleAnimated) { skipped++; errors.push(label + ': Animated scale blocks anchor.'); continue; }
                 var positionAnimated = false;
                 try { positionAnimated = !!(position.isTimeVarying && position.isTimeVarying()); } catch (_) {}
-                if (positionAnimated) { skipped++; errors.push('Clip ' + (i + 1) + ': Animated Position blocks anchor edits.'); continue; }
+                if (positionAnimated) { skipped++; errors.push(label + ': Animated Position blocks anchor edits.'); continue; }
+                var size = _composerSourceSize(clip, frame, null);
+                if (size.estimated) { skipped++; errors.push(label + _COMPOSER_UNKNOWN_SIZE); continue; }
                 var oldAnchorRaw = anchor.getValue(), oldPositionRaw = position.getValue();
                 var oldAnchor = _composerNormalizedMotionPoint(oldAnchorRaw, 0.5, 0.5);
                 var oldPosition = _composerNormalizedMotionPoint(oldPositionRaw, 0.5, 0.5);
-                var size = _composerSourceSize(clip, frame, null);
                 var newAnchor = [target[0], target[1]];
                 var scale = _composerMotionScale(clip);
                 var angle = 0;
                 try { angle = Number(rotation && rotation.getValue()) || 0; } catch (_) {}
+                // Keep the picture still: Position moves by the anchor shift,
+                // scaled and rotated into sequence pixels.
                 var dx = (newAnchor[0] - oldAnchor[0]) * size.width * scale.x;
                 var dy = (newAnchor[1] - oldAnchor[1]) * size.height * scale.y;
                 var rad = angle * Math.PI / 180;
@@ -3723,53 +3763,70 @@ function composerSetAnchorPoint(mode) {
                 if (_composerWriteMotionValue(anchor, newAnchor, selected.seq) && _composerWriteMotionValue(position, nextPosition, selected.seq)) changed++;
                 else {
                     try { _composerWriteMotionValue(anchor, oldAnchorRaw, selected.seq); _composerWriteMotionValue(position, oldPositionRaw, selected.seq); } catch (_) {}
-                    skipped++; errors.push('Clip ' + (i + 1) + ' rejected the Anchor Point update.');
+                    skipped++; errors.push(label + ' rejected the Anchor Point update.');
                 }
-            } catch (itemError) { skipped++; errors.push('Clip ' + (i + 1) + ': ' + itemError.message); }
+            } catch (itemError) { skipped++; errors.push(label + ': ' + itemError.message); }
         }
-        try { app.endUndoGroup(); } catch (_) {}
         if (!changed && errors.length) return JSON.stringify({ error: errors[0], changed: 0, skipped: skipped, errors: errors });
         return JSON.stringify({ ok: true, changed: changed, skipped: skipped, errors: errors });
     } catch (e) {
-        try { app.endUndoGroup(); } catch (_) {}
         return JSON.stringify({ error: 'composerSetAnchorPoint: ' + e.message });
     }
 }
 
+// Where the anchor must sit, in sequence pixels, so the clip's bounds [min,max]
+// (measured from the anchor) meet the frame's start edge, centre or end edge.
+function _composerAlignAxis(t, min, max, frameLength) {
+    if (t === 0) return -min;
+    if (t === 1) return frameLength - max;
+    return frameLength / 2 - (min + max) / 2;
+}
+
+// Align moves the clip's visible edges, not its anchor. Position is where the
+// anchor sits, so writing the grid spot straight into Position put a default
+// clip's centre on the frame corner and left most of it off screen. The bounds
+// come from source size, pixel aspect, scale, anchor and rotation.
 function composerAlignSelection(mode) {
     try {
         var selected = _composerSelected();
         if (!selected.seq) return JSON.stringify({ error: 'No active sequence.' });
-        if (!selected.items.length) return JSON.stringify({ error: 'Select one or more video, graphic, or MOGRT clips.' });
-        var targets = {
-            'top-left': [0.05, 0.05], 'top-center': [0.50, 0.05], 'top-right': [0.95, 0.05],
-            'middle-left': [0.05, 0.50], 'center': [0.50, 0.50], 'middle-right': [0.95, 0.50],
-            'bottom-left': [0.05, 0.95], 'bottom-center': [0.50, 0.95], 'bottom-right': [0.95, 0.95]
-        };
-        var target = targets[String(mode || 'center')];
+        var items = _composerVisualItems(selected.items);
+        if (!items.length) return JSON.stringify({ error: 'Select one or more video or image clips.' });
+        var target = _composerAnchorTarget(mode);
         if (!target) return JSON.stringify({ error: 'Unknown alignment target.' });
-        var moved = 0, skipped = 0, errors = [];
-        try { app.beginUndoGroup('Orbit - Align in Frame'); } catch (_) {}
-        for (var i = 0; i < selected.items.length; i++) {
-            var prop = _composerMotionPositionProperty(selected.items[i]);
-            if (!prop) { skipped++; continue; }
+        var frame = _composerFrameSize(selected.seq);
+        var moved = 0, alreadyThere = 0, skipped = 0, errors = [];
+        for (var i = 0; i < items.length; i++) {
+            var clip = items[i], label = _composerClipLabel(clip, i);
+            var prop = _composerMotionPositionProperty(clip);
+            if (!prop) { skipped++; errors.push(label + ': no Motion effect.'); continue; }
             try {
                 var keyframed = false;
                 try { keyframed = !!(prop.isTimeVarying && prop.isTimeVarying()); } catch (_) {}
-                if (keyframed) { skipped++; errors.push('Clip ' + (i + 1) + ': keyframed Position blocks align.'); continue; }
-                var current = prop.getValue();
-                if (!current || current.length < 2) { skipped++; continue; }
-                // Premiere renders these normalized values as sequence pixels.
-                // Example: [.5,.5] appears as 540,960 in a 1080x1920 sequence.
-                if (_composerWriteMotionValue(prop, [target[0], target[1]], selected.seq)) moved++;
-                else { skipped++; errors.push('Clip ' + (i + 1) + ' rejected the Position update.'); }
-            } catch (eItem) { skipped++; errors.push('Clip ' + (i + 1) + ': ' + eItem.message); }
+                if (keyframed) { skipped++; errors.push(label + ': keyframed Position blocks align.'); continue; }
+                var size = _composerSourceSize(clip, frame, null);
+                if (size.estimated) { skipped++; errors.push(label + _COMPOSER_UNKNOWN_SIZE); continue; }
+                var current = _composerNormalizedMotionPoint(prop.getValue(), 0.5, 0.5);
+                var anchorProp = _composerIntrinsicMotionProperty(clip, 'Anchor Point', 5);
+                var anchor = [0.5, 0.5];
+                try { if (anchorProp) anchor = _composerNormalizedMotionPoint(anchorProp.getValue(), 0.5, 0.5); } catch (_) {}
+                var rotation = _composerIntrinsicMotionProperty(clip, 'Rotation', 4), angle = 0;
+                try { angle = Number(rotation && rotation.getValue()) || 0; } catch (_) {}
+                var bounds = _composerRotatedBounds(size, [anchor[0] * size.width, anchor[1] * size.height], _composerMotionScale(clip), angle);
+                var next = [
+                    _composerAlignAxis(target[0], bounds.minX, bounds.maxX, frame.width) / frame.width,
+                    _composerAlignAxis(target[1], bounds.minY, bounds.maxY, frame.height) / frame.height
+                ];
+                // A clip exactly the size of the frame is already flush with
+                // every edge; say so rather than implying something moved.
+                if (Math.abs(next[0] - current[0]) < 0.0005 && Math.abs(next[1] - current[1]) < 0.0005) { alreadyThere++; continue; }
+                if (_composerWriteMotionValue(prop, next, selected.seq)) moved++;
+                else { skipped++; errors.push(label + ' rejected the Position update.'); }
+            } catch (eItem) { skipped++; errors.push(label + ': ' + eItem.message); }
         }
-        try { app.endUndoGroup(); } catch (_) {}
-        if (!moved && errors.length) return JSON.stringify({ error: errors[0], moved: 0, skipped: skipped, errors: errors });
-        return JSON.stringify({ ok: true, moved: moved, skipped: skipped, errors: errors });
+        if (!moved && !alreadyThere && errors.length) return JSON.stringify({ error: errors[0], moved: 0, skipped: skipped, errors: errors });
+        return JSON.stringify({ ok: true, moved: moved, alreadyThere: alreadyThere, skipped: skipped, errors: errors });
     } catch (e) {
-        try { app.endUndoGroup(); } catch (_) {}
         return JSON.stringify({ error: 'composerAlignSelection: ' + e.message });
     }
 }
