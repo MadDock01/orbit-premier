@@ -1,0 +1,354 @@
+/* CompX Orbit — Step 2/5: navigation rail + responsive shell */
+
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 72px;
+  overflow: hidden;
+  background: var(--orbit-shell);
+}
+
+.orbit-shell-header {
+  position: relative;
+  z-index: 12;
+  top: auto;
+  right: auto;
+  left: auto;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(12, 15, 22, 0.96);
+  border-bottom: 1px solid var(--orbit-line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.orbit-header-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.orbit-header-copy span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--orbit-blue);
+  font: 700 8px/1 var(--mono);
+  letter-spacing: 0.13em;
+}
+
+.orbit-header-copy strong {
+  display: block;
+  overflow: hidden;
+  color: var(--orbit-text);
+  font-size: 13px;
+  font-weight: 720;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.orbit-host-status {
+  min-height: 30px;
+  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orbit-muted);
+  background: var(--orbit-panel);
+  border: 1px solid var(--orbit-line);
+  border-radius: 7px;
+  font: 700 8px var(--mono);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.orbit-host-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orbit-success);
+  box-shadow: 0 0 8px rgba(87, 215, 160, 0.45);
+}
+
+.app-tabs-row {
+  position: absolute !important;
+  z-index: 14 !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 72px;
+  min-height: 0 !important;
+  padding: 10px 7px !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px !important;
+  background: #090c12 !important;
+  border: 0 !important;
+  border-right: 1px solid var(--orbit-line) !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.orbit-brand {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 9px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: var(--orbit-blue);
+  background: var(--orbit-blue-soft);
+  border: 1px solid #2f679c;
+  border-radius: 10px;
+  font: 800 12px var(--mono);
+  letter-spacing: 0.02em;
+}
+
+.app-tabs-row .app-tab {
+  position: relative;
+  width: 100%;
+  min-height: 50px !important;
+  padding: 6px 3px !important;
+  flex: 0 0 50px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 8px;
+  overflow: visible;
+  letter-spacing: 0 !important;
+}
+
+.app-tabs-row .app-tab::before,
+.app-tabs-row .app-tab::after {
+  display: none !important;
+}
+
+.app-tabs-row .app-tab.active::before {
+  content: "";
+  position: absolute;
+  display: block !important;
+  top: 12px;
+  bottom: 12px;
+  left: -7px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--orbit-blue);
+}
+
+.orbit-tab-icon {
+  min-width: 21px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  color: currentColor;
+  font: 800 10px var(--mono);
+  line-height: 1;
+}
+
+.orbit-tab-label {
+  display: block;
+  max-width: 58px;
+  overflow: hidden;
+  color: currentColor;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: none;
+}
+
+.orbit-rail-version {
+  margin-top: auto;
+  padding: 7px 0 2px;
+  color: var(--orbit-faint);
+  font: 7px var(--mono);
+  text-align: center;
+}
+
+.app-panel {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-panel.active {
+  display: flex;
+}
+
+/* Keep overlays above the new shell. */
+.modal-backdrop {
+  z-index: 1000 !important;
+}
+
+.toast {
+  z-index: 1100 !important;
+}
+
+/* Medium dock: preserve the rail while reclaiming a little width. */
+@media (max-width: 720px) {
+  #app {
+    padding-left: 62px;
+  }
+
+  .orbit-shell-header {
+    left: 62px;
+  }
+
+  .app-tabs-row {
+    width: 62px;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+  }
+
+  .app-tabs-row .app-tab.active::before {
+    left: -5px;
+  }
+
+  .orbit-tab-label {
+    font-size: 7.5px;
+  }
+}
+
+/* Narrow Adobe dock: navigation becomes a fixed bottom module bar. */
+@media (max-width: 440px) {
+  #app {
+    padding: 52px 0 60px;
+  }
+
+  .orbit-shell-header {
+    right: 0;
+    left: 0;
+    height: 52px;
+    padding: 0 11px;
+  }
+
+  .orbit-header-copy span {
+    font-size: 7px;
+  }
+
+  .orbit-header-copy strong {
+    font-size: 12px;
+  }
+
+  .orbit-host-status {
+    min-height: 27px;
+    padding: 0 7px;
+    font-size: 7px;
+  }
+
+  .app-tabs-row {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: 60px;
+    padding: 5px 4px 7px !important;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2px !important;
+    border-top: 1px solid var(--orbit-line) !important;
+    border-right: 0 !important;
+  }
+
+  .orbit-brand,
+  .orbit-rail-version {
+    display: none;
+  }
+
+  .app-tabs-row .app-tab {
+    width: auto;
+    min-width: 0;
+    min-height: 46px !important;
+    height: 46px;
+    padding: 4px 1px !important;
+    flex: 1 1 0 !important;
+    gap: 3px;
+  }
+
+  .app-tabs-row .app-tab.active::before {
+    top: auto;
+    right: 14px;
+    bottom: -7px;
+    left: 14px;
+    width: auto;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .orbit-tab-icon {
+    height: 16px;
+    font-size: 9px;
+  }
+
+  .orbit-tab-label {
+    max-width: 100%;
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 340px) {
+  .orbit-host-status span {
+    display: none;
+  }
+
+  .orbit-host-status {
+    width: 28px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .orbit-tab-label {
+    display: none;
+  }
+}
+
+/* Responsive content guardrails for the narrow Orbit dock. */
+@media (max-width: 440px) {
+  #panel-tools .tools-primary-row,
+  #panel-tools .tools-workflow-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 7px !important;
+  }
+
+  #panel-tools .tools-primary-row > .tool-section,
+  #panel-tools .tools-workflow-row > .tool-section {
+    grid-column: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  #panel-tools .tool-section-title,
+  #panel-tools .tool-section-head .tool-section-title {
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+  }
+
+  #panel-tools .tool-btn,
+  #panel-tools .btn {
+    min-width: 0 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

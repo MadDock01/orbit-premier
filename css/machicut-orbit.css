@@ -1,0 +1,373 @@
+/* ==========================================================================
+   CompX Orbit Studio — MachiCut Features Integration Theme (Green Minimal)
+   ========================================================================== */
+
+:root {
+  --pp-bg: #070a08;
+  --pp-panel: #0d120f;
+  --pp-raised: #121a15;
+  --pp-line: #203229;
+  --pp-line2: #315640;
+  --pp-green: #45c66d;
+  --pp-green-glow: rgba(69, 198, 109, 0.25);
+  --pp-text: #eef5f0;
+  --pp-muted: #91a59a;
+
+  /* MachiCut Variable Mappings */
+  --bg-base: #070a08;
+  --bg-surface: #0d120f;
+  --bg-raised: #121a15;
+  --bg-overlay: #151e18;
+  --bg-hover: #1a271f;
+  --bg-input: #080c0a;
+  --bg-modal: #0d120f;
+
+  --border: rgba(69, 198, 109, 0.15);
+  --border-mid: rgba(69, 198, 109, 0.25);
+  --border-hi: rgba(69, 198, 109, 0.4);
+
+  --text-1: #eef5f0;
+  --text-2: #c8d3cb;
+  --text-3: #91a59a;
+
+  --accent: #45c66d;
+  --accent-hover: #58db81;
+  --accent-active: #36a658;
+  --accent-sub: rgba(69, 198, 109, 0.12);
+  --accent-bdr: rgba(69, 198, 109, 0.3);
+  --accent-faint: rgba(69, 198, 109, 0.18);
+  --accent-glow: rgba(69, 198, 109, 0.45);
+
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  --focus-ring: 0 0 0 2px rgba(69, 198, 109, 0.35);
+  --r: 6px;
+  --r-sm: 4px;
+  --r-lg: 8px;
+  --t: 0.15s ease;
+}
+
+/* Shelf row with 5 buttons */
+#panel-sfx .asset-type-row {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 4px !important;
+}
+
+/* Views display controls */
+.orbit-view-panel {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  background: var(--pp-bg);
+  padding: 10px;
+  box-sizing: border-box;
+}
+.orbit-view-panel.active {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Accordions */
+.m4-accord {
+  border: 1px solid var(--pp-line);
+  border-radius: 8px;
+  background: var(--pp-panel);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.m4-accord-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--pp-text);
+  background: var(--pp-raised);
+}
+.m4-accord-hdr::-webkit-details-marker { display: none; }
+.m4-accord-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.m4-accord-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--pp-green);
+}
+.m4-accord-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Form Controls */
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  color: var(--pp-muted);
+}
+.form-row label {
+  width: 70px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--pp-muted);
+}
+.form-row input[type="range"] {
+  flex: 1;
+  accent-color: var(--pp-green);
+}
+.form-row input[type="text"], .form-row input[type="number"], .form-row select {
+  flex: 1;
+  min-width: 0;
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--pp-line);
+  border-radius: 5px;
+  background: var(--pp-bg);
+  color: var(--pp-text);
+  font-size: 9px;
+}
+.slider-val {
+  min-width: 35px;
+  text-align: right;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--pp-green);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--t);
+  border: 1px solid var(--pp-line);
+  background: var(--pp-raised);
+  color: var(--pp-text);
+}
+.btn:hover {
+  border-color: var(--pp-green);
+  color: #fff;
+  box-shadow: 0 0 8px var(--pp-green-glow);
+}
+.btn.btn-primary, .btn.primary {
+  background: #102a19;
+  border-color: #36764b;
+  color: #78e397;
+}
+.btn.btn-primary:hover, .btn.primary:hover {
+  background: #153922;
+  border-color: var(--pp-green);
+  color: #eaffef;
+}
+.btn.btn-danger, .btn.danger {
+  background: #2a1012;
+  border-color: #76363c;
+  color: #eb969c;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--pp-line) !important;
+  box-shadow: none !important;
+}
+
+/* Waveform Canvas */
+.sc-waveform-wrap {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: #050806;
+  border: 1px solid var(--pp-line);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+.sc-waveform-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sc-waveform-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--pp-muted);
+  pointer-events: none;
+}
+
+/* Track Chips */
+.sc-detect-chips, .sc-cut-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+}
+.track-chip {
+  padding: 3px 8px;
+  border: 1px solid var(--pp-line);
+  border-radius: 4px;
+  background: var(--pp-bg);
+  color: var(--pp-muted);
+  font-size: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.track-chip.active {
+  border-color: var(--pp-green);
+  background: #102a19;
+  color: var(--pp-green);
+}
+
+/* Captions Preview & Editor */
+.captions-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid var(--pp-line);
+  border-radius: 6px;
+  background: var(--pp-bg);
+}
+.caption-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border: 1px solid var(--pp-line);
+  border-radius: 4px;
+  background: var(--pp-panel);
+  font-size: 9px;
+  color: var(--pp-text);
+}
+.caption-time {
+  font-family: monospace;
+  font-size: 8px;
+  color: var(--pp-muted);
+}
+.caption-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Modal and Popups */
+.gen-popup, .edit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(5, 8, 6, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.gen-popup.hidden, .edit-popup.hidden {
+  display: none !important;
+}
+.gen-popup-card, .edit-popup-card {
+  width: 100%;
+  max-width: 380px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--pp-panel);
+  border: 1px solid var(--pp-line);
+  border-radius: 10px;
+  padding: 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+.gen-popup-header, .edit-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pp-text);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--pp-line);
+}
+
+/* Stepper Controls */
+.postgen-stepper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--pp-bg);
+  border: 1px solid var(--pp-line);
+  border-radius: 5px;
+  padding: 2px;
+}
+.postgen-step-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pp-raised);
+  border: 1px solid var(--pp-line);
+  border-radius: 3px;
+  color: var(--pp-text);
+  cursor: pointer;
+  font-size: 10px;
+}
+.postgen-step-val {
+  min-width: 24px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--pp-green);
+}
+
+/* 3D Carousel Stage */
+.mc3d-picker, .mc3d-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mc3d-presets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.mc3d-card {
+  padding: 8px;
+  border: 1px solid var(--pp-line);
+  border-radius: 6px;
+  background: var(--pp-raised);
+  cursor: pointer;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--pp-text);
+}
+.mc3d-card:hover {
+  border-color: var(--pp-green);
+  box-shadow: 0 0 8px var(--pp-green-glow);
+}

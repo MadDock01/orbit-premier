@@ -1,0 +1,321 @@
+/* User feedback revision: reclaim preview space in narrow Adobe panels. */
+#panel-tools .tools-scroll{gap:7px;padding:8px!important}
+#panel-sfx .orbit-library-header{display:none!important}
+#panel-sfx .asset-type-row{min-height:34px;height:34px;padding:3px 5px;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px}
+#panel-sfx .shelf{min-height:27px;height:27px;padding:0 2px;display:flex;flex-direction:row;gap:0;border-radius:5px}
+#panel-sfx .shelf b{display:none!important}#panel-sfx .shelf span{display:block!important;margin:0;color:currentColor;font:700 7px/1 var(--sans);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#sfxMogrtView{padding:5px;gap:4px}#sfxMogrtView>.search-row input{min-height:30px;height:30px;padding:0 8px!important}
+#sfxMogrtView>.actions-row{min-height:30px;display:flex;align-items:center;gap:4px;flex-wrap:nowrap;overflow:hidden}
+#sfxMogrtView .compact-icon-btn{width:30px!important;min-width:30px!important;height:28px!important;min-height:28px!important;padding:0!important;display:grid!important;place-items:center;font:800 11px var(--mono)!important;border-radius:5px!important}
+#sfxMogrtView .card-size-row{min-width:70px;margin-left:auto;gap:3px}#sfxMogrtView #cardSizeSlider{min-width:50px}
+#sfxMogrtView>.library-data-row{min-height:32px;max-height:32px!important;padding:2px 4px;display:flex;align-items:center;gap:3px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;background:transparent;border-radius:6px}
+#sfxMogrtView>.library-data-row .compact-icon-btn{width:28px!important;min-width:28px!important;height:27px!important;min-height:27px!important;font-size:10px!important}
+#sfxMogrtView>.library-data-row .library-data-status{display:none!important}
+#sfxMogrtView>.tabs-row{min-height:30px;height:30px;padding:2px}#sfxMogrtView .tab{min-height:24px;height:24px;padding:3px 5px;font-size:7.5px}
+#sfxMogrtView .toolbar{min-height:32px;height:32px;padding:3px 5px}
+#sfxMogrtView .transport{padding:5px;border-radius:7px}#sfxMogrtView .now-playing{font-size:8px}#sfxMogrtView #playHint{margin-bottom:3px!important;font-size:7.5px}#sfxMogrtView .insert-row .btn{min-height:28px;height:28px;padding:4px 7px;font-size:8px}
+@media(max-width:440px){
+ #app{padding-bottom:44px}
+ .app-tabs-row{height:44px;padding:3px 4px 4px!important}
+ .app-tabs-row .app-tab{min-height:36px!important;height:36px;padding:3px 1px!important;gap:0}
+ .app-tabs-row .app-tab.active::before{bottom:-4px}
+ .orbit-tab-icon{height:16px;font-size:8px}.orbit-tab-label{display:none!important}
+ #panel-sfx .asset-type-row{min-height:32px;height:32px;padding:2px 4px}
+ #panel-sfx .shelf{min-height:27px;height:27px}
+ #panel-sfx .shelf span{font-size:6.5px}
+ #sfxMogrtView{padding:4px;gap:3px}
+ #sfxMogrtView>.actions-row{min-height:28px;height:28px}
+ #sfxMogrtView .compact-icon-btn{width:27px!important;min-width:27px!important;height:26px!important;min-height:26px!important}
+ #sfxMogrtView .card-size-row{min-width:58px}.card-size-icon{display:none!important}
+ #sfxMogrtView>.library-data-row{min-height:29px;max-height:29px!important;padding:1px 2px}
+ #sfxMogrtView>.library-data-row .compact-icon-btn{width:26px!important;min-width:26px!important;height:25px!important;min-height:25px!important}
+ #sfxMogrtView>.tabs-row{height:28px;min-height:28px}#sfxMogrtView .tab{height:22px;min-height:22px;font-size:7px}
+ #sfxMogrtView .transport{padding:4px}#sfxMogrtView #playHint{display:none}
+}
+
+@media(max-width:360px){#btnExplodeTextPro{font-size:7px!important;letter-spacing:0!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+
+/* Ultra-compact library revision: maximize usable preview area. */
+#sfxMogrtView{gap:3px!important;padding:4px!important}
+#sfxMogrtView .library-filter-strip{display:flex;align-items:center;gap:4px;min-height:28px;flex:0 0 auto}
+#sfxMogrtView .library-filter-strip .search-row{flex:1 1 42%;min-width:90px;margin:0}
+#sfxMogrtView .library-filter-strip #search{width:100%;height:27px!important;min-height:27px!important;padding:0 7px!important;border-radius:5px!important;font-size:8px!important}
+#sfxMogrtView .library-filter-strip .tabs-row{flex:1 1 58%;height:27px!important;min-height:27px!important;margin:0!important;padding:2px!important;gap:1px!important;display:flex;overflow:hidden}
+#sfxMogrtView .library-filter-strip .tab{height:21px!important;min-height:21px!important;padding:1px 2px!important;font-size:6.5px!important;white-space:nowrap}
+#sfxMogrtView .library-action-strip{display:flex;align-items:center;gap:2px;min-height:27px;flex:0 0 auto;overflow:visible}
+#sfxMogrtView .library-action-strip .actions-row,#sfxMogrtView .library-action-strip .library-data-row{display:flex;align-items:center;gap:2px;margin:0!important;padding:0!important;min-height:27px!important;height:27px!important;max-height:27px!important;flex:0 0 auto;overflow:visible;background:transparent!important;border:0!important}
+#sfxMogrtView .library-action-strip .compact-icon-btn{width:24px!important;min-width:24px!important;height:24px!important;min-height:24px!important;padding:0!important;border-radius:4px!important;font-size:9px!important}
+#sfxMogrtView .library-action-strip .library-data-status{display:none!important}#sfxMogrtView .library-action-strip .card-size-row{display:flex!important;min-width:64px;margin-left:auto}
+#sfxMogrtView .main-layout{border-radius:7px!important}
+#sfxMogrtView .sidebar{width:92px!important;min-width:92px!important;display:flex!important;transition:width .16s ease,min-width .16s ease!important}
+#sfxMogrtView .sidebar.collapsed{width:0!important;min-width:0!important;border-right:0!important}
+#sfxMogrtView .sidebar-header{min-height:29px!important;height:29px!important;padding:3px 5px!important}
+#sfxMogrtView .sidebar-header .title{font-size:9.5px!important;font-weight:800!important;color:var(--text,#e8efff)!important;letter-spacing:.05em!important}
+#sfxMogrtView .folder-row{min-height:22px!important;padding-top:2px!important;padding-bottom:2px!important;font-size:9px!important;font-weight:700!important;color:var(--text,#e8efff)!important}
+#sfxMogrtView .folder-row.active{color:var(--amber,#f5a623)!important;font-weight:800!important}
+#sfxMogrtView .toolbar{min-height:29px!important;height:29px!important;padding:2px 4px!important}
+#sfxMogrtView .btn-collapse{width:27px!important;min-width:27px!important;height:24px!important;min-height:24px!important;padding:0!important}
+#sfxMogrtView .breadcrumb{font-size:7px!important}
+#sfxMogrtView .select-control{height:24px!important;min-height:24px!important;max-width:96px!important;padding:2px 18px 2px 5px!important;font-size:7px!important}
+#sfxMogrtView .library.grid{grid-template-columns:repeat(auto-fill,minmax(var(--card-min-w,105px),1fr))!important;gap:4px!important;padding:4px!important}
+#sfxMogrtView .sfx-card{border-radius:6px!important}
+#sfxMogrtView .sfx-card .waveform-area{height:56px!important;min-height:56px!important}
+#sfxMogrtView .sfx-card .meta-area{padding:4px 5px 3px!important;min-height:28px!important}
+#sfxMogrtView .sfx-card .meta-title{font-size:8px!important}
+#sfxMogrtView .sfx-card .meta-sub{display:none!important}
+#sfxMogrtView .sfx-card .actions-area{gap:3px!important;padding:0 4px 4px!important}
+#sfxMogrtView .sfx-card .actions-area button{height:22px!important;min-height:22px!important;padding:2px!important;font-size:6.5px!important}
+#sfxMogrtView .transport{min-height:35px!important;height:35px!important;padding:3px 4px!important;border-radius:6px!important;overflow:visible!important}
+#sfxMogrtView .transport .now-playing,#sfxMogrtView .transport #playHint,#sfxMogrtView .transport #hostHint,#sfxMogrtView .transport #tagEditorRow{display:none!important}
+#sfxMogrtView .transport .insert-row{height:27px!important;min-height:27px!important;gap:3px!important}
+#sfxMogrtView .transport .insert-row .btn{height:25px!important;min-height:25px!important;padding:2px 5px!important;font-size:7px!important}
+#sfxMogrtView .transport #btnMixer{width:27px!important;min-width:27px!important;padding:0!important}
+#sfxMogrtView .transport #btnFavorite{max-width:82px!important}
+#textAnimView .tanim-section,#shakeView .preview-library-shell,#expressionView .preview-library-shell{margin:4px!important;padding:6px!important;border-radius:7px!important}
+#textAnimView .tool-section-head,#shakeView .tool-section-head,#expressionView .tool-section-head{min-height:24px!important;margin-bottom:3px!important}
+#textAnimView .tanim-apply-hint,#shakeView .hint,#expressionView .hint{display:none!important}
+#textAnimView .tanim-toolbar-row{margin:0 0 4px!important}
+#textAnimView #tanimSearch{height:27px!important;min-height:27px!important;font-size:8px!important}
+#textAnimView .tanim-card-grid,#shakeView .motion-card-grid,#expressionView .motion-card-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))!important;gap:4px!important;padding:0!important}
+#textAnimView .tanim-card,#shakeView .fxlib-card,#expressionView .fxlib-card{min-height:116px!important;border-radius:6px!important}
+#textAnimView .tanim-card-preview,#shakeView .fxlib-thumb,#expressionView .fxlib-thumb{height:55px!important;min-height:55px!important}
+#textAnimView .tanim-card-meta,#shakeView .fxlib-cardmeta,#expressionView .fxlib-cardmeta{min-height:32px!important;padding:4px!important;gap:1px!important}
+#textAnimView .tanim-card-title,#shakeView .fxlib-cardmeta strong,#expressionView .fxlib-cardmeta strong{font-size:8px!important}
+#textAnimView .tanim-card-sub,#shakeView .fxlib-cardmeta span,#expressionView .fxlib-cardmeta span{font-size:6.5px!important;-webkit-line-clamp:1!important}
+#textAnimView .tanim-card-actions{padding:0 4px 4px!important}
+#textAnimView .tanim-card-btn,#shakeView .fxlib-apply,#expressionView .fxlib-apply{height:23px!important;min-height:23px!important;margin:0 4px 4px!important;padding:2px!important;font-size:6.5px!important}
+@media(max-width:440px){
+ #sfxMogrtView .sidebar{width:82px!important;min-width:82px!important}
+ #sfxMogrtView .sidebar.collapsed{width:0!important;min-width:0!important}
+ #sfxMogrtView .library.grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))!important}
+ #textAnimView .tanim-card-grid,#shakeView .motion-card-grid,#expressionView .motion-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+/* Final containment fixes after narrow-panel QA. */
+#panel-sfx{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important}
+#panel-sfx>.asset-type-row{flex:0 0 32px!important;box-sizing:border-box!important}
+#panel-sfx>#sfxMogrtView{flex:1 1 0!important;height:auto!important;min-height:0!important;max-height:calc(100% - 32px)!important;overflow:hidden!important;box-sizing:border-box!important}
+#sfxMogrtView .sidebar.collapsed .sidebar-header,#sfxMogrtView .sidebar.collapsed .folder-tree{display:none!important}
+#expressionView .fxlib-thumb{height:72px!important;min-height:72px!important}
+#expressionView .fxlib-card{min-height:132px!important}
+
+#panel-sfx>#sfxMogrtView{max-height:calc(100% - 34px)!important}
+
+#sfxMogrtView .transport{height:33px!important;min-height:33px!important}
+
+/* Keep the Library isolated: only render it when its app tab is active. */
+#panel-sfx{display:none!important}
+#panel-sfx.active{display:flex!important}
+
+/* SFX/MOGRT dock: only two stable icons, no Insert/Favorite actions. */
+#sfxMogrtView>.transport{flex:0 0 44px!important;height:44px!important;min-height:44px!important;padding:4px 6px!important}
+#sfxMogrtView>.transport .insert-row{height:34px!important;min-height:34px!important;justify-content:flex-start!important}
+#sfxMogrtView>.transport #btnFavorite,#sfxMogrtView>.transport #btnInsert{display:none!important}
+#sfxMogrtView>.transport .mixer-wrap{display:flex!important;align-items:center!important;gap:5px!important;flex:0 0 auto!important}
+#sfxMogrtView>.transport .mixer-toggle{display:grid!important;place-items:center!important;flex:0 0 34px!important;width:34px!important;min-width:34px!important;height:32px!important;min-height:32px!important;padding:0!important;color:var(--orbit-blue)!important;background:var(--orbit-blue-soft)!important;border-color:#356b9e!important;font-size:13px!important}
+#sfxMogrtView>.transport .mixer-toggle.active{color:#0c1828!important;background:var(--orbit-blue)!important}
+#sfxMogrtView>.transport .mixer-popover{left:0!important;bottom:38px!important;top:auto!important;min-width:180px!important;padding:8px!important;background:var(--orbit-panel)!important;border:1px solid var(--orbit-line-strong)!important;border-radius:7px!important;box-shadow:0 12px 30px rgba(0,0,0,.6)!important}
+#sfxMogrtView>.transport .slider-block{margin:0 0 7px!important}
+#sfxMogrtView>.transport .slider-block:last-child{margin-bottom:0!important}
+
+/* Volume + Pitch mixer relocated into the data-row dock (beside Copy Diagnostics) */
+#sfxMogrtView .library-data-row .mixer-wrap{position:relative;display:flex;align-items:center;gap:2px;flex:0 0 auto;margin-left:2px}
+#sfxMogrtView .library-data-row .mixer-toggle{width:28px!important;min-width:28px!important;height:27px!important;min-height:27px!important;padding:0!important;display:grid!important;place-items:center;color:var(--orbit-blue)!important;background:var(--orbit-blue-soft)!important;border:1px solid #356b9e!important;border-radius:5px!important;font-size:12px!important}
+#sfxMogrtView .library-data-row .mixer-toggle.active{color:#0c1828!important;background:var(--orbit-blue)!important}
+#sfxMogrtView .library-data-row .mixer-popover{position:absolute;top:32px;right:0;left:auto;bottom:auto;z-index:70;min-width:190px;width:210px;padding:9px 11px;background:var(--orbit-panel);border:1px solid var(--orbit-line-strong);border-radius:7px;box-shadow:0 12px 30px rgba(0,0,0,.6)}
+#sfxMogrtView .library-data-row .mixer-popover .slider-block{margin-bottom:10px}
+#sfxMogrtView .library-data-row .mixer-popover .slider-block:last-child{margin-bottom:0}
+#sfxMogrtView .library-filter-strip .controls-group{flex:0 0 auto;display:flex;align-items:center}
+
+/* Card-size slider pinned to far right of the library action strip */
+#sfxMogrtView>.library-action-strip>.card-size-row{margin-left:auto!important;margin-right:0!important;flex:0 0 auto!important;min-width:76px}
+
+/* === CompX: consistent bottom dock across library sub-tabs (match MOGRT .transport = 44px). SFX/MOGRT untouched. === */
+#panel-sfx>#textAnimView:not([style*="none"]),
+#panel-sfx>#shakeView:not([style*="none"]),
+#panel-sfx>#expressionView:not([style*="none"]),
+#panel-sfx>#ffxPresetView:not([style*="none"]){
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  padding-bottom:0!important;
+  box-sizing:border-box!important;
+}
+#panel-sfx>#textAnimView>.tanim-section,
+#panel-sfx>#shakeView>.preview-library-shell,
+#panel-sfx>#expressionView>.preview-library-shell,
+#panel-sfx>#ffxPresetView>.tool-section{
+  flex:1 1 0!important;
+  min-height:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  margin:4px 4px 3px!important;
+  box-sizing:border-box!important;
+}
+#panel-sfx>#textAnimView::after,
+#panel-sfx>#shakeView::after,
+#panel-sfx>#expressionView::after,
+#panel-sfx>#ffxPresetView::after{
+  content:"";
+  display:block!important;
+  flex:0 0 44px!important;
+  height:44px!important;
+  min-height:44px!important;
+  margin:0 4px 4px!important;
+  background:var(--orbit-panel)!important;
+  border:1px solid var(--orbit-line)!important;
+  border-radius:7px!important;
+  box-sizing:border-box!important;
+}
+
+/* === CompX: text-animation library card motion previews (looping, driven by .tanim-fx-* category) === */
+#textAnimView .tanim-card-word .tanim-pchar{animation-duration:1.5s!important;animation-iteration-count:infinite!important;animation-timing-function:cubic-bezier(.22,.68,.32,1)!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(1){animation-delay:0s!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(2){animation-delay:.08s!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(3){animation-delay:.16s!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(4){animation-delay:.24s!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(5){animation-delay:.32s!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(6){animation-delay:.40s!important}
+#textAnimView .tanim-card-word .tanim-pchar:nth-child(7){animation-delay:.48s!important}
+#textAnimView .tanim-fx-up .tanim-pchar{opacity:0;animation-name:fxUp}
+#textAnimView .tanim-fx-down .tanim-pchar{opacity:0;animation-name:fxDown}
+#textAnimView .tanim-fx-left .tanim-pchar{opacity:0;animation-name:fxLeft}
+#textAnimView .tanim-fx-right .tanim-pchar{opacity:0;animation-name:fxRight}
+#textAnimView .tanim-fx-pop .tanim-pchar{opacity:0;animation-name:fxPop}
+#textAnimView .tanim-fx-bounce .tanim-pchar{opacity:0;animation-name:fxBounce}
+#textAnimView .tanim-fx-fade .tanim-pchar{opacity:0;animation-name:fxFade}
+#textAnimView .tanim-fx-blink .tanim-pchar{animation-name:fxBlink}
+#textAnimView .tanim-fx-blur .tanim-pchar{opacity:0;animation-name:fxBlur}
+#textAnimView .tanim-fx-rainbow .tanim-pchar{animation-name:fxRainbow;animation-timing-function:linear!important}
+@keyframes fxUp{0%{opacity:0;transform:translateY(14px)}30%,80%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px)}}
+@keyframes fxDown{0%{opacity:0;transform:translateY(-14px)}30%,80%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(6px)}}
+@keyframes fxLeft{0%{opacity:0;transform:translateX(18px)}30%,80%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(-8px)}}
+@keyframes fxRight{0%{opacity:0;transform:translateX(-18px)}30%,80%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(8px)}}
+@keyframes fxPop{0%{opacity:0;transform:scale(.2)}45%{opacity:1;transform:scale(1.12)}60%,85%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.85)}}
+@keyframes fxBounce{0%{opacity:0;transform:translateY(-12px) scale(.7)}40%{opacity:1;transform:translateY(3px) scale(1.15)}55%{transform:translateY(0) scale(.95)}70%,85%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0}}
+@keyframes fxFade{0%{opacity:0}35%,80%{opacity:1}100%{opacity:0}}
+@keyframes fxBlink{0%,18%{opacity:0}20%,26%{opacity:1}30%,40%{opacity:.15}44%,82%{opacity:1}100%{opacity:0}}
+@keyframes fxBlur{0%{opacity:0;filter:blur(6px);transform:translateY(8px)}35%,80%{opacity:1;filter:blur(0);transform:translateY(0)}100%{opacity:0;filter:blur(5px)}}
+@keyframes fxRainbow{0%{color:#ff5c5c}20%{color:#ffd24d}40%{color:#5cff8f}60%{color:#4dd2ff}80%{color:#b07bff}100%{color:#ff5c5c}}
+
+/* Hover-to-play text preset previews: keep a readable idle frame, then replay motion on card hover. */
+#textAnimView .tanim-card:not(:hover) .tanim-pchar{animation-name:none!important;opacity:1;transform:none;filter:none;color:#fff2cc}
+#textAnimView .tanim-card:hover .tanim-fx-up .tanim-pchar{opacity:0;animation-name:fxUp!important}
+#textAnimView .tanim-card:hover .tanim-fx-down .tanim-pchar{opacity:0;animation-name:fxDown!important}
+#textAnimView .tanim-card:hover .tanim-fx-left .tanim-pchar{opacity:0;animation-name:fxLeft!important}
+#textAnimView .tanim-card:hover .tanim-fx-right .tanim-pchar{opacity:0;animation-name:fxRight!important}
+#textAnimView .tanim-card:hover .tanim-fx-pop .tanim-pchar{opacity:0;animation-name:fxPop!important}
+#textAnimView .tanim-card:hover .tanim-fx-bounce .tanim-pchar{opacity:0;animation-name:fxBounce!important}
+#textAnimView .tanim-card:hover .tanim-fx-fade .tanim-pchar{opacity:0;animation-name:fxFade!important}
+#textAnimView .tanim-card:hover .tanim-fx-blink .tanim-pchar{animation-name:fxBlink!important}
+#textAnimView .tanim-card:hover .tanim-fx-blur .tanim-pchar{opacity:0;animation-name:fxBlur!important}
+#textAnimView .tanim-card:hover .tanim-fx-rainbow .tanim-pchar{animation-name:fxRainbow!important}
+
+/* === EXP resize safety: keep controls visible; scroll only the preset cards inside the available panel height. === */
+#panel-sfx>#expressionView>.preview-library-shell{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important;padding-bottom:6px!important}
+#expressionView .tool-section-head,#expressionView .fxlib-cattabs,#expressionView .fxlib-search{flex:0 0 auto!important;flex-shrink:0!important}
+#expressionView #expressionList.motion-card-grid{flex:1 1 0!important;min-height:0!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain!important;align-content:start!important;padding:1px 1px 9px!important;box-sizing:border-box!important}
+#expressionView #expressionList .fxlib-card{flex-shrink:0!important}
+
+/* CompX native 3D Motion Showcase */
+#panel-advanced .cx-showcase-card{position:relative;overflow:hidden!important;background:linear-gradient(145deg,rgba(13,20,39,.98),rgba(7,11,24,.98))!important}
+.cx-showcase-hero{display:flex;align-items:center;gap:8px;margin:2px 0 8px;padding:7px;border:1px solid rgba(101,168,255,.16);border-radius:7px;background:linear-gradient(90deg,rgba(126,94,255,.12),transparent)}
+.cx-showcase-hero strong{font-size:10px;letter-spacing:.12em}.cx-showcase-hero span{display:block;margin-top:2px;color:var(--text-faint);font-size:7px;letter-spacing:.06em}.cx-showcase-orbit{width:30px;height:20px;border:1px solid #a978ff;border-radius:50%;box-shadow:0 0 13px rgba(169,120,255,.32);position:relative}.cx-showcase-orbit:after{content:"";position:absolute;width:6px;height:6px;left:11px;top:6px;border-radius:50%;background:#65a8ff;box-shadow:0 0 8px #65a8ff}
+.cx-showcase-templates{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:7px}.cx-showcase-templates button,.cx-showcase-actions button{min-height:25px;border:1px solid rgba(143,160,201,.16);border-radius:5px;background:rgba(14,22,43,.78);color:var(--text-dim);font-size:7px;font-weight:800;letter-spacing:.04em}.cx-showcase-templates button.active,.cx-showcase-templates button:hover,.cx-showcase-actions button:hover{color:#d8c6ff;border-color:#a978ff;background:rgba(169,120,255,.12)}
+.cx-showcase-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.cx-showcase-controls label{font-size:7px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.04em}.cx-showcase-controls input[type=range]{display:block;width:100%;height:3px;margin-top:4px;accent-color:#a978ff}.cx-showcase-toggles{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:7px}.cx-showcase-toggles label{padding:5px;border:1px solid rgba(143,160,201,.12);border-radius:5px;color:var(--text-dim);font-size:7px}.cx-showcase-toggles input{margin:0 4px 0 0;accent-color:#a978ff}.cx-showcase-actions{display:grid;grid-template-columns:1.45fr 1fr 28px;gap:4px;margin-top:7px}.cx-showcase-actions .primary{color:#140b23;background:#a978ff;border-color:#c6a8ff}.cx-showcase-actions .render{font-size:12px}
+
+/* TEXT dock cleanup: do not stretch the bordered text shell into an empty black box. Keep only the dock pinned at panel bottom. */
+#panel-sfx>#textAnimView>.tanim-section{flex:0 1 auto!important;max-height:calc(100% - 51px)!important;min-height:0!important;overflow-y:auto!important}
+#panel-sfx>#textAnimView::after{margin-top:auto!important}
+#panel-sfx>#textAnimView{align-self:stretch!important;width:100%!important}
+#panel-sfx>#textAnimView::after{align-self:stretch!important;width:auto!important}
+
+/* === CompX Orbit Studio brand lockup === */
+.orbit-shell-header{gap:10px!important;background:linear-gradient(100deg,#0b0f14 0%,#10181a 54%,#0b0f14 100%)!important;border-bottom-color:rgba(69,190,102,.28)!important}
+.orbit-shell-header::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent 0%,#44bf68 24%,rgba(255,255,255,.52) 48%,#44bf68 72%,transparent 100%);opacity:.8;pointer-events:none}
+.orbit-header-logo{width:39px;height:31px;flex:0 0 39px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:7px;background:linear-gradient(135deg,rgba(66,190,102,.2),rgba(255,255,255,.035));border:1px solid rgba(68,191,104,.32);box-shadow:0 0 15px rgba(68,191,104,.11)}
+.orbit-header-logo img{display:block;width:48px;height:auto;max-width:none;filter:drop-shadow(0 2px 5px rgba(0,0,0,.45))}
+.orbit-header-copy{position:relative;padding-left:1px!important}
+.orbit-header-copy span{margin-bottom:2px!important;color:#52cf79!important;font-size:7px!important;font-weight:800!important;letter-spacing:.18em!important}
+.orbit-header-copy strong{font-size:14px!important;font-weight:800!important;letter-spacing:-.015em!important;color:#f4f7f5!important}
+.orbit-header-copy em{display:block;margin-top:1px;color:#91a59a;font:600 7px/1.1 var(--mono);letter-spacing:.11em;text-transform:uppercase;font-style:normal}
+.orbit-host-status{position:relative;border-color:rgba(68,191,104,.28)!important;background:rgba(21,42,29,.55)!important;color:#c4d8ca!important}
+.orbit-host-status i{background:#4bd474!important;box-shadow:0 0 9px rgba(75,212,116,.75)!important}
+.orbit-brand{overflow:hidden!important;padding:0!important;background:linear-gradient(145deg,#13251a,#0d1410)!important;border-color:rgba(68,191,104,.52)!important;box-shadow:0 0 16px rgba(68,191,104,.11)!important}
+.orbit-brand img{display:block;width:50px;height:auto;max-width:none;filter:drop-shadow(0 2px 5px rgba(0,0,0,.45))}
+@media(max-width:440px){.orbit-header-logo{width:33px;height:27px;flex-basis:33px}.orbit-header-logo img{width:42px}.orbit-header-copy strong{font-size:12px!important}.orbit-header-copy em{font-size:6px}.orbit-header-copy span{font-size:6px!important;letter-spacing:.14em!important}}
+
+
+/* Expression is the sizing reference: rows stay content-sized instead of stretching with panel height. */
+#textAnimView #tanimList.tanim-card-grid,
+#shakeView #shakeList.motion-card-grid,
+#expressionView #expressionList.motion-card-grid{
+  align-content:start!important;
+  align-items:start!important;
+  grid-auto-rows:132px!important;
+}
+#textAnimView #tanimList .tanim-card,
+#shakeView #shakeList .fxlib-card,
+#expressionView #expressionList .fxlib-card{
+  display:flex!important;
+  flex-direction:column!important;
+  height:132px!important;
+  min-height:132px!important;
+  max-height:132px!important;
+  align-self:start!important;
+  box-sizing:border-box!important;
+}
+#textAnimView #tanimList .tanim-card-preview,
+#shakeView #shakeList .fxlib-thumb,
+#expressionView #expressionList .fxlib-thumb{
+  flex:0 0 55px!important;
+  height:55px!important;
+  min-height:55px!important;
+}
+#textAnimView #tanimList .tanim-card-meta,
+#shakeView #shakeList .fxlib-cardmeta,
+#expressionView #expressionList .fxlib-cardmeta{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+/* Text Apply now follows the same bottom-pinned geometry as Expression Apply. */
+#textAnimView #tanimList .tanim-card-actions{
+  flex:0 0 27px!important;
+  height:27px!important;
+  margin-top:auto!important;
+  padding:0!important;
+}
+#textAnimView #tanimList .tanim-card-btn,
+#shakeView #shakeList .fxlib-apply,
+#expressionView #expressionList .fxlib-apply{
+  display:block!important;
+  flex:0 0 23px!important;
+  width:calc(100% - 8px)!important;
+  height:23px!important;
+  min-height:23px!important;
+  margin:0 4px 4px!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  line-height:21px!important;
+}
+/* Shake uses Expression's internal scrolling model when the panel is resized. */
+#panel-sfx>#shakeView>.preview-library-shell{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  padding-bottom:6px!important;
+}
+#shakeView .tool-section-head{flex:0 0 auto!important;flex-shrink:0!important}
+#shakeView #shakeList.motion-card-grid{
+  flex:1 1 0!important;
+  min-height:0!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  padding:1px 1px 9px!important;
+  box-sizing:border-box!important;
+}

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.compxorbit.premiere"
+    ExtensionBundleVersion="2.5.0" ExtensionBundleName="CompX Orbit Studio - Premiere"
+    xmlns:ExtensionBundleId="http://ns.adobe.com/extension">
+  <ExtensionList>
+    <Extension Id="com.compxorbit.premiere.main" Version="2.5.0" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <!-- Premiere Pro: 2022 = v22, 2023 = v23, 2024 = v24, 2025 = v25, 2026 = v26+ -->
+      <Host Name="PPRO" Version="[22.0,99.9]" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeList>
+      <!-- CEP 11 ships with the minimum supported 2022 hosts; newer CEP runtimes remain backward-compatible. -->
+      <RequiredRuntime Name="CSXS" Version="11.0" />
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.compxorbit.premiere.main">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <!-- ScriptPath intentionally removed. jsx/hostscript.jsx is now
+               loaded by js/compx-loader.js, but only after the licence has
+               been verified. Restoring this line would make the host code
+               load before any licence check can run. -->
+          <CEFCommandLine>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--mixed-context</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>CompX Orbit Studio - Premiere</Menu>
+          <Geometry>
+            <Size>
+              <Height>420</Height>
+              <Width>280</Width>
+            </Size>
+            <MinSize>
+              <Height>320</Height>
+              <Width>240</Width>
+            </MinSize>
+            <MaxSize>
+              <Height>1600</Height>
+              <Width>720</Width>
+            </MaxSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./icons/icon-normal.png</Icon>
+            <Icon Type="RollOver">./icons/icon-rollover.png</Icon>
+            <Icon Type="Darkest">./icons/icon-darkest.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
+

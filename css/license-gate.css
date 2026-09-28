@@ -1,0 +1,193 @@
+/* ============================================================
+   License gate styling.
+   Every colour resolves from orbit-foundation.css tokens, with a
+   hard fallback so the gate still renders if it loads first.
+   Change the accent in ONE place: --orbit-blue in orbit-foundation.css.
+   ============================================================ */
+.cx-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: var(--orbit-canvas, #07080c);
+  font-family: var(--sans, Inter, "Segoe UI", system-ui, sans-serif);
+  color: var(--orbit-text, #f3f5fa);
+}
+.cx-gate[hidden] { display: none; }
+
+.cx-gate__card {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px 18px;
+  border: 1px solid var(--orbit-line, #283143);
+  border-radius: var(--radius, 9px);
+  background: var(--orbit-panel, #111620);
+}
+
+.cx-gate__brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.cx-gate__mark {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--orbit-blue-soft, #102c4d);
+  border: 1px solid color-mix(in srgb, var(--orbit-blue, #4da3ff) 55%, #2f679c);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 0 0 1px rgba(12,15,22,0.35);
+  overflow: hidden;
+}
+.cx-gate__mark::after { content: none; }
+.cx-gate__mark img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+.cx-gate__title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 720;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--orbit-text, #f3f5fa);
+}
+.cx-gate__sub {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--orbit-muted, #9aa4b7);
+  letter-spacing: .02em;
+}
+
+.cx-gate__label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--orbit-faint, #657086);
+  margin-bottom: 6px;
+}
+
+.cx-gate__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 10px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--orbit-text, #f3f5fa);
+  background: var(--orbit-shell, #0c0f16);
+  border: 1px solid var(--orbit-line, #283143);
+  border-radius: var(--radius-sm, 7px);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.cx-gate__input::placeholder { color: var(--orbit-faint, #657086); letter-spacing: .04em; }
+.cx-gate__input:focus-visible {
+  border-color: var(--orbit-blue, #4da3ff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--orbit-blue, #4da3ff) 22%, transparent);
+}
+.cx-gate__input.is-error { border-color: var(--orbit-danger, #ff7180); }
+
+.cx-gate__msg {
+  min-height: 15px;
+  margin: 7px 0 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--orbit-danger, #ff7180);
+}
+.cx-gate__msg.is-ok   { color: var(--orbit-success, #57d7a0); }
+.cx-gate__msg.is-info { color: var(--orbit-muted, #9aa4b7); }
+
+.cx-gate__btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orbit-canvas, #07080c);
+  background: var(--orbit-blue, #4da3ff);
+  border: none;
+  border-radius: var(--radius-sm, 7px);
+  cursor: pointer;
+  transition: filter .15s, opacity .15s;
+}
+.cx-gate__btn:hover:not(:disabled) { filter: brightness(1.08); }
+.cx-gate__btn:focus-visible {
+  outline: 2px solid var(--orbit-blue, #4da3ff);
+  outline-offset: 2px;
+}
+.cx-gate__btn:disabled { opacity: .55; cursor: default; }
+
+.cx-gate__device {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--orbit-line, #283143);
+  font-size: 10.5px;
+  color: var(--orbit-muted, #9aa4b7);
+}
+.cx-gate__device-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--orbit-success, #57d7a0);
+  flex: 0 0 5px;
+}
+
+.cx-gate__note {
+  margin: 10px 0 0;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--orbit-faint, #657086);
+}
+
+.cx-gate__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 10.5px;
+  color: var(--orbit-faint, #657086);
+}
+.cx-gate__links a { color: var(--orbit-blue, #4da3ff); text-decoration: none; }
+.cx-gate__links a:hover { text-decoration: underline; }
+.cx-gate__links a:focus-visible { outline: 2px solid var(--orbit-blue, #4da3ff); outline-offset: 2px; }
+
+/* ---------------- offline grace banner ---------------- */
+.cx-grace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 10px;
+  font-size: 10.5px;
+  color: var(--orbit-warning, #f2bb62);
+  background: color-mix(in srgb, var(--orbit-warning, #f2bb62) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--orbit-warning, #f2bb62) 30%, transparent);
+}
+.cx-grace[hidden] { display: none; }
+.cx-grace__retry {
+  font: inherit;
+  color: var(--orbit-warning, #f2bb62);
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 2px 7px;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-gate *, .cx-grace * { transition: none !important; animation: none !important; }
+}

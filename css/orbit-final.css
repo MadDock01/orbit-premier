@@ -1,0 +1,386 @@
+/* CompX Orbit — Step 5/5: Motion Lab, effects, accessibility and final polish */
+
+/* Preserve Curve Lab interaction while integrating the Orbit palette. */
+#cxFlow20 {
+  --gp: var(--orbit-blue);
+  --gp2: var(--orbit-violet);
+  gap: 8px;
+}
+
+#panel-advanced .tools-scroll {
+  gap: 9px;
+  padding: 11px !important;
+}
+
+#panel-advanced .tool-dash-row {
+  gap: 9px !important;
+  margin: 0 !important;
+  align-items: start;
+}
+
+#panel-advanced .tool-section {
+  min-height: 0 !important;
+  padding: 10px !important;
+  background: var(--orbit-panel) !important;
+  border-color: var(--orbit-line) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+#panel-advanced .tool-section:hover {
+  background: var(--orbit-panel) !important;
+  border-color: var(--orbit-line-strong) !important;
+  transform: none !important;
+}
+
+#panel-advanced .tool-section-title,
+#panel-advanced .tool-section-head .tool-section-title {
+  color: var(--orbit-text) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.09em !important;
+}
+
+#panel-advanced .tool-section-title::before,
+#panel-advanced .tool-section-head .tool-section-title::before {
+  background: var(--orbit-violet) !important;
+}
+
+#panel-advanced .cx-graph-card {
+  border-color: #3d3356 !important;
+}
+
+.fx20-topbar {
+  min-height: 30px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--orbit-line);
+}
+
+.fx20-kicker {
+  color: var(--orbit-violet);
+}
+
+.fx20-kicker::before {
+  background: var(--orbit-violet);
+  box-shadow: none;
+}
+
+.fx20-title strong {
+  color: var(--orbit-text);
+}
+
+#fx20-info {
+  color: var(--orbit-faint);
+}
+
+.fx20-chip {
+  min-height: 27px;
+  padding: 4px 7px;
+  color: var(--orbit-muted);
+  background: #0d1118;
+  border-color: var(--orbit-line);
+  border-radius: 6px;
+}
+
+.fx20-chip:hover {
+  color: var(--orbit-blue);
+  border-color: #3979b3;
+}
+
+.fx20-chip.active,
+#cxFlow20 #fx20-play.active {
+  color: #06111e;
+  background: var(--orbit-blue);
+  border-color: var(--orbit-blue);
+}
+
+.fx20-modelstrip {
+  padding: 4px;
+  gap: 4px;
+  background: #0b0e14;
+  border-color: var(--orbit-line);
+  border-radius: 8px;
+}
+
+.fx20-model {
+  min-height: 40px;
+  border-radius: 6px;
+}
+
+.fx20-model svg {
+  stroke: var(--orbit-faint);
+}
+
+.fx20-model span {
+  color: var(--orbit-faint);
+}
+
+.fx20-model:hover {
+  background: var(--orbit-raised);
+}
+
+.fx20-model.active {
+  color: var(--orbit-violet);
+  background: var(--orbit-violet-soft);
+  border-color: #654b91;
+  box-shadow: none;
+}
+
+.fx20-model.active svg {
+  stroke: var(--orbit-violet);
+}
+
+.fx20-model.active span {
+  color: var(--orbit-violet);
+}
+
+.fx20-canvas-wrap {
+  min-height: 235px;
+  background: #090c12 !important;
+  border-color: var(--orbit-line) !important;
+  border-radius: 9px;
+}
+
+.fx20-grid line {
+  stroke: rgba(104, 118, 145, 0.18);
+}
+
+.fx20-grid-strong {
+  stroke: rgba(104, 118, 145, 0.35);
+}
+
+.fx20-curvearea {
+  fill: var(--orbit-violet);
+  fill-opacity: 0.08;
+}
+
+.fx20-curve {
+  stroke: var(--orbit-violet);
+  filter: drop-shadow(0 0 4px rgba(169, 120, 255, 0.42));
+}
+
+.fx20-armline {
+  stroke: rgba(77, 163, 255, 0.7);
+}
+
+.fx20-handle {
+  fill: var(--orbit-blue);
+  stroke: #fff;
+}
+
+.fx20-slider-top span,
+.fx20-status {
+  color: var(--orbit-faint);
+}
+
+.fx20-slider-top b,
+.fx20-status.success {
+  color: var(--orbit-blue);
+}
+
+.fx20-slider input[type="range"],
+#panel-advanced input[type="range"] {
+  accent-color: var(--orbit-violet);
+}
+
+.fx20-select {
+  min-height: 30px;
+  color: var(--orbit-text);
+  background: #090c12;
+  border-color: var(--orbit-line);
+  border-radius: 6px;
+}
+
+.fx20-libtabs button {
+  color: var(--orbit-faint);
+}
+
+.fx20-libtabs button.active {
+  color: var(--orbit-violet);
+  border-bottom-color: var(--orbit-violet);
+}
+
+.fx20-preset {
+  min-height: 52px;
+  background: #0d1118;
+  border-color: var(--orbit-line);
+  border-radius: 7px;
+  transform: none !important;
+}
+
+.fx20-preset:hover {
+  background: var(--orbit-raised);
+  border-color: #654b91;
+}
+
+.fx20-preset-line {
+  stroke: var(--orbit-violet);
+}
+
+.fx20-preset span {
+  color: var(--orbit-muted);
+}
+
+.fx20-actions button {
+  min-height: 32px;
+  color: var(--orbit-muted);
+  background: #0d1118;
+  border-color: var(--orbit-line);
+  border-radius: 6px;
+}
+
+.fx20-actions button:hover {
+  color: var(--orbit-blue);
+  border-color: #3979b3;
+}
+
+.fx20-apply {
+  min-height: 39px;
+  color: #090612;
+  background: var(--orbit-violet);
+  border: 1px solid #bd99ff;
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+.fx20-apply:hover {
+  background: #bd99ff;
+  filter: none;
+}
+
+.fx20-previewdot {
+  stroke: var(--orbit-violet);
+  filter: drop-shadow(0 0 6px var(--orbit-violet));
+}
+
+/* Advanced feature cards */
+#panel-advanced .cx-camera-hero,
+#panel-advanced .morph-note {
+  color: var(--orbit-muted);
+  background: #0b0e14 !important;
+  border-color: var(--orbit-line) !important;
+  box-shadow: none !important;
+}
+
+#panel-advanced .cx-camera-primary button,
+#panel-advanced .cx-camera-console button,
+#panel-advanced .cx-camera-footer button,
+#advancedToolkitDock .dock-icon {
+  color: var(--orbit-muted) !important;
+  background: #0d1118 !important;
+  border-color: var(--orbit-line) !important;
+  box-shadow: none !important;
+}
+
+#panel-advanced .cx-camera-primary button:hover,
+#panel-advanced .cx-camera-console button:hover,
+#panel-advanced .cx-camera-footer button:hover,
+#advancedToolkitDock .dock-icon:hover {
+  color: var(--orbit-violet) !important;
+  background: var(--orbit-violet-soft) !important;
+  border-color: #654b91 !important;
+}
+
+#panel-advanced .cx-camera-footer button.danger {
+  color: var(--orbit-danger) !important;
+  background: #241218 !important;
+  border-color: #71303b !important;
+}
+
+#advancedDockWrap {
+  border-color: var(--orbit-line) !important;
+}
+
+.advanced-tool-popover {
+  background: var(--orbit-panel) !important;
+  border-color: var(--orbit-line-strong) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Effects use violet as the creative accent, not the primary action blue. */
+#panel-tools .subgroup-effects .tool-btn,
+#panel-tools #btnPropertyBounce,
+#panel-tools #btnFxLock {
+  color: var(--orbit-violet) !important;
+  background: var(--orbit-violet-soft) !important;
+  border-color: #654b91 !important;
+}
+
+#panel-tools .subgroup-effects .tool-btn:hover,
+#panel-tools #btnPropertyBounce:hover,
+#panel-tools #btnFxLock:hover {
+  color: #0a0612 !important;
+  background: var(--orbit-violet) !important;
+}
+
+/* Final accessible target and feedback pass. */
+#app button,
+#app input,
+#app select,
+#app textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app button:disabled,
+#app input:disabled,
+#app select:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+#app [role="status"] {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  #panel-advanced .tool-dash-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  #panel-advanced .tool-dash-row > .tool-section {
+    grid-column: 1 !important;
+  }
+
+  .fx20-canvas-wrap {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 440px) {
+  #panel-advanced .tools-scroll {
+    padding: 8px !important;
+  }
+
+  .fx20-topbar {
+    align-items: flex-start;
+  }
+
+  .fx20-meta {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .fx20-canvas-wrap {
+    min-height: 190px;
+  }
+
+  .fx20-modelstrip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fx20-lib {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx20-previewdot,
+  .fx20-curve,
+  #cxFlow20 * {
+    animation: none !important;
+  }
+}
+.smart-tool-card{margin-top:12px;padding:12px;border:1px solid var(--line,#34363c);border-radius:9px;background:var(--surface,#202126);display:flex;flex-direction:column;gap:8px}.smart-tool-card>strong{font-size:13px;color:var(--text,#f3f3f3)}.smart-tool-card>span{font-size:11px;color:var(--text-dim,#aeb2bc)}.smart-tool-row{display:flex;gap:8px}.smart-tool-row select{min-width:0;flex:1;background:#17181b;color:#eee;border:1px solid #3a3c43;border-radius:6px;padding:7px}.smart-tool-row button{flex:1;margin:0}
+
+/* Premiere edition uses an SRT-only caption workflow. Keep the legacy
+   transcription controls in the DOM for compatibility, but never expose them. */
+#ac-gen-popup,#ac-manual-popup,#ac-open-gen-popup,#ac-empty-generate,#ac-empty-manual,#ac-empty-srt-animator{display:none!important}

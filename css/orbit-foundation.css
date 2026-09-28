@@ -1,0 +1,332 @@
+/* CompX Orbit — Step 1/5: visual foundation only
+   This file is loaded last so host logic and existing DOM remain untouched. */
+
+:root {
+  --orbit-canvas: #07080c;
+  --orbit-shell: #0c0f16;
+  --orbit-panel: #111620;
+  --orbit-raised: #181e2a;
+  --orbit-hover: #202838;
+  --orbit-line: #283143;
+  --orbit-line-strong: #39465d;
+  --orbit-text: #f3f5fa;
+  --orbit-muted: #9aa4b7;
+  --orbit-faint: #657086;
+  --orbit-blue: #4da3ff;
+  --orbit-blue-soft: #102c4d;
+  --orbit-violet: #a978ff;
+  --orbit-violet-soft: #2b1c49;
+  --orbit-success: #57d7a0;
+  --orbit-warning: #f2bb62;
+  --orbit-danger: #ff7180;
+
+  /* Map legacy semantic tokens to Orbit without changing JS. */
+  --bg: var(--orbit-canvas);
+  --surface: var(--orbit-panel);
+  --surface-2: var(--orbit-raised);
+  --surface-3: var(--orbit-hover);
+  --line: var(--orbit-line);
+  --text: var(--orbit-text);
+  --text-dim: var(--orbit-muted);
+  --text-faint: var(--orbit-faint);
+  --amber: var(--orbit-blue);
+  --amber-dim: var(--orbit-blue-soft);
+  --signal: var(--orbit-success);
+  --signal-dim: #102f25;
+  --danger: var(--orbit-danger);
+  --warning: var(--orbit-warning);
+  --radius: 9px;
+  --radius-sm: 7px;
+  --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  background: var(--orbit-canvas) !important;
+  color: var(--orbit-text);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+#app {
+  background: var(--orbit-shell);
+}
+
+/* Foundation navigation treatment. Structural rail comes in Step 2. */
+.app-tabs-row {
+  min-height: 46px;
+  padding: 5px 6px;
+  gap: 3px;
+  background: #090c12 !important;
+  border-bottom: 1px solid var(--orbit-line) !important;
+  box-shadow: none !important;
+}
+
+.app-tab {
+  min-height: 36px;
+  padding: 7px 5px !important;
+  border-radius: 7px;
+  color: var(--orbit-faint) !important;
+  font-size: 10px !important;
+  font-weight: 700;
+  letter-spacing: 0.035em !important;
+  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+
+.app-tab::before,
+.app-tab::after {
+  display: none !important;
+}
+
+.app-tab:hover {
+  color: var(--orbit-muted) !important;
+  background: var(--orbit-panel) !important;
+}
+
+.app-tab.active {
+  color: var(--orbit-blue) !important;
+  background: var(--orbit-blue-soft) !important;
+  box-shadow: inset 0 -2px 0 var(--orbit-blue) !important;
+}
+
+.app-panel,
+.tools-scroll,
+.tracker-scroll,
+.content-view {
+  background: var(--orbit-shell) !important;
+}
+
+.tools-scroll {
+  padding: 10px !important;
+}
+
+/* Surfaces */
+.tool-section,
+.studio-card,
+.advanced-card,
+.tracker-card,
+.library-card,
+.sfx-card,
+.modal-box {
+  background: var(--orbit-panel) !important;
+  border: 1px solid var(--orbit-line) !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+}
+
+.tool-section:hover,
+.studio-card:hover,
+.advanced-card:hover,
+.sfx-card:hover {
+  background: var(--orbit-raised) !important;
+  border-color: var(--orbit-line-strong) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.tool-section-head {
+  border-bottom-color: var(--orbit-line) !important;
+}
+
+.tool-section-head .tool-section-title,
+.tool-section-title,
+.section-title,
+.panel-title {
+  color: var(--orbit-text) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em !important;
+}
+
+.tool-section-head .tool-section-title::before,
+.tool-section-title::before {
+  background: var(--orbit-blue) !important;
+  box-shadow: none !important;
+  border-radius: 2px;
+}
+
+/* Buttons */
+button,
+.btn,
+.tool-btn {
+  font-family: var(--sans);
+}
+
+.tool-btn,
+.btn {
+  background: #0d1118 !important;
+  border: 1px solid var(--orbit-line) !important;
+  color: var(--orbit-muted) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.tool-btn::before,
+.btn::before {
+  display: none !important;
+}
+
+.tool-btn:hover,
+.btn:hover {
+  background: var(--orbit-raised) !important;
+  border-color: var(--orbit-line-strong) !important;
+  color: var(--orbit-text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.tool-btn:active,
+.btn:active {
+  background: var(--orbit-hover) !important;
+  transform: translateY(1px) !important;
+}
+
+.tool-btn.primary,
+.btn.primary {
+  background: var(--orbit-blue) !important;
+  border-color: #69b2ff !important;
+  color: #06111e !important;
+  font-weight: 800;
+  box-shadow: none !important;
+}
+
+.tool-btn.primary:hover,
+.btn.primary:hover {
+  background: #69b2ff !important;
+  border-color: #87c1ff !important;
+  color: #06111e !important;
+}
+
+.tool-btn.danger,
+.btn.danger {
+  background: #241218 !important;
+  border-color: #71303b !important;
+  color: var(--orbit-danger) !important;
+}
+
+/* Inputs */
+input,
+select,
+textarea,
+.counter-input,
+.counter-select,
+.search-row input[type="text"],
+.modal-input {
+  background: #090c12 !important;
+  border-color: var(--orbit-line) !important;
+  color: var(--orbit-text) !important;
+  box-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--orbit-faint) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.counter-input:focus,
+.counter-select:focus,
+.search-row input[type="text"]:focus,
+.modal-input:focus {
+  border-color: #3979b3 !important;
+  box-shadow: 0 0 0 2px rgba(77, 163, 255, 0.15) !important;
+  outline: none;
+}
+
+/* Secondary creative accent for expression/effect-oriented states. */
+.fx-card.active,
+.expression-card.active,
+.badge-violet,
+[data-accent="violet"] {
+  color: var(--orbit-violet) !important;
+  background: var(--orbit-violet-soft) !important;
+  border-color: #654b91 !important;
+}
+
+.shelf.active,
+.tab.active,
+.tool-subtab.active,
+.chip.active {
+  background: var(--orbit-blue-soft) !important;
+  border-color: #356b9e !important;
+  color: var(--orbit-blue) !important;
+  box-shadow: none !important;
+}
+
+.tool-help {
+  border-color: var(--orbit-line) !important;
+  color: var(--orbit-faint) !important;
+  background: transparent !important;
+}
+
+.tool-help:hover {
+  border-color: #3979b3 !important;
+  color: var(--orbit-blue) !important;
+}
+
+/* Feedback and accessibility */
+.toast {
+  background: #10243a !important;
+  border-color: #3979b3 !important;
+  color: #e5f2ff !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+.toast.error {
+  background: #241218 !important;
+  border-color: #71303b !important;
+  color: #ffd7dc !important;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--orbit-blue) !important;
+  outline-offset: 2px;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--orbit-line-strong) !important;
+  border: 2px solid var(--orbit-shell);
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #4a5871 !important;
+}
+
+@media (max-width: 640px) {
+  .app-tabs-row {
+    min-height: 42px;
+    padding: 4px;
+  }
+
+  .app-tab {
+    min-height: 34px;
+    padding: 6px 3px !important;
+    font-size: 9px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

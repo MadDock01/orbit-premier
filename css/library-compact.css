@@ -1,0 +1,209 @@
+/* Library chrome compaction.
+   Four stacked bars — type tabs, search, filter row, action toolbar — were
+   eating 36% of the panel before a single card was drawn, and the action
+   toolbar overflowed its own width at anything under ~500px. This layer loads
+   last and reclaims that height for the preview grid. Rules are scoped to
+   #app #sfxMogrtView so they outrank the earlier layers without reaching any
+   further than the library. */
+
+/* The view's own gutter: 4px padding and a 3px gap between five children is
+   19px of nothing. */
+#app #sfxMogrtView {
+  padding: 3px !important;
+  gap: 2px !important;
+}
+
+/* Search, All Files / Favorites and the sort select on ONE row. The strip was
+   already display:flex but wrapped, so search took a full row to itself and
+   the other two took a second. */
+#app #sfxMogrtView .library-filter-strip {
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 3px !important;
+  min-height: 0 !important;
+  /* 8px/10px of its own padding on a 22px row was nearly half the bar. */
+  padding: 2px 4px !important;
+}
+#app #sfxMogrtView .library-filter-strip .search-row {
+  flex: 1 1 60px !important;
+  min-width: 52px !important;
+}
+#app #sfxMogrtView .library-filter-strip #search {
+  height: 22px !important;
+  min-height: 22px !important;
+  padding: 0 6px !important;
+}
+#app #sfxMogrtView .library-filter-strip .tabs-row {
+  flex: 0 1 auto !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  padding: 1px !important;
+}
+#app #sfxMogrtView .library-filter-strip .tab {
+  height: 20px !important;
+  min-height: 20px !important;
+  padding: 0 5px !important;
+}
+#app #sfxMogrtView .library-filter-strip .controls-group { flex: 0 0 auto !important; }
+#app #sfxMogrtView .library-filter-strip #sortBy {
+  height: 22px !important;
+  min-height: 22px !important;
+  padding: 0 4px !important;
+  font-size: 7.5px !important;
+}
+
+/* Add files · Import folder · Remove marked · Reset, then the view toggles and
+   the card-size slider. This row used to run past the right edge of the panel
+   on anything narrow; min-width:0 lets it shrink instead of overflowing. */
+#app #sfxMogrtView .lib-toolbar {
+  min-height: 0 !important;
+  padding: 1px 0 !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+#app #sfxMogrtView .lib-toolbar .actions-row,
+#app #sfxMogrtView .lib-toolbar .lib-toolbar-end,
+#app #sfxMogrtView .lib-toolbar .lib-view-toggle {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  gap: 3px !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-toolbar-end { flex: 1 1 auto !important; }
+/* Matching the selector depth css/orbit-dock.css uses for these, or its
+   28px wins and the row stays as tall as it was. */
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn,
+#app #sfxMogrtView .lib-toolbar .lib-view-btn {
+  width: 22px !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  padding: 0 !important;
+  border-radius: 6px !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn .lib-icon,
+#app #sfxMogrtView .lib-toolbar .lib-view-btn .lib-icon,
+#app #sfxMogrtView .lib-toolbar .lib-view-btn svg { width: 12px !important; height: 12px !important; }
+#app #sfxMogrtView .lib-toolbar .actions-row { gap: 3px !important; margin-left: 0 !important; }
+/* The view toggle must never give up width: grid/list are controls, and an
+   earlier layer pins the size row to flex:0 0 auto, so without this the
+   slider keeps its width and squeezes the two buttons to nothing. */
+#app #sfxMogrtView .lib-toolbar .lib-view-toggle { flex: 0 0 auto !important; }
+#app #sfxMogrtView .lib-toolbar .lib-toolbar-end .card-size-row {
+  flex: 0 1 auto !important;
+  min-width: 40px !important;
+  margin-left: auto !important;
+  gap: 3px !important;
+}
+#app #sfxMogrtView #cardSizeSlider {
+  flex: 1 1 auto !important;
+  min-width: 28px !important;
+  width: auto !important;
+  height: 14px !important;
+}
+
+/* What goes first when the panel narrows. The item count duplicates the one in
+   the sidebar footer, so it is the cheapest thing to drop; the SIZE caption
+   and the numeric readout are labels on a control that shows its own value by
+   moving. */
+@media (max-width: 380px) {
+  #app #sfxMogrtView .lib-item-count { display: none !important; }
+}
+@media (max-width: 330px) {
+  #app #sfxMogrtView .card-size-label,
+  #app #sfxMogrtView .card-size-val { display: none !important; }
+}
+/* Last to go. Card size is a preference the grid remembers; grid-vs-list is a
+   control you reach for, so the slider leaves before the toggle shrinks. */
+@media (max-width: 275px) {
+  #app #sfxMogrtView .lib-toolbar .card-size-row { display: none !important; }
+}
+/* Below this the three filter controls genuinely cannot share a line, so the
+   strip wraps to two rows rather than squeezing the search box to nothing. */
+@media (max-width: 300px) {
+  #app #sfxMogrtView .library-filter-strip { flex-wrap: wrap !important; }
+  #app #sfxMogrtView .library-filter-strip .search-row { flex: 1 1 100% !important; }
+  /* The remaining two must then SHARE the second row. Left to themselves they
+     each take a row of their own and the saving is given straight back. */
+  #app #sfxMogrtView .library-filter-strip .tabs-row { flex: 1 1 auto !important; min-width: 0 !important; }
+  #app #sfxMogrtView .library-filter-strip .controls-group { flex: 0 1 auto !important; min-width: 0 !important; }
+  #app #sfxMogrtView .library-filter-strip #sortBy { max-width: 70px !important; }
+  #app #sfxMogrtView .library-filter-strip .tab {
+    padding: 0 3px !important;
+    font-size: 6.5px !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The folder sidebar was the real ceiling on how many cards fit. Pinned at a
+   flat 148px by css/orbit-dock.css, it left 202px of grid at 420px and 22px at
+   240px — a single column at best, nothing at worst. It scales with the panel
+   now, and the grid fills whatever is left instead of laying out one fixed
+   190px column. The `.collapsed` state is untouched, so the < toggle in the
+   content header still works.
+   --------------------------------------------------------------------------- */
+#app #sfxMogrtView #sidebar:not(.collapsed),
+#app #sfxMogrtView .sidebar:not(.collapsed) {
+  flex: 0 1 116px !important;
+  width: 116px !important;
+  min-width: 84px !important;
+  max-width: 116px !important;
+}
+/* The size slider writes --card-min-w on this grid, so the variable has to
+   stay in the expression or dragging it would do nothing. What the cap adds is
+   a floor of two columns: min() takes the slider's value until it exceeds half
+   the row, and a saved 130px card in a 226px grid is exactly the case that was
+   laying out one column and wasting the rest. Below the cap the slider still
+   does what it always did — smaller cards, more of them. */
+#app #sfxMogrtView .library.grid {
+  grid-template-columns:
+    repeat(auto-fill, minmax(min(var(--card-min-w, 104px), calc(50% - 3px)), 1fr)) !important;
+  gap: 5px !important;
+  padding: 4px !important;
+}
+@media (max-width: 360px) {
+  #app #sfxMogrtView #sidebar:not(.collapsed),
+  #app #sfxMogrtView .sidebar:not(.collapsed) {
+    flex: 0 1 88px !important;
+    width: 88px !important;
+    min-width: 68px !important;
+    max-width: 88px !important;
+  }
+  /* Tighter gutters so the two columns the cap guarantees are as wide as the
+     panel can make them. */
+  #app #sfxMogrtView .library.grid {
+    gap: 4px !important;
+    padding: 3px !important;
+  }
+}
+/* Under this the folder list cannot earn its width against the cards. It is
+   collapsed, not removed: the < toggle brings it straight back. */
+@media (max-width: 285px) {
+  #app #sfxMogrtView #sidebar:not(.collapsed),
+  #app #sfxMogrtView .sidebar:not(.collapsed) {
+    flex: 0 0 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    border-right: 0 !important;
+  }
+}
+
+/* The right-hand dock took 32px off the panel's content width, and the four
+   action icons plus the view toggle no longer clear it at Premiere's 240px
+   minimum — the list button ended up 5px underneath the rail. Nothing in that
+   row will shrink on its own (both groups are flex:0 0 auto, deliberately, so
+   icons never distort), so the sizes come down explicitly here. */
+@media (max-width: 258px) {
+  #app #sfxMogrtView .lib-toolbar { gap: 3px !important; }
+  #app #sfxMogrtView .lib-toolbar .actions-row,
+  #app #sfxMogrtView .lib-toolbar .lib-view-toggle { gap: 2px !important; }
+  #app #sfxMogrtView .lib-toolbar .lib-icon-btn,
+  #app #sfxMogrtView .lib-toolbar .lib-view-btn {
+    width: 19px !important;
+    min-width: 19px !important;
+    height: 19px !important;
+  }
+  #app #sfxMogrtView .lib-toolbar .lib-icon-btn .lib-icon,
+  #app #sfxMogrtView .lib-toolbar .lib-view-btn .lib-icon,
+  #app #sfxMogrtView .lib-toolbar .lib-view-btn svg { width: 11px !important; height: 11px !important; }
+}

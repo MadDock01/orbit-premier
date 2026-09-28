@@ -1,0 +1,503 @@
+/* Exact Expression-card parity for MOGRT, SFX and Comp Saver. */
+#sfxMogrtView .library.grid,.compx-comp-grid{grid-template-columns:repeat(auto-fill,minmax(var(--card-min-w,128px),1fr))!important;gap:8px!important;padding:8px 10px!important;align-content:start!important}
+#sfxMogrtView .sfx-card,.compx-comp-card{min-height:calc(var(--card-min-w,128px)*1.02)!important;border-radius:6px!important;background:var(--orbit-panel,#0d1118)!important;border:1px solid var(--orbit-line,#253242)!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
+#sfxMogrtView .sfx-card:hover,.compx-comp-card:hover,.compx-comp-card.selected{background:var(--orbit-raised,#121923)!important;border-color:#654b91!important;transform:none!important}
+#sfxMogrtView .sfx-card .fxlib-thumb{height:calc(var(--card-min-w,128px)*0.56)!important;min-height:calc(var(--card-min-w,128px)*0.56)!important;background-color:#090c12!important;border-bottom:1px solid var(--orbit-line,#253242)!important}
+#sfxMogrtView .library.grid.resizing .sfx-card{transition:none!important}
+#sfxMogrtView .sfx-card .fxlib-cardmeta,.compx-comp-card .fxlib-cardmeta{display:flex!important;min-height:36px!important;padding:4px!important;gap:1px!important;flex-direction:column!important;align-items:stretch!important}
+#sfxMogrtView .sfx-card .fxlib-cardmeta strong,.compx-comp-card .fxlib-cardmeta strong{display:block!important;color:var(--orbit-text,#eef4ff)!important;font:700 8px/1.2 Arial,sans-serif!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+#sfxMogrtView .sfx-card .fxlib-cardmeta span,.compx-comp-card .fxlib-cardmeta span{display:block!important;color:var(--orbit-faint,#8190aa)!important;font:400 6.5px/1.3 Arial,sans-serif!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+#sfxMogrtView .sfx-card>.fxlib-apply,.compx-comp-card>.fxlib-apply{display:block!important;width:calc(100% - 8px)!important;height:23px!important;min-height:23px!important;margin:0 4px 4px!important;padding:2px!important;border:1px solid #654b91!important;border-radius:6px!important;background:var(--orbit-violet-soft,#2b1c49)!important;color:var(--orbit-violet,#a978ff)!important;font:800 6.5px/17px Arial,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important;cursor:pointer!important}
+#sfxMogrtView .sfx-card>.fxlib-apply:hover,.compx-comp-card>.fxlib-apply:hover{color:#0a0612!important;background:var(--orbit-violet,#a978ff)!important}
+#sfxMogrtView .sfx-card .actions-area,.compx-comp-subactions{display:none!important}
+.compx-comp-preview img{z-index:2!important}.compx-comp-no-thumb{z-index:1!important}
+.compx-bulk-delete{color:#ff7b7b!important;border-color:#8a3e46!important;background:#281217!important}.compx-bulk-delete:disabled{opacity:.35!important}
+/* Narrow-panel contract: same stable two-column layout as Expression cards. */
+@media(max-width:440px){#sfxMogrtView .library.grid,.compx-comp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.compx-comp-toolbar,.compx-comp-bulk{gap:4px!important}.compx-comp-toolbar input{flex-basis:100%!important}.compx-comp-filter label{display:none!important}}
+@media(max-width:255px){#sfxMogrtView .library.grid,.compx-comp-grid{grid-template-columns:1fr!important}}
+
+/* CEP-safe Library toolbar: ASCII labels never render as tofu/diamonds. */
+#sfxMogrtView .library-action-strip .compact-icon-btn,#sfxMogrtView #btnMixer{font-family:Arial,sans-serif!important;font-weight:800!important;letter-spacing:0!important;text-rendering:geometricPrecision!important}
+#sfxMogrtView .library-action-strip{display:flex!important;align-items:center!important;gap:4px!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin!important}
+#sfxMogrtView .library-action-strip .actions-row,#sfxMogrtView .library-action-strip .library-data-row{flex:0 0 auto!important;overflow:visible!important}
+#sfxMogrtView #btnMixer{width:31px!important;min-width:31px!important;font-size:7px!important}
+
+/* Comp Saver preview is intentionally original: 16:9 poster + original hover frames. */
+.compx-comp-card .compx-comp-preview{position:relative!important;width:100%!important;aspect-ratio:16/9!important;height:auto!important;min-height:0!important;overflow:hidden!important;display:grid!important;place-items:center!important;flex-shrink:0!important}
+
+/* Comp Saver only — keep Apply pinned exactly like a library/MOGRT card.
+   No host, preview, or JavaScript behavior is changed here. */
+#panel-comps .compx-comp-grid {
+  grid-auto-rows: max-content !important;
+  align-items: start !important;
+}
+#panel-comps .compx-comp-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+#panel-comps .compx-comp-preview {
+  flex: 0 0 auto !important;
+}
+#panel-comps .compx-comp-meta {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  min-height: 36px !important;
+}
+#panel-comps .compx-comp-apply.fxlib-apply {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10 !important;
+  flex: 0 0 23px !important;
+  width: calc(100% - 8px) !important;
+  height: 23px !important;
+  min-height: 23px !important;
+  max-height: 23px !important;
+  box-sizing: border-box !important;
+  margin: 0 4px 4px !important;
+  padding: 2px !important;
+  overflow: visible !important;
+}
+@media (max-width: 440px) {
+  #panel-comps .compx-comp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 255px) {
+  #panel-comps .compx-comp-grid { grid-template-columns: 1fr !important; }
+}
+
+/* SFX mixer: Volume + Pitch live inside the main transport (no nested box). */
+#sfxMogrtView .library-actions-simple {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+#sfxMogrtView .library-actions-simple .compact-icon-btn {
+  min-width: auto !important;
+  width: auto !important;
+  padding: 0 10px !important;
+  height: 28px !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+}
+#sfxMogrtView .library-data-row,
+#sfxMogrtView .mixer-top-wrap { display: none !important; }
+
+#sfxMogrtView > .transport {
+  display: none !important;
+  flex: 0 0 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView > .transport .transport-main {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+#sfxMogrtView > .transport .now-playing,
+#sfxMogrtView > .transport #playHint,
+#sfxMogrtView > .transport #tagEditorRow,
+#sfxMogrtView > .transport #hostHint {
+  display: none !important;
+}
+#sfxMogrtView > .transport #libraryDeckMixer,
+#sfxMogrtView #libraryDeckMixer {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+  gap: 12px !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: auto !important;
+  z-index: 1 !important;
+}
+#sfxMogrtView #libraryDeckMixer .slider-block {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+#sfxMogrtView #libraryDeckMixer .slider-label {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 3px !important;
+  color: #9eb0a8 !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+}
+#sfxMogrtView #libraryDeckMixer .slider-label .val { color: #72ff89 !important; }
+#sfxMogrtView #libraryDeckMixer input[type="range"] {
+  display: block !important;
+  width: 100% !important;
+  height: 16px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  accent-color: #32d36a !important;
+}
+#sfxMogrtView[data-library-mode="mogrt"] #libraryDeckMixer { display: none !important; }
+#sfxMogrtView[data-library-mode="prfpset"] #libraryDeckMixer { display: none !important; }
+#sfxMogrtView[data-library-mode="mogrt"] > .transport,
+#sfxMogrtView[data-library-mode="prfpset"] > .transport {
+  min-height: 0 !important;
+  padding: 4px 8px !important;
+}
+
+/* Library layout: folder names on the left, SFX/MOGRT cards scroll in place.
+   Header / tabs / Reset+Add/Folder/Cache stay fixed. */
+#sfxMogrtView {
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView .library-type-tabs,
+#sfxMogrtView .library-filter-strip,
+#sfxMogrtView .library-action-strip,
+#sfxMogrtView .collections-row,
+#sfxMogrtView .batch-bar {
+  flex: 0 0 auto !important;
+}
+#sfxMogrtView #mainLayout {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView #sidebar:not(.collapsed),
+#sfxMogrtView .sidebar:not(.collapsed) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 148px !important;
+  width: 148px !important;
+  min-width: 148px !important;
+  max-width: 176px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView #sidebar.collapsed,
+#sfxMogrtView .sidebar.collapsed {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  border-right: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+#sfxMogrtView .sidebar-header {
+  display: flex !important;
+  flex: 0 0 auto !important;
+}
+#sfxMogrtView .folder-tree {
+  display: block !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+#sfxMogrtView #sidebar.collapsed .sidebar-header,
+#sfxMogrtView #sidebar.collapsed .lib-sidebar-subhead,
+#sfxMogrtView #sidebar.collapsed .folder-tree,
+#sfxMogrtView #sidebar.collapsed .lib-sidebar-footer,
+#sfxMogrtView .sidebar.collapsed .sidebar-header,
+#sfxMogrtView .sidebar.collapsed .lib-sidebar-subhead,
+#sfxMogrtView .sidebar.collapsed .folder-tree,
+#sfxMogrtView .sidebar.collapsed .lib-sidebar-footer {
+  display: none !important;
+}
+#sfxMogrtView .folder-name {
+  display: inline-block !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font: 700 10px/1.2 Arial, sans-serif !important;
+}
+#sfxMogrtView #btnCollapse {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#sfxMogrtView .breadcrumb-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+#sfxMogrtView .toolbar {
+  display: flex !important;
+}
+#sfxMogrtView #mainLayout > .content-view,
+#sfxMogrtView .content-view {
+  display: flex !important;
+  flex-direction: column !important;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView .library,
+#sfxMogrtView #library,
+#sfxMogrtView .library.grid,
+#sfxMogrtView .library.list {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  contain: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+#sfxMogrtView .library,
+#sfxMogrtView .folder-tree {
+  scrollbar-width: thin !important;
+  -ms-overflow-style: auto !important;
+}
+#sfxMogrtView .library::-webkit-scrollbar,
+#sfxMogrtView .folder-tree::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  display: block !important;
+  background: #070c09 !important;
+}
+#sfxMogrtView .library::-webkit-scrollbar-thumb,
+#sfxMogrtView .folder-tree::-webkit-scrollbar-thumb {
+  background: #2a382f !important;
+  border-radius: 8px !important;
+}
+@media (max-width: 440px) {
+  #sfxMogrtView.has-library-folders #sidebar,
+  #sfxMogrtView.has-library-folders .sidebar {
+    display: flex !important;
+    flex: 0 0 92px !important;
+    width: 92px !important;
+    min-width: 92px !important;
+  }
+}
+
+/* Library action buttons: clear padding + readable labels */
+#sfxMogrtView .library-action-strip {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 10px !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  border-bottom: 1px solid #1c2a22 !important;
+  background: #070c09 !important;
+}
+#app #sfxMogrtView .lib-toolbar .library-action-strip,
+#app #sfxMogrtView .lib-toolbar .library-action-strip .actions-row {
+  display: contents !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+#app #sfxMogrtView .lib-toolbar .library-actions-simple .compact-icon-btn,
+#app #sfxMogrtView .lib-toolbar .library-action-strip .compact-icon-btn {
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+}
+#sfxMogrtView .library-actions-simple {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+#sfxMogrtView .library-actions-simple .compact-icon-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 72px !important;
+  width: auto !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 14px !important;
+  margin: 0 !important;
+  border-radius: 8px !important;
+  font: 700 11px/1 Arial, sans-serif !important;
+  letter-spacing: 0.02em !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+#sfxMogrtView .library-actions-simple #btnReset {
+  background: #2a1214 !important;
+  border: 1px solid #8a3e46 !important;
+  color: #ff9b9b !important;
+}
+#sfxMogrtView .library-actions-simple #btnAddFiles {
+  background: #142d19 !important;
+  border: 1px solid #35c64b !important;
+  color: #d5ffdb !important;
+}
+#sfxMogrtView .library-actions-simple #btnAddFolder,
+#sfxMogrtView .library-actions-simple #btnClearMogrtCache {
+  background: #101813 !important;
+  border: 1px solid #2a382f !important;
+  color: #d7e3da !important;
+}
+#sfxMogrtView .library-data-status {
+  margin-left: auto !important;
+  color: #7e9084 !important;
+  font: 600 10px/1 Arial, sans-serif !important;
+}
+
+/* PRESET cards */
+#sfxMogrtView .prfpset-card .prfpset-thumb {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  gap: 4px !important;
+  padding: 8px !important;
+  min-height: 78px !important;
+  background:
+    radial-gradient(circle at 70% 20%, #1b3a24 0%, transparent 42%),
+    linear-gradient(145deg, #122017, #0a100c) !important;
+  border-bottom: 1px solid #25332b !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView .prfpset-card .prfpset-stage {
+  position: absolute !important;
+  inset: 8px 8px 28px !important;
+  display: grid !important;
+  place-items: center !important;
+  pointer-events: none !important;
+}
+#sfxMogrtView .prfpset-card .prfpset-sample {
+  position: relative !important;
+  z-index: 2 !important;
+  color: #f4fff6 !important;
+  font: 800 22px/1 "Segoe UI", Arial, sans-serif !important;
+  letter-spacing: .04em !important;
+  animation: prfpset-pop .9s ease-in-out infinite alternate;
+}
+#sfxMogrtView .prfpset-card .prfpset-glow {
+  position: absolute !important;
+  width: 54px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, #7dff9a 0%, transparent 70%) !important;
+  filter: blur(8px) !important;
+  opacity: .55 !important;
+}
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="glow"] .prfpset-sample {
+  text-shadow: 0 0 8px #7dff9a, 0 6px 14px rgba(0,0,0,.55);
+  animation: prfpset-glow 1.2s ease-in-out infinite alternate;
+}
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="blur"] .prfpset-sample {
+  filter: blur(var(--prfpset-blur, 6px));
+  animation: prfpset-blur 1.1s ease-in-out infinite alternate;
+}
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="fade-in"] .prfpset-sample { animation: prfpset-fade-in 1.1s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="fade-out"] .prfpset-sample { animation: prfpset-fade-out 1.1s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="slide-up"] .prfpset-sample { animation: prfpset-slide-up .85s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="slide-down"] .prfpset-sample { animation: prfpset-slide-down .85s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="slide-left"] .prfpset-sample { animation: prfpset-slide-left .85s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="slide-right"] .prfpset-sample { animation: prfpset-slide-right .85s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="flick"] .prfpset-sample { animation: prfpset-flick .28s steps(2, end) infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="swivel"] .prfpset-sample { animation: prfpset-swivel 1.2s ease-in-out infinite; }
+#sfxMogrtView .prfpset-card .prfpset-thumb[data-motion="scale"] .prfpset-sample { animation: prfpset-scale .9s ease-in-out infinite alternate; }
+@keyframes prfpset-pop { from { transform: scale(.82); opacity:.55 } to { transform: scale(1); opacity:1 } }
+@keyframes prfpset-glow { from { text-shadow: 0 0 4px #3cff6a; filter: brightness(.9) } to { text-shadow: 0 0 16px #9dffb3, 0 0 28px #35c64b; filter: brightness(1.2) } }
+@keyframes prfpset-blur { from { filter: blur(10px); opacity:.4 } to { filter: blur(0); opacity:1 } }
+@keyframes prfpset-fade-in { 0% { opacity:0; transform:translateY(6px) } 40% { opacity:1; transform:none } 100% { opacity:1 } }
+@keyframes prfpset-fade-out { 0% { opacity:1 } 70% { opacity:.15 } 100% { opacity:1 } }
+@keyframes prfpset-slide-up { 0% { transform:translateY(10px); opacity:0 } 45% { transform:none; opacity:1 } 100% { transform:none; opacity:1 } }
+@keyframes prfpset-slide-down { 0% { transform:translateY(-10px); opacity:0 } 45% { transform:none; opacity:1 } 100% { transform:none; opacity:1 } }
+@keyframes prfpset-slide-left { 0% { transform:translateX(10px); opacity:0 } 45% { transform:none; opacity:1 } 100% { transform:none; opacity:1 } }
+@keyframes prfpset-slide-right { 0% { transform:translateX(-10px); opacity:0 } 45% { transform:none; opacity:1 } 100% { transform:none; opacity:1 } }
+@keyframes prfpset-flick { 0%,55% { transform:translate(0,0) } 70% { transform:translate(2px,-1px) } 85% { transform:translate(-2px,1px) } 100% { transform:none } }
+@keyframes prfpset-swivel { 0% { transform:perspective(80px) rotateY(-28deg) } 50% { transform:perspective(80px) rotateY(22deg) } 100% { transform:perspective(80px) rotateY(-28deg) } }
+@keyframes prfpset-scale { from { transform:scale(.7) } to { transform:scale(1.08) } }
+@media (prefers-reduced-motion:reduce) {
+  #sfxMogrtView .prfpset-card .prfpset-sample { animation: none !important; }
+}
+#sfxMogrtView .prfpset-card .prfpset-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 28px !important;
+  height: 18px !important;
+  padding: 0 6px !important;
+  border: 1px solid #35c64b !important;
+  border-radius: 4px !important;
+  color: #72ff89 !important;
+  font: 800 9px/1 Arial, sans-serif !important;
+  letter-spacing: .06em !important;
+}
+#sfxMogrtView .prfpset-card .prfpset-pack {
+  color: #9eb0a8 !important;
+  font: 600 8px/1.2 Arial, sans-serif !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Legacy popover rules no longer used for the top strip. */
+#sfxMogrtView .library-data-row .mixer-popover{overflow:visible!important;min-height:92px!important}
+#sfxMogrtView .library-data-row .mixer-popover #volumeBlock,
+#sfxMogrtView .library-data-row .mixer-popover #pitchBlock{width:100%!important;visibility:visible!important;opacity:1!important}
+#sfxMogrtView .library-data-row .mixer-popover input[type="range"]{display:block!important;width:100%!important}
+
+/* Keep older bottom-wrap selectors harmless if markup returns. */
+#sfxMogrtView>.transport .mixer-bottom-wrap{display:none!important}
+
+/* Restore card-size sliders — these variables are set by the existing UI.
+   This intentionally overrides the earlier fixed 128px / fixed 2-column rules. */
+#sfxMogrtView .library.grid {
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-w, 105px), 1fr)) !important;
+}
+#panel-comps .compx-comp-grid {
+  grid-template-columns: repeat(auto-fill, minmax(var(--compx-comp-card-size, 120px), 1fr)) !important;
+}
+/* Do not lock either grid to two columns at narrow widths: the active size
+   slider must remain the source of truth at every panel width. */
+@media (max-width: 440px) {
+  #sfxMogrtView .library.grid {
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-min-w, 100px), 1fr)) !important;
+  }
+  #panel-comps .compx-comp-grid {
+    grid-template-columns: repeat(auto-fill, minmax(var(--compx-comp-card-size, 90px), 1fr)) !important;
+  }
+}
+
+/* Bottom deck: Volume/Pitch stay flat inside transport (no second box). */
+#sfxMogrtView>.transport .mixer-bottom-wrap,
+#sfxMogrtView .library-data-row .mixer-top-wrap{display:none!important}

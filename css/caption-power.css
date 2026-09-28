@@ -1,0 +1,52 @@
+/* Smart Caption Lab — scoped to the SRT caption workflow. */
+#autoCaptionsView .ac-smart-lab {
+  margin: 0 0 8px; border: 1px solid #26332b; border-radius: 9px;
+  background: linear-gradient(145deg, rgba(18,25,21,.98), rgba(11,16,13,.98));
+  overflow: hidden; position: relative; z-index: 1; flex: 0 0 auto;
+}
+#autoCaptionsView .ac-smart-lab > summary {
+  display: flex; align-items: center; gap: 9px; min-height: 43px; box-sizing: border-box;
+  padding: 9px 12px; list-style: none; cursor: pointer; color: #e5ebe7;
+}
+#autoCaptionsView .ac-smart-lab > summary::-webkit-details-marker { display: none; }
+#autoCaptionsView .ac-smart-lab > summary > span:nth-child(2) { display: flex; flex-direction: column; min-width: 0; }
+#autoCaptionsView .ac-smart-lab > summary b { font-size: 11px; letter-spacing: .15px; }
+#autoCaptionsView .ac-smart-lab > summary small { margin-top: 2px; color: #7f8b83; font-size: 8px; font-weight: 400; }
+#autoCaptionsView .ac-smart-lab > summary i { margin-left: auto; color: #7f8b83; font-style: normal; transition: transform .18s; }
+#autoCaptionsView .ac-smart-lab:not([open]) > summary i { transform: rotate(-90deg); }
+#autoCaptionsView .ac-smart-spark {
+  display: grid; place-items: center; width: 23px; height: 23px; border-radius: 50%;
+  background: linear-gradient(145deg, #3d754c, #23472f); color: #92f1aa; font-size: 11px;
+}
+#autoCaptionsView .ac-smart-body { padding: 2px 12px 12px; border-top: 1px solid rgba(255,255,255,.035); }
+#autoCaptionsView .ac-smart-preset-row { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 8px; margin-top: 9px; }
+#autoCaptionsView .ac-smart-preset-row label { display: flex; flex-direction: column; gap: 5px; color: #87928b; font-size: 8px; }
+#autoCaptionsView .ac-smart-preset-row select {
+  min-height: 31px; box-sizing: border-box; border: 1px solid #2b3931; border-radius: 7px;
+  background: #0a100c; color: #d8dfda; padding: 5px 8px; outline: none;
+}
+#autoCaptionsView .ac-smart-preset-row .btn { min-height: 31px; padding-inline: 13px; }
+#autoCaptionsView .ac-smart-options { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin: 9px 0; }
+#autoCaptionsView .ac-smart-options label {
+  display: flex; align-items: center; gap: 6px; min-height: 28px; box-sizing: border-box;
+  padding: 5px 7px; border: 1px solid #222d27; border-radius: 7px; background: rgba(255,255,255,.015);
+  color: #a6b0a9; font-size: 8px; cursor: pointer;
+}
+#autoCaptionsView .ac-smart-options input { accent-color: #4fd573; }
+#autoCaptionsView .ac-smart-actions, #autoCaptionsView .ac-smart-footer,
+#autoCaptionsView .ac-smart-position, #autoCaptionsView .ac-smart-brand { display: flex; align-items: center; gap: 6px; }
+#autoCaptionsView .ac-smart-actions .btn { min-height: 29px; }
+#autoCaptionsView .ac-smart-status { min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #70d98b; font-size: 8px; white-space: nowrap; }
+#autoCaptionsView .ac-smart-footer { justify-content: space-between; flex-wrap: wrap; margin-top: 9px; padding-top: 9px; border-top: 1px solid #202a24; }
+#autoCaptionsView .ac-smart-position > span { margin-right: 2px; color: #7f8b83; font-size: 8px; }
+#autoCaptionsView .ac-smart-position button {
+  min-height: 25px; padding: 3px 8px; border: 1px solid #29352e; border-radius: 6px;
+  background: #0c120e; color: #9ca69f; font-size: 8px; cursor: pointer;
+}
+#autoCaptionsView .ac-smart-position button.active { border-color: #3c9254; background: #112c19; color: #75e692; }
+#autoCaptionsView .ac-smart-brand .btn { min-height: 25px; padding: 3px 8px; font-size: 8px; }
+@media (max-width: 520px) {
+  #autoCaptionsView .ac-smart-options { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #autoCaptionsView .ac-smart-preset-row { grid-template-columns: 1fr; }
+  #autoCaptionsView .ac-smart-preset-row .btn { width: 100%; }
+}

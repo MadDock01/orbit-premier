@@ -1,0 +1,349 @@
+/* Orbit Studio–style Timeline Tools: fixed 2-col grid that shrinks cleanly. */
+#composerToolsView {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 0%, #0b180e 0%, #050907 45%);
+}
+
+#composerToolsPanel.composer-tools {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 8px 10px 10px;
+  color: #d8ded9;
+  overflow: hidden;
+}
+
+#composerToolsPanel .ct-head {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0 2px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#composerToolsPanel .ct-head strong {
+  color: #edf3ee;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+#composerToolsPanel .ct-head span {
+  margin-top: 2px;
+  color: #8da195;
+  font-size: 9px;
+  letter-spacing: .15px;
+}
+#composerToolsPanel .ct-icon-btn {
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #2a382f;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #141d17, #0a100c);
+  color: #c7ccc8;
+  font-size: 14px;
+  cursor: pointer;
+}
+#composerToolsPanel .ct-icon-btn:hover {
+  border-color: #43844f;
+  color: #fff;
+}
+
+#composerToolsPanel .ct-selection {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 7px 10px 7px 30px;
+  border: 1px solid #29392f;
+  border-radius: 8px;
+  background: linear-gradient(130deg, #101813, #080e0b 70%);
+  color: #aeb5b0;
+  font-size: 10px;
+}
+#composerToolsPanel .ct-selection::before {
+  content: "i";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #737b75;
+  border-radius: 50%;
+  color: #aeb5b0;
+  font: 700 9px/1 sans-serif;
+}
+
+/* Studio tools-scroll equivalent: 2 columns, cards shrink together. */
+#composerToolsPanel .composer-tools-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-auto-rows: max-content;
+  gap: 6px;
+  align-content: start;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+#composerToolsPanel .ct-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 7px;
+  box-sizing: border-box;
+  border: 1px solid #29392f;
+  border-radius: 8px;
+  background: linear-gradient(130deg, #101813, #080e0b 70%);
+  box-shadow: inset 0 1px #ffffff03;
+  overflow: hidden;
+}
+#composerToolsPanel .ct-diagnostics-card {
+  grid-column: 1 / -1;
+}
+#composerToolsPanel .ct-card-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+  margin: 0;
+  padding: 0 0 4px;
+  border: 0;
+  border-bottom: 1px solid #25332b;
+  background: none;
+  color: #edf3ee;
+  font: 600 11px/1.15 "Segoe UI", sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+#composerToolsPanel .ct-card-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#composerToolsPanel .ct-help {
+  margin-left: auto;
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  border-color: #3a5344;
+  color: #8da195;
+}
+#composerToolsPanel .ct-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 6px 0 0;
+  border-top: 0;
+}
+
+/* Orbit Studio .tool-btn look */
+#composerToolsPanel .ct-tool-btn,
+#composerToolsPanel .ct-icon-btn,
+#composerToolsPanel .ct-param-row button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 34px;
+  height: auto;
+  margin: 0;
+  padding: 4px 3px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #141d17, #0a100c);
+  border: 1px solid #2a382f;
+  border-radius: 6px;
+  color: #e0e9e2;
+  box-shadow: inset 0 1px #ffffff03;
+  font: 500 10px/1.15 "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s;
+}
+#composerToolsPanel .ct-tool-btn:hover,
+#composerToolsPanel .ct-param-row button:hover {
+  border-color: #43844f;
+  background: #122017;
+  color: #fff;
+}
+#composerToolsPanel .ct-tool-btn.active {
+  background: #142d19;
+  border-color: #35c64b;
+  color: #d5ffdb;
+}
+#composerToolsPanel .ct-tool-btn.ct-primary,
+#composerToolsPanel .ct-tool-btn.ct-wide {
+  min-height: 36px;
+  border-color: #35c64b;
+  background: #142d19;
+  color: #d5ffdb;
+  font-weight: 600;
+}
+#composerToolsPanel .ct-tool-btn.ct-primary:hover,
+#composerToolsPanel .ct-tool-btn.ct-wide:hover {
+  border-color: #72ff89;
+  background: #173824;
+}
+
+#composerToolsPanel .ct-playhead-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+#composerToolsPanel .ct-nudge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 0;
+  color: #91a297;
+  font-size: 9px;
+}
+#composerToolsPanel .ct-nudge div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+#composerToolsPanel .ct-nudge .ct-tool-btn {
+  min-height: 28px;
+  padding: 3px 2px;
+  font-size: 10px;
+}
+#composerToolsPanel .ct-align-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  max-width: 220px;
+  margin: 0 auto;
+  width: 100%;
+}
+#composerToolsPanel .ct-align-grid .ct-tool-btn {
+  min-height: 30px;
+  font-size: 14px;
+  padding: 2px;
+}
+#composerToolsPanel .ct-anchor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  max-width: 220px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 96px;
+  box-sizing: border-box;
+}
+#composerToolsPanel .ct-anchor-grid button {
+  min-height: 30px;
+}
+#composerToolsPanel .ct-field {
+  gap: 4px;
+  margin-bottom: 0;
+  color: #91a297;
+  font-size: 9px;
+}
+#composerToolsPanel .ct-field input,
+#composerToolsPanel .ct-field select,
+#composerToolsPanel .ct-number {
+  min-height: 28px;
+  border-color: #2a382f;
+  border-radius: 6px;
+  background: #0a100c;
+  color: #e0e5e1;
+  padding: 4px 7px;
+}
+#composerToolsPanel .ct-matte-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+#composerToolsPanel .ct-mogrt-meta {
+  margin: 0;
+  color: #91a297;
+  font-size: 10px;
+  line-height: 1.4;
+}
+#composerToolsPanel .ct-param-row {
+  grid-template-columns: minmax(60px, .75fr) minmax(70px, 1.1fr) auto;
+  gap: 5px;
+}
+#composerToolsPanel .ct-param-row button {
+  flex-direction: row;
+  min-height: 28px;
+  padding: 3px 7px;
+  font-size: 9px;
+}
+#composerToolsPanel .ct-diagnostics {
+  color: #8da195;
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+#composerToolsPanel .ct-diag-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
+  margin-bottom: 4px;
+}
+#composerToolsPanel .ct-status {
+  flex: 0 0 auto;
+  min-height: 16px;
+  margin: 0;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: #06120f;
+  color: #66df88;
+  font-size: 10px;
+}
+#composerToolsPanel .ct-status.error { color: #ee7777; }
+
+@media (max-width: 560px) {
+  #composerToolsPanel .composer-tools-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #composerToolsPanel .ct-nudge {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #composerToolsPanel .ct-matte-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  #composerToolsPanel.composer-tools { padding: 6px 7px 8px; gap: 5px; }
+  #composerToolsPanel .ct-tool-btn { min-height: 30px; font-size: 9px; }
+  #composerToolsPanel .ct-align-grid .ct-tool-btn { min-height: 26px; }
+}

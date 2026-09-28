@@ -1,0 +1,553 @@
+/* Global timeline dock + library folder/select chrome. */
+#app > .app-panel {
+  min-height: 0;
+  flex: 1 1 auto;
+}
+/* SFX and MOGRT sit together at the top: they are one view in two modes, and
+   MOGRT used to be a tab inside SFX. */
+#assetTypeRow .shelf[data-type="sfx"] { order: 1; }
+#assetTypeRow .shelf[data-type="mogrt"] { order: 2; }
+#assetTypeRow .shelf[data-type="silence"] { order: 3; }
+#assetTypeRow .shelf[data-type="captions"] { order: 4; }
+#assetTypeRow .shelf[data-type="beat"] { order: 5; }
+#assetTypeRow .shelf[data-type="audio"] { order: 6; }
+#assetTypeRow .shelf[data-type="motion"] { order: 7; }
+#assetTypeRow .shelf[data-type="doctor"] { order: 8; }
+
+/* One dock, on the right. Everything that used to be split between a bar
+   under the header and a bar along the bottom lives here: a vertical rail of
+   fifteen controls beside the panel. It costs 32px of width once instead of
+   68px of height twice, and the panel content keeps its full height.
+   The rail is absolutely positioned like the nav rail on the left, and #app
+   reserves the width with padding, so no panel has to know about it. */
+.orbit-right-dock {
+  position: absolute;
+  z-index: 100;
+  top: 44px;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0;
+  background: linear-gradient(90deg, #070c09, #0c1410);
+  border-left: 1px solid #29392f;
+}
+/* Fixed width, never wraps; a rail too tall for the panel scrolls rather than
+   widening, for the same reason the old bar scrolled rather than growing. */
+.orbit-right-dock .orbit-dock-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2px;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  scrollbar-width: thin;
+  scrollbar-color: #2f4a39 transparent;
+}
+/* Visible, unlike the old bottom bar's. A rail that scrolls with no scrollbar
+   hides its last controls completely — on a short panel that is Volume and
+   Pitch, with nothing on screen to suggest they exist. */
+.orbit-right-dock .orbit-dock-center::-webkit-scrollbar { width: 4px; }
+.orbit-right-dock .orbit-dock-center::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: #2f4a39;
+}
+.orbit-right-dock .orbit-dock-center::-webkit-scrollbar-track { background: transparent; }
+.orbit-right-dock .orbit-dock-btn,
+.orbit-right-dock .orbit-dock-drawer { flex: 0 0 auto; }
+/* Horizontal rules between groups, not vertical ones. */
+.orbit-right-dock .orbit-dock-sep {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 1px;
+  margin: 2px 0;
+  background: #27362c;
+}
+/* The status line has no room on a 32px rail, so it floats to the left of it,
+   along the bottom edge, and disappears when there is nothing to say. */
+.orbit-right-dock .orbit-dock-status {
+  position: absolute;
+  right: 38px;
+  bottom: 8px;
+  left: auto;
+  max-width: 190px;
+  padding: 5px 8px;
+  border: 1px solid #2c3c33;
+  border-radius: 7px;
+  background: rgba(8, 14, 10, .94);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+  white-space: normal;
+  text-overflow: clip;
+  line-height: 1.3;
+}
+.orbit-right-dock .orbit-dock-status:empty { display: none; }
+
+/* Room for the rail, so no panel's content runs underneath it. The left rail
+   claims its 62px the same way, through #app's padding — but that padding is
+   written as a shorthand with !important by a later layer, which silently
+   resets the right side, hence the weight here. */
+html body #app { padding-right: 32px !important; }
+
+/* A pop opens to the LEFT of the rail now, and is centred on its own button
+   rather than on the row. */
+.orbit-right-dock .orbit-dock-pop {
+  left: auto;
+  bottom: auto;
+  transform: none;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, .55);
+}
+
+/* Short panels: the rail is the one thing that must stay reachable, so the
+   icons shrink before the rail starts scrolling. */
+@media (max-height: 560px) {
+  .orbit-right-dock { width: 28px; padding: 3px 0; }
+  html body #app { padding-right: 28px !important; }
+  .orbit-right-dock .orbit-dock-btn { width: 22px; min-width: 22px; height: 22px; }
+  .orbit-right-dock .orbit-dock-btn svg { width: 13px; height: 13px; }
+  .orbit-right-dock .orbit-dock-center { gap: 1px; }
+  .orbit-right-dock .orbit-dock-sep { margin: 1px 0; }
+}
+
+.orbit-dock-sep {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 18px;
+  background: #27362c;
+}
+.orbit-dock-center .orbit-dock-btn,
+.orbit-dock-center .orbit-dock-drawer {
+  flex: 0 0 auto;
+}
+.orbit-dock-btn {
+  flex: 0 0 auto;
+  width: 28px;
+  min-width: 28px;
+  height: 26px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #2a382f;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #141d17, #0a100c);
+  color: #d5e4d9;
+  cursor: pointer;
+}
+.orbit-dock-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.orbit-dock-btn:hover,
+.orbit-dock-drawer.open .orbit-dock-btn {
+  border-color: #43844f;
+  background: #122017;
+  color: #fff;
+}
+.orbit-dock-btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.orbit-dock-status {
+  position: absolute;
+  left: 8px;
+  right: auto;
+  max-width: 22%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  color: #66df88;
+  font: 500 9px/1.2 "Segoe UI", sans-serif;
+}
+.orbit-dock-status.error { color: #ee7777; }
+.orbit-dock-drawer {
+  position: relative;
+}
+.orbit-dock-pop {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 50%;
+  bottom: 42px;
+  width: 168px;
+  padding: 10px 12px;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  border: 1px solid #43844f;
+  border-radius: 8px;
+  background: #0c1410;
+  box-shadow: 0 -8px 24px rgba(0,0,0,.55);
+}
+.orbit-dock-drawer.open .orbit-dock-pop {
+  display: block;
+}
+.orbit-dock-pop .slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  color: #9eb0a8;
+  font: 700 8px/1 Arial, sans-serif;
+  letter-spacing: .06em;
+}
+.orbit-dock-pop .slider-label .val {
+  color: #72ff89;
+}
+.orbit-dock-pop input[type="range"] {
+  width: 100%;
+  height: 16px;
+  margin: 0;
+  accent-color: #32d36a;
+}
+/* A pop holding a list of actions rather than a slider. Full-width rows,
+   because these are commands and a command needs a readable label — an icon
+   for "Reset scale to 100%" would be a guess every time. */
+.orbit-dock-pop.is-menu {
+  width: 152px;
+  padding: 9px 9px 8px;
+}
+.orbit-dock-menu {
+  display: grid;
+  gap: 3px;
+}
+.orbit-dock-menu button {
+  min-height: 25px;
+  padding: 0 8px;
+  border: 1px solid #2a382f;
+  border-radius: 6px;
+  background: #09110c;
+  color: #b7c6bc;
+  font: 700 8.5px/1 Inter, "Segoe UI", sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.orbit-dock-menu button:hover {
+  border-color: #43844f;
+  background: #122017;
+  color: #8fe3a6;
+}
+.orbit-dock-menu button:disabled { opacity: .45; cursor: not-allowed; }
+.orbit-dock-note {
+  margin: 7px 0 0;
+  color: #7d9488;
+  font: 400 8px/1.35 "Segoe UI", sans-serif;
+}
+#app #sfxMogrtView > .transport,
+#app #sfxMogrtView .transport,
+#app #sfxMogrtView .library-deck-mixer,
+#app #sfxMogrtView #libraryDeckMixer,
+#app #sfxMogrtView .mixer-wrap {
+  display: none !important;
+}
+#app #sfxMogrtView .lib-toolbar {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 5px 10px !important;
+  border-bottom: 1px solid #243129 !important;
+  background: #070c09 !important;
+  min-height: 36px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-item-count {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-action-icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  flex: 0 0 auto !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-toolbar-end {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid #2a382f !important;
+  border-radius: 7px !important;
+  background: #101813 !important;
+  color: #b8c9be !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: border-color .12s, background .12s, color .12s, box-shadow .12s !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn .lib-icon {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn:hover {
+  color: #e8f5ec !important;
+  border-color: #3d5244 !important;
+  background: #141f18 !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn--primary {
+  border-color: #35c64b !important;
+  background: #142d19 !important;
+  color: #8ef0a0 !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn--primary:hover {
+  background: #1a3a22 !important;
+  color: #d5ffdb !important;
+  box-shadow: 0 0 0 1px rgba(50, 211, 106, 0.25) !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn--warn {
+  border-color: #5a4a28 !important;
+  background: #1a160c !important;
+  color: #e8c56a !important;
+}
+#app #sfxMogrtView .lib-toolbar .lib-icon-btn--danger {
+  border-color: #6b3038 !important;
+  background: #1f1012 !important;
+  color: #ff9b9b !important;
+}
+#app #sfxMogrtView .lib-toolbar .card-size-row {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 3px 8px !important;
+  border: 1px solid #243129 !important;
+  border-radius: 7px !important;
+  background: #0a100c !important;
+}
+#app #sfxMogrtView .lib-toolbar .card-size-label {
+  color: #6b7686;
+  font: 700 8px/1 Consolas, monospace;
+  letter-spacing: .08em;
+}
+#app #sfxMogrtView .lib-toolbar .card-size-val {
+  min-width: 26px;
+  color: #72ff89;
+  font: 700 9px/1 Consolas, monospace;
+  text-align: right;
+}
+#app #sfxMogrtView .lib-toolbar #cardSizeSlider {
+  width: 88px !important;
+  height: 14px !important;
+  margin: 0 !important;
+  accent-color: #32d36a !important;
+  cursor: pointer !important;
+}
+#app #sfxMogrtView[data-library-mode="mogrt"] .card-size-row {
+  display: flex !important;
+}
+#app #sfxMogrtView[data-view-mode="list"] .card-size-row {
+  opacity: 0.45;
+  pointer-events: none;
+}
+#app #sfxMogrtView .library-filter-strip {
+  padding: 8px 10px !important;
+  gap: 8px !important;
+}
+#app #sfxMogrtView .content-view .toolbar {
+  padding: 6px 10px !important;
+  min-height: 0 !important;
+}
+#app #sfxMogrtView .breadcrumb {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#app #sfxMogrtView .lib-item-count {
+  color: #6b7686;
+  font: 700 8px/1 Consolas, monospace;
+  letter-spacing: .08em;
+}
+#app #sfxMogrtView .lib-view-toggle {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+}
+#app #sfxMogrtView .lib-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #243129;
+  border-radius: 7px;
+  background: #101813;
+  color: #6b7686;
+  cursor: pointer;
+}
+#app #sfxMogrtView .lib-view-btn .lib-icon {
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+}
+#app #sfxMogrtView .lib-view-btn.active {
+  color: #22ff6f;
+  border-color: #2f6a3d;
+  background: #142d19;
+}
+#app #sfxMogrtView .lib-tooltip {
+  position: fixed;
+  z-index: 99999;
+  max-width: 220px;
+  padding: 5px 9px;
+  border: 1px solid #3a5244;
+  border-radius: 6px;
+  background: #0e1612;
+  color: #d8ece0;
+  font: 600 10px/1.35 Arial, sans-serif;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+}
+#app #sfxMogrtView .lib-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 7px;
+  height: 7px;
+  margin-left: -4px;
+  transform: rotate(45deg);
+  background: #0e1612;
+  border-right: 1px solid #3a5244;
+  border-bottom: 1px solid #3a5244;
+}
+#app #sfxMogrtView #sidebar:not(.collapsed),
+#app #sfxMogrtView .sidebar:not(.collapsed) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 148px !important;
+  width: 148px !important;
+  min-width: 148px !important;
+  max-width: 176px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border-right: 1px solid #243129 !important;
+  transition: width .22s ease, min-width .22s ease, flex-basis .22s ease, border-width .22s ease;
+}
+#app #sfxMogrtView #sidebar.collapsed,
+#app #sfxMogrtView .sidebar.collapsed {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  border-right-width: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  transition: width .22s ease, min-width .22s ease, flex-basis .22s ease, border-width .22s ease;
+}
+#app #sfxMogrtView .sidebar-header,
+#app #sfxMogrtView .lib-sidebar-subhead,
+#app #sfxMogrtView .folder-tree,
+#app #sfxMogrtView .lib-sidebar-footer,
+#app #sfxMogrtView.folders-empty .sidebar-header,
+#app #sfxMogrtView.folders-empty .folder-tree {
+  display: block !important;
+}
+#app #sfxMogrtView .sidebar.collapsed .sidebar-header,
+#app #sfxMogrtView .sidebar.collapsed .lib-sidebar-subhead,
+#app #sfxMogrtView .sidebar.collapsed .folder-tree,
+#app #sfxMogrtView .sidebar.collapsed .lib-sidebar-footer {
+  display: none !important;
+}
+#app #sfxMogrtView .folder-tree {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+#app #sfxMogrtView .lib-sidebar-subhead {
+  padding: 6px 10px 4px !important;
+  color: #6b7686 !important;
+  font: 800 8px/1 Consolas, monospace !important;
+  letter-spacing: .16em !important;
+}
+#app #sfxMogrtView .lib-sidebar-footer {
+  padding: 6px 10px !important;
+  color: #6b7686 !important;
+  font: 700 8px/1 Consolas, monospace !important;
+}
+#app #sfxMogrtView .folder-count {
+  margin-left: auto;
+  color: #6b7686;
+  font: 700 8px/1 Consolas, monospace;
+}
+#app #sfxMogrtView .btn-collapse {
+  width: 26px !important;
+  min-width: 26px !important;
+  height: 22px !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #d5e4d9 !important;
+  font: 700 11px/1 Arial, sans-serif !important;
+  background: #101813 !important;
+  border: 1px solid #2a382f !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+#app #sfxMogrtView.folders-empty .toolbar,
+#app #sfxMogrtView .toolbar {
+  display: flex !important;
+}
+#app #sfxMogrtView .sfx-card.selected {
+  outline: 1px solid #35c64b !important;
+  box-shadow: inset 0 0 0 1px #142d19 !important;
+}
+#app #sfxMogrtView .sfx-card .card-favorite {
+  display: grid !important;
+  place-items: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #2a382f;
+  border-radius: 50%;
+  background: #0a100c;
+  color: #8da195;
+  cursor: pointer;
+}
+#app #sfxMogrtView .sfx-card .card-favorite.on {
+  color: #d5ffdb;
+  border-color: #35c64b;
+  background: #142d19;
+}
+#app #sfxMogrtView .batch-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 8px;
+  border: 1px solid #29392f;
+  border-radius: 6px;
+  background: #101813;
+  color: #d5e4d9;
+  font: 500 10px/1.3 "Segoe UI", sans-serif;
+}
+#app #sfxMogrtView #btnRemoveSelected:disabled {
+  opacity: .4;
+}

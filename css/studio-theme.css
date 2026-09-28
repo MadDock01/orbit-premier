@@ -1,0 +1,52 @@
+/* Orbit Studio dashboard/module palette, adapted to Premiere's existing controls.
+   Preview typography, waveform colors and animation samples retain their styles. */
+:root{--orbit-shell:#080e0b;--orbit-line:#29392f;--accent:#3cff5f;--accent-color:#3cff5f;--panel-bg:#080e0b;--card-bg:#101813;--text:#e0e9e2;--text-dim:#9bac9f}
+html,body,#app{background:#080e0b!important;color:#e0e9e2;font-family:"Segoe UI",sans-serif}
+#app .orbit-header,#app .orbit-shell-header{background:linear-gradient(120deg,#101813,#080e0b)!important;border-color:#29392f!important;box-shadow:none!important}
+#app #assetTypeRow{background:linear-gradient(#080e0b,#050a07)!important;border-color:#243129!important;overflow-y:auto!important;overflow-x:hidden!important}
+#app #assetTypeRow>.shelf{flex-shrink:0;min-height:49px!important;background:transparent!important;border:1px solid transparent!important;border-radius:6px!important;color:#a8b5ad!important;box-shadow:none!important;gap:5px}
+#app #assetTypeRow>.shelf span{font:500 9px/1.2 "Segoe UI",sans-serif!important;letter-spacing:.02em!important}
+#app #assetTypeRow>.shelf svg{width:19px;height:19px}
+#app #assetTypeRow>.shelf.active{color:#3cff5f!important;background:linear-gradient(90deg,#102a16,#0b170d)!important;border-color:#1c3c23!important;box-shadow:inset 3px 0 #3cff5f!important}
+#app #assetTypeRow>.shelf:hover{border-color:#31583c!important}
+#app .orbit-view-panel,#app #sfxMogrtView{background:#080e0b!important;color:#e0e9e2}
+#app :is(.m4-accord,.tool-section,.composer-card,.doctor-card,.beat-card,.multicam-card,.audio-card,.library-filter-strip,.main-layout,.transport){background:linear-gradient(130deg,#101813,#080e0b 70%)!important;border-color:#29392f!important;border-radius:8px!important;box-shadow:none!important;min-width:0}
+#app :is(.m4-accord-hdr,.tool-section-head){background:transparent!important;border-color:#25332b!important;color:#edf3ee!important;box-shadow:none!important}
+#app :is(.m4-accord-label,.tool-section-title){font:600 11px/1.3 "Segoe UI",sans-serif!important;letter-spacing:.04em!important}
+#app :is(.btn,.library-type-tabs button,.tab,.icon-btn){background:linear-gradient(135deg,#141d17,#0a100c)!important;border:1px solid #2a382f!important;border-radius:6px!important;color:#e0e9e2!important;box-shadow:none!important;font-family:"Segoe UI",sans-serif!important;font-size:11px!important}
+#app :is(.btn,.library-type-tabs button,.tab,.icon-btn):hover{border-color:#43844f!important;background:#122017!important}
+#app :is(.btn.primary,.btn.active,.tab.active,.library-type-tabs button.active){background:#142d19!important;border-color:#35c64b!important;color:#d5ffdb!important}
+#app :is(.btn.danger,.sc-cut-btn-inline:not(:disabled)){border-color:#b64c5b!important;color:#ffb8c1!important;background:#30151a!important}
+#app :is(input:not([type=range]):not([type=checkbox]):not([type=color]):not([type=radio]),select,textarea){background:#090f0c!important;border-color:#2a382f!important;color:#e0e9e2!important;border-radius:6px;font-family:"Segoe UI",sans-serif}
+#app input[type=checkbox],#app input[type=range]{accent-color:#3cff5f}
+#app button:disabled{opacity:.42!important;cursor:not-allowed!important}
+#app button:focus-visible,#app input:focus-visible,#app select:focus-visible{outline:2px solid #3cff5f;outline-offset:2px}
+#app :is(.hint,.tool-help,.sc-waveform-hint){color:#9bac9f!important;line-height:1.5}
+#app #panel-silence-cutter .form-row>label{font-size:11px!important;color:#b9c8be!important;white-space:normal}
+#app #panel-silence-cutter .form-row>select{font-size:11px!important}
+#app #panel-silence-cutter :is(.sc-detect-chips,.slider-val,.sc-waveform-wrap){background:#090f0c!important;border-color:#2a382f!important;box-shadow:none!important}
+#app #panel-silence-cutter .track-chip{font-size:10px!important}
+#app #sc-connection-status{border:1px solid #29392f;border-radius:6px;background:#101813}
+/* SFX and MOGRT share Studio's filter pills, compact actions and card surfaces. */
+#app #sfxMogrtView{min-width:0!important;max-width:100%;box-sizing:border-box}
+#app #sfxMogrtView .library-filter-strip{min-height:44px;padding:7px 10px!important;gap:8px;flex-wrap:wrap}
+#app #sfxMogrtView .search-row{flex:1 1 150px;min-width:0}
+#app #sfxMogrtView .tabs-row{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+#app #sfxMogrtView .tab{min-height:27px;padding:4px 10px!important;border-radius:6px!important;font-weight:600}
+#app #sfxMogrtView .tab.active{color:#3cff5f!important;background:#142d19!important;border-color:#35c64b!important}
+#app #sfxMogrtView .library-action-strip{padding:5px 9px!important;gap:6px;flex-wrap:wrap;background:#080e0b!important;border-bottom:1px solid #29392f}
+#app #sfxMogrtView .actions-row{gap:4px;flex-wrap:wrap}
+#app #sfxMogrtView .actions-row .btn{width:28px;min-width:28px;height:28px;min-height:28px;padding:0!important;display:inline-flex;align-items:center;justify-content:center}
+#app #sfxMogrtView .sfx-card{height:auto!important;min-width:0;background:linear-gradient(130deg,#101813,#080e0b)!important;border:1px solid #29392f!important;border-radius:8px!important;overflow:hidden;box-shadow:none!important}
+#app #sfxMogrtView .sfx-card:hover{border-color:#43844f!important}
+#app #sfxMogrtView .sfx-card.selected{border-color:#3cff5f!important;box-shadow:inset 0 0 0 1px #245a30!important}
+#app #sfxMogrtView .fxlib-thumb{background:#090f0c!important;border-bottom:1px solid #25332b}
+#app #sfxMogrtView .meta-title{font:600 11px/1.35 "Segoe UI",sans-serif!important;color:#edf3ee!important}
+#app #sfxMogrtView .meta-sub{font:400 9px/1.4 "Segoe UI",sans-serif!important;color:#9bac9f!important}
+#app #sfxMogrtView .fxlib-apply{box-sizing:border-box;width:calc(100% - 10px)!important;margin:0 5px 5px!important;min-height:26px!important;border:1px solid #1f7a42!important;border-radius:5px!important;background:linear-gradient(135deg,rgba(34,255,111,.18),rgba(34,255,111,.07))!important;color:#5cf09a!important;font:600 10px/1.3 "Segoe UI",sans-serif!important;letter-spacing:.04em;cursor:pointer}
+#app #sfxMogrtView .fxlib-apply:hover{background:#3cff5f!important;color:#06120a!important}
+#app #sfxMogrtView .content-view{min-width:0!important}
+@media(max-width:440px){#app #sfxMogrtView .sidebar{width:76px!important;min-width:76px!important}#app #sfxMogrtView .library.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr))!important}#app #sfxMogrtView .search-row{flex-basis:100%}}
+/* CEP Chromium 99 has no :has(): explicit child ID class provides the layout. */
+#app #panel-silence-cutter .sc-threshold-row{grid-template-columns:95px minmax(0,1fr) 48px 38px}
+@media(max-width:430px){#app #panel-silence-cutter .form-row{grid-template-columns:75px minmax(0,1fr) 48px;gap:5px}#app #panel-silence-cutter .sc-threshold-row{grid-template-columns:75px minmax(0,1fr) 45px 35px}#app #panel-silence-cutter .audio-opt{margin-left:0!important}#app .library-type-tabs button{min-height:30px}}

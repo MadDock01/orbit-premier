@@ -1,0 +1,85 @@
+/* Sound-design drawer under the SFX library. Palette and card rhythm follow
+   css/motion-lab.css and css/project-doctor.css so the panels read as one. */
+.sfxd {
+  margin: 10px 0 4px;
+  padding: 11px 12px 10px;
+  border: 1px solid rgba(106, 137, 117, .24);
+  border-radius: 11px;
+  background: linear-gradient(135deg, rgba(17, 28, 21, .96), rgba(11, 17, 14, .94));
+  color: #dce5df;
+  font-family: Inter, Arial, sans-serif;
+}
+.sfxd[hidden] { display: none; }
+
+.sfxd-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.sfxd-title { min-width: 0; }
+.sfxd-title strong {
+  display: block; color: #edf3ef; font-size: 11px; font-weight: 700;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sfxd-title span { display: block; margin-top: 2px; color: #7d9488; font-size: 8px; }
+.sfxd-close {
+  flex: 0 0 auto; width: 22px; height: 22px; padding: 0;
+  border: 1px solid rgba(112, 139, 122, .24); border-radius: 6px;
+  background: #101713; color: #9ab1a1; font-size: 13px; line-height: 1; cursor: pointer;
+}
+.sfxd-close:hover { border-color: #b4563f; color: #ffb9a6; }
+
+.sfxd-wave {
+  display: block; width: 100%; height: 72px;
+  border: 1px solid rgba(106, 137, 117, .2); border-radius: 8px;
+  background: #09110c; cursor: crosshair;
+}
+
+.sfxd-transport { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin: 8px 0; }
+.sfxd-transport button {
+  min-height: 27px; min-width: 0; padding: 0 6px;
+  border: 1px solid rgba(112, 139, 122, .2); border-radius: 7px; background: #101713;
+  color: #a9b8af; font-size: 8.5px; font-weight: 700; cursor: pointer;
+}
+.sfxd-transport button:hover { border-color: rgba(69, 198, 105, .45); color: #69da86; }
+.sfxd-transport button.active { border-color: #32d36a; background: #102c1a; color: #72ff89; }
+
+.sfxd-rack { margin-bottom: 8px; }
+.sfxd-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.sfxd-slider { display: block; min-width: 0; margin-bottom: 7px; }
+.sfxd-slider > span { color: #708178; font-size: 8px; font-weight: 700; letter-spacing: .05em; }
+.sfxd-slider .val { float: right; color: #72ff89; font-size: 8px; font-style: normal; font-weight: 700; }
+.sfxd-slider input[type="range"] { display: block; width: 100%; height: 15px; margin: 3px 0 0; accent-color: #32d36a; }
+
+.sfxd-toggles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; margin-top: 2px; }
+.sfxd-toggles label {
+  display: flex; align-items: center; gap: 5px; min-width: 0;
+  padding: 6px 7px; border: 1px solid rgba(113, 139, 123, .18); border-radius: 7px;
+  background: #0e1511; cursor: pointer;
+}
+.sfxd-toggles input { margin: 0; accent-color: #32d36a; }
+.sfxd-toggles span { color: #c3d3c8; font-size: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.sfxd-actions { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 6px; }
+.sfxd-actions button {
+  min-height: 30px; min-width: 0;
+  border: 1px solid rgba(112, 139, 122, .2); border-radius: 7px; background: #101713;
+  color: #a9b8af; font-size: 9px; font-weight: 700; cursor: pointer;
+}
+.sfxd-actions button:hover { border-color: rgba(69, 198, 105, .45); color: #69da86; }
+.sfxd-primary {
+  border-color: #49c86b !important;
+  background: linear-gradient(180deg, #45c966, #2ca54d) !important;
+  color: #07140a !important; font-weight: 800 !important;
+}
+.sfxd-actions button:disabled { opacity: .5; cursor: wait; }
+
+.sfxd-status { min-height: 14px; margin-top: 6px; color: #6f8177; font-size: 8px; }
+.sfxd-status.error { color: #e57878; }
+.sfxd-status.success { color: #62d980; }
+
+/* Premiere panels reach 240px; three toggles and a 4-up transport stop fitting
+   well before that. */
+@media (max-width: 340px) {
+  .sfxd { padding: 10px; }
+  .sfxd-transport { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sfxd-row { grid-template-columns: minmax(0, 1fr); }
+  .sfxd-toggles { grid-template-columns: minmax(0, 1fr); }
+  .sfxd-actions { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,0 +1,55 @@
+/* Beat Lab advanced controls */
+.orbit-beat.beat-pro{padding-bottom:14px;max-width:100%;overflow-x:hidden}
+.beat-preview-bar{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;align-items:center;margin:8px 0}
+.beat-preview-bar label{display:grid;grid-template-columns:auto 1fr;gap:5px;align-items:center;font-size:10px;color:#8fa096}
+.beat-preview-bar input[type=range]{min-width:0;width:100%}
+.beat-mini-btn{border:1px solid #294335;background:#0d1711;color:#c7d8cd;border-radius:6px;padding:6px 9px;font-size:10px;cursor:pointer}
+.beat-mini-btn:hover{border-color:#42e67b;color:#fff}
+.beat-mini-btn:disabled{opacity:.42;cursor:default}
+.beat-mini-btn.danger{border-color:#5d2b2b;color:#ef8e8e}
+.beat-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.beat-card{border:1px solid #203027;border-radius:8px;background:#09100c;margin:8px 0;overflow:hidden}
+.beat-card>summary{cursor:pointer;list-style:none;padding:8px 10px;color:#b8c9be;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;background:#0d1611}
+.beat-card>summary::-webkit-details-marker{display:none}
+.beat-card>summary:after{content:'+';float:right;color:#42e67b}
+.beat-card[open]>summary:after{content:'-'}
+.beat-grid-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:9px}
+.beat-grid-controls label{display:grid;gap:4px;color:#8fa096;font-size:10px}
+.beat-grid-controls input[type=number],.beat-grid-controls select,.beat-seed-row input{width:100%;box-sizing:border-box;background:#070c09;border:1px solid #26372d;border-radius:5px;color:#d8e6dc;padding:6px}
+.beat-grid-controls .beat-wide{grid-column:1/-1}
+.beat-grid-controls label.beat-check{display:flex;align-items:center;gap:7px}
+.beat-grid-controls label.beat-check input{width:auto}
+.beat-grid-controls label.beat-wide:not(.beat-check){grid-template-columns:auto 1fr auto;align-items:center}
+.beat-grid-controls b,.beat-slider-row b{font-size:10px;color:#42e67b;font-weight:600;white-space:nowrap}
+.beat-inline-buttons{display:grid;grid-template-columns:1fr 1fr;gap:5px;align-items:end}
+.beat-slider-row{display:grid;grid-template-columns:62px 1fr 48px;gap:7px;align-items:center;padding:5px 9px;color:#8fa096;font-size:10px}
+.beat-seed-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;padding:7px 9px 9px}
+.beat-seed-row label{display:grid;gap:4px;color:#8fa096;font-size:10px}
+.beat-legend{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:7px 9px;border-top:1px solid #17241c;font-size:9px;color:#6f8075}
+.beat-legend span:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px}
+.beat-legend .selected:before{background:#43ed7e}
+.beat-legend .deselected:before{background:#3a4a40}
+.beat-legend .onset:before{background:#ffad42}
+.beat-legend small{margin-left:auto;color:#607066}
+.beat-action{grid-template-columns:repeat(5,minmax(0,1fr))}
+.beat-tool-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:0 9px 9px}
+.beat-footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#beatMotionOptions{display:none}
+#beatMarkerOptions{display:block}
+#beatMontageOptions{display:none}
+.beat-montage-source{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:9px;border-bottom:1px solid #17241c}
+.beat-montage-source div{display:grid;gap:3px;min-width:0}
+.beat-montage-source b{color:#d8e6dc;font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.beat-montage-source small{color:#708078;font-size:9px}
+.beat-montage-actions{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:center;padding:0 9px 9px}
+.beat-montage-actions span{color:#7f9086;font-size:9px;line-height:1.4}
+.beat-wave-wrap canvas{cursor:crosshair}
+.beat-wave-wrap.playing{box-shadow:0 0 0 1px rgba(66,230,123,.35) inset}
+@media(max-width:420px){
+  .beat-preview-bar{grid-template-columns:1fr 1fr}.beat-preview-bar button{grid-column:1/-1}
+  .beat-stats{grid-template-columns:repeat(2,1fr)}
+  .beat-grid-controls{grid-template-columns:1fr}
+  .beat-grid-controls .beat-wide{grid-column:auto}
+  .beat-action{grid-template-columns:repeat(3,1fr)}
+  .beat-montage-source,.beat-montage-actions{grid-template-columns:1fr}
+}

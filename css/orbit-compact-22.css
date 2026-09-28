@@ -1,0 +1,192 @@
+/* Dense layout tuned for ~22" Premiere workspaces. */
+html, body {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+body {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.cx-grace {
+  flex: 0 0 auto !important;
+  position: relative !important;
+  z-index: 20 !important;
+}
+#app {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  font-size: 11px !important;
+}
+#app .orbit-shell-header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 10px !important;
+  box-sizing: border-box !important;
+}
+#app #assetTypeRow {
+  top: 44px !important;
+}
+#assetTypeRow .shelf {
+  min-height: 42px !important;
+  padding: 4px 2px !important;
+  gap: 2px !important;
+}
+#assetTypeRow .shelf span {
+  font-size: 7px !important;
+  letter-spacing: 0.02em !important;
+}
+#assetTypeRow .shelf svg {
+  width: 14px !important;
+  height: 14px !important;
+}.orbit-view-panel,#autoCaptionsView,.composer-tools,.orbit-audio,.orbit-multicam,.orbit-beat{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+#autoCaptionsView .ac-smart-lab {
+  margin: 0 0 6px !important;
+  position: relative;
+  z-index: 1;
+}
+#autoCaptionsView .ac-smart-lab > summary {
+  min-height: 34px !important;
+  padding: 6px 9px !important;
+}
+#autoCaptionsView .ac-smart-body {
+  padding: 2px 9px 9px !important;
+}
+#autoCaptionsView #captions-preview {
+  position: relative;
+  z-index: 2;
+  min-height: 120px;
+  max-height: none;
+  overflow: auto;
+}
+#autoCaptionsView .m4-delivery-card strong {
+  color: #f3f6fb !important;
+  font-size: 11px !important;
+}
+#autoCaptionsView .m4-delivery-card span {
+  color: #c2cad8 !important;
+  font-size: 9px !important;
+  line-height: 1.35 !important;
+}
+#autoCaptionsView #ac-tab-apply .m4-tpl-card {
+  background: #12151c !important;
+}
+#autoCaptionsView .m4-tpl-strip {
+  gap: 6px !important;
+}.mc-card summary{
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}.mc-grid{
+  gap: 6px !important;
+}
+.mc-hint {
+  margin: 0 0 8px;
+  color: #8fa89a;
+  font-size: 9px;
+  line-height: 1.35;
+}.orbit-audio .audio-header{
+  min-height: 34px !important;
+}
+@media (max-height: 760px) {
+  #autoCaptionsView .ac-delivery-hint { display: none; }
+  #autoCaptionsView .m4-style-flow { display: none; }
+}
+
+/* Library bottom deck: one flat transport, no nested box / no height lock. */
+#sfxMogrtView > .transport {
+  flex: 0 0 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 6px 8px !important;
+  overflow: hidden !important;
+}
+#sfxMogrtView > .transport #libraryDeckMixer,
+#sfxMogrtView #libraryDeckMixer {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+}
+
+/* Last-loaded: Library card grid must scroll; folder names stay on the side. */
+#app #sfxMogrtView {
+  flex-direction: column !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#app #sfxMogrtView.orbit-route-active {
+  display: flex !important;
+}
+#app #sfxMogrtView #mainLayout {
+  display: flex !important;
+  flex-direction: row !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#app #sfxMogrtView.has-library-folders #sidebar,
+#app #sfxMogrtView.has-library-folders .sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 118px !important;
+  width: 118px !important;
+  min-width: 118px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#app #sfxMogrtView.folders-empty #sidebar,
+#app #sfxMogrtView.folders-empty .sidebar,
+#app #sfxMogrtView .sidebar.collapsed {
+  flex: 0 0 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  border-right: 0 !important;
+}
+#app #sfxMogrtView .folder-tree {
+  display: block !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+#app #sfxMogrtView .sidebar.collapsed .sidebar-header,
+#app #sfxMogrtView .sidebar.collapsed .folder-tree,
+#app #sfxMogrtView.folders-empty .sidebar-header,
+#app #sfxMogrtView.folders-empty .folder-tree {
+  display: none !important;
+}
+#app #sfxMogrtView #mainLayout > .content-view,
+#app #sfxMogrtView .content-view {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+}
+#app #sfxMogrtView .library,
+#app #sfxMogrtView #library,
+#app #sfxMogrtView .library.grid {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  contain: none !important;
+}

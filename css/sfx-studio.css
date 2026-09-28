@@ -1,0 +1,376 @@
+/* SFX Studio.
+   The layout follows SoundDesigner's: result rows are cards carrying a play
+   button and their own mini waveform, the preview pairs a big waveform with a
+   facts grid, and the transport is pinned along the bottom with Insert on it.
+   What differs is the axis — SoundDesigner has a 660px window and can afford
+   a sources column beside the results; a Premiere panel is 240–500px wide, so
+   the same pieces stack and the sources list lives behind the gear. */
+#sfxStudioView {
+  min-height: 0;
+  overflow: hidden;
+  padding: 5px 5px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: #0d1511;
+  color: #e0e9e2;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+#app #sfxStudioView.orbit-route-active { display: flex !important; }
+#sfxStudioView.is-busy { pointer-events: none; opacity: .72; }
+
+/* ------------------------------------------------------------ toolbar -- */
+.sfxs-top { flex: 0 0 auto; min-width: 0; display: grid; gap: 4px; }
+.sfxs-searchrow { display: flex; align-items: center; gap: 3px; min-width: 0; }
+.sfxs-searchrow input {
+  flex: 1 1 auto; min-width: 0; height: 28px; padding: 0 10px;
+  border: 1px solid #283a30; border-radius: 7px;
+  background: #111a14; color: #ffffff; font-size: 12px;
+}
+.sfxs-searchrow input:focus { outline: none; border-color: #45c669; }
+.sfxs-icon {
+  flex: 0 0 auto; width: 28px; height: 28px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid #283a30; border-radius: 7px;
+  background: #142018; color: #b4c9bc; font-size: 13px; line-height: 1; cursor: pointer;
+}
+.sfxs-icon:hover { border-color: #43844f; color: #8fe3a6; }
+.sfxs-icon.active { border-color: #32d36a; background: #183421; color: #72ff89; }
+
+.sfxs-filters { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.sfxs-chip {
+  flex: 1 1 auto; min-width: 0; height: 26px; padding: 0 8px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  border: 1px solid #283a30; border-radius: 999px;
+  background: #142018; color: #b4c9bc;
+  font: 600 11px/1 Inter, Arial, sans-serif; cursor: pointer;
+  overflow: hidden; white-space: nowrap;
+}
+.sfxs-chip:hover { border-color: #43844f; color: #8fe3a6; }
+.sfxs-chip.active { border-color: #35c64b; background: #1a3c23; color: #ffffff; }
+.sfxs-chip .n {
+  padding: 1px 5px; border-radius: 999px; background: rgba(255,255,255,.14);
+  color: #c4fcd3; font-style: normal; font-size: 10px; font-weight: 700;
+}
+.sfxs-chip.active .n { background: rgba(53,198,75,.35); color: #ffffff; }
+
+.sfxs-resultbar {
+  flex: 0 0 auto; display: flex; align-items: center;
+  gap: 5px; padding: 2px 4px; color: #b4cbbe; font: 600 11px/1 Inter, Arial, sans-serif;
+}
+.sfxs-sortedby { margin-left: auto; }
+.sfxs-sortedby { display: flex; align-items: center; gap: 3px; color: #b4cbbe; }
+.sfxs-sortedby select {
+  border: 0; background: transparent; color: #5cf09a;
+  font: 700 11px/1 Inter, Arial, sans-serif; cursor: pointer;
+}
+
+/* ----------------------------------------------------------- settings -- */
+.sfxs-settings {
+  flex: 0 0 auto; padding: 8px;
+  border: 1px solid #283a30; border-radius: 9px; background: #121c16;
+}
+.sfxs-settings[hidden] { display: none; }
+.sfxs-setting { display: flex; align-items: center; gap: 6px; }
+.sfxs-setting > span { color: #b4cbbe; font: 700 11px/1 Inter, Arial, sans-serif; letter-spacing: .03em; }
+.sfxs-setting select {
+  flex: 1 1 auto; min-width: 0; height: 26px;
+  border: 1px solid #283a30; border-radius: 6px; background: #111a14; color: #ffffff; font-size: 11px;
+}
+/* ------------------------------------------------------------ sources -- */
+.sfxs-body { flex: 1 1 auto; min-height: 0; min-width: 0; display: flex; gap: 5px; }
+.sfxs-main { flex: 1 1 auto; min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 4px; }
+.sfxs-sources {
+  flex: 0 0 130px; width: 130px; min-width: 0; min-height: 0;
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 6px; box-sizing: border-box;
+  border: 1px solid #26392d; border-radius: 9px; background: #121c16;
+}
+.sfxs-srchead { display: flex; align-items: flex-start; gap: 3px; min-width: 0; }
+.sfxs-srchead > div { flex: 1 1 auto; min-width: 0; }
+.sfxs-srchead em {
+  display: block; color: #9bb3a6; font: 700 10px/1 Inter, Arial, sans-serif;
+  letter-spacing: .08em; font-style: normal;
+}
+.sfxs-srchead strong {
+  display: block; margin-top: 2px; color: #ffffff; font: 700 11.5px/1.2 Inter, Arial, sans-serif;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sfxs-srchead .sfxs-icon { width: 22px; height: 22px; font-size: 11px; }
+#sfxsFolderFilter {
+  width: 100%; height: 24px; padding: 0 6px; box-sizing: border-box;
+  border: 1px solid #283a30; border-radius: 6px;
+  background: #111a14; color: #ffffff; font-size: 11px;
+}
+#sfxsFolderFilter:focus { outline: none; border-color: #45c669; }
+.sfxs-folders {
+  flex: 1 1 auto; min-height: 0; display: grid; gap: 4px; align-content: start;
+  overflow-y: auto; overflow-x: hidden;
+  scrollbar-width: thin; scrollbar-color: #385544 transparent;
+}
+.sfxs-folders::-webkit-scrollbar { width: 4px; }
+.sfxs-folders::-webkit-scrollbar-thumb { border-radius: 2px; background: #385544; }
+.sfxs-src {
+  position: relative; display: block; width: 100%; min-width: 0;
+  padding: 5px 20px 5px 7px;
+  border: 1px solid #26392d; border-radius: 7px; background: #15221b;
+  color: #e0e9e2; text-align: left; cursor: pointer;
+}
+.sfxs-src:hover { border-color: #43844f; background: #1a2c21; }
+.sfxs-src.active { border-color: #45c669; background: #1c3827; }
+.sfxs-srcname {
+  display: block; color: #ffffff; font: 700 11.5px/1.2 Inter, Arial, sans-serif;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sfxs-srcsub {
+  display: block; margin-top: 1px; color: #a5c4b4; font: 500 10px/1.2 Inter, Arial, sans-serif;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: rtl; text-align: left;
+}
+.sfxs-srcn {
+  position: absolute; top: 5px; right: 4px;
+  padding: 1px 4px; border-radius: 999px; background: rgba(255,255,255,.14);
+  color: #c4fcd3; font: 700 9.5px/1.3 Inter, Arial, sans-serif; font-style: normal;
+}
+.sfxs-src.active .sfxs-srcn { background: rgba(53,198,75,.35); color: #ffffff; }
+.sfxs-srcdrop {
+  position: absolute; bottom: 4px; right: 4px;
+  width: 14px; height: 14px; border-radius: 3px;
+  color: #a5c4b4; font: 700 11px/14px Inter, Arial, sans-serif; text-align: center;
+  opacity: 0;
+}
+.sfxs-src:hover .sfxs-srcdrop { opacity: 1; }
+.sfxs-srcdrop:hover { background: #3d1b17; color: #ffc2b3; }
+.sfxs-srcfoot { flex: 0 0 auto; color: #9bb3a6; font: 600 10.5px/1 Inter, Arial, sans-serif; padding-top: 2px; }
+.sfxs-srctoggle { display: none; width: 22px; height: 22px; font-size: 11px; }
+
+/* --------------------------------------------------------- result list -- */
+.sfxs-list {
+  flex: 1 1 auto; min-height: 64px;
+  display: grid; gap: 4px; align-content: start;
+  padding: 1px; overflow-y: auto; overflow-x: hidden;
+  scrollbar-width: thin; scrollbar-color: #385544 transparent;
+}
+.sfxs-list::-webkit-scrollbar { width: 5px; }
+.sfxs-list::-webkit-scrollbar-thumb { border-radius: 3px; background: #385544; }
+
+.sfxs-card {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto auto;
+  align-items: center; gap: 7px;
+  width: 100%; padding: 6px 8px;
+  border: 1px solid #26392d; border-radius: 8px;
+  background: #15221b; color: #ffffff;
+  text-align: left; cursor: pointer;
+}
+.sfxs-card:hover { border-color: #3fae5e; background: #1a2c21; }
+.sfxs-card.selected { border-color: #45c669; background: #1d3626; box-shadow: inset 0 0 0 1px #45c669; }
+.sfxs-card.missing { opacity: .45; }
+.sfxs-cardplay {
+  width: 26px; height: 26px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid #334a3e; border-radius: 50%;
+  background: #182a1f; color: #a4f3bd; font-size: 11px; cursor: pointer;
+}
+.sfxs-card.selected .sfxs-cardplay { border-color: #45c669; background: #224e30; color: #79ff9b; }
+.sfxs-cardmain { min-width: 0; }
+.sfxs-cardname {
+  display: flex; align-items: center; gap: 6px;
+  color: #ffffff; font: 700 12px/1.2 Inter, Arial, sans-serif;
+}
+.sfxs-cardname span { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sfxs-carddur { flex: 0 0 auto; color: #c4fcd3; font: 700 11.5px/1 Inter, Arial, sans-serif; }
+.sfxs-label { flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%; background: transparent; }
+.sfxs-label[data-label="orange"] { background: #e08a3c; }
+.sfxs-label[data-label="yellow"] { background: #d8c24a; }
+.sfxs-label[data-label="green"]  { background: #45c669; }
+.sfxs-label[data-label="purple"] { background: #9b7bd4; }
+.sfxs-cardwave { display: block; width: 100%; height: 14px; margin-top: 2px; }
+.sfxs-cardside { display: grid; justify-items: end; gap: 2px; }
+.sfxs-cardfmt { color: #a5c4b4; font: 600 10.5px/1 Inter, Arial, sans-serif; white-space: nowrap; }
+.sfxs-heart {
+  width: 20px; height: 20px; padding: 0;
+  border: 0; border-radius: 50%; background: transparent;
+  color: #88a394; font-size: 12px; line-height: 1; cursor: pointer;
+}
+.sfxs-heart:hover { color: #8fe3a6; }
+.sfxs-heart.on { color: #e0b84a; }
+.sfxs-empty { padding: 20px 10px; color: #a5c4b4; font-size: 11px; text-align: center; }
+
+/* -------------------------------------------------------------- preview -- */
+.sfxs-preview {
+  flex: 0 0 auto; min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid #26392d; border-radius: 9px;
+  background: #121c16;
+}
+.sfxs-prevhead { display: flex; align-items: center; gap: 6px; min-width: 0; margin-bottom: 5px; }
+.sfxs-prevhead strong {
+  flex: 1 1 auto; min-width: 0; color: #ffffff; font: 700 12.5px/1.2 Inter, Arial, sans-serif;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sfxs-zoomlevel { flex: 0 0 auto; color: #b4cbbe; font: 600 10.5px/1 Inter, Arial, sans-serif; }
+.sfxs-prevhead .sfxs-icon { width: 22px; height: 22px; font-size: 11px; }
+
+.sfxs-wave {
+  display: block; width: 100%; height: 56px;
+  border: 1px solid #26392d; border-radius: 6px;
+  background: #0b120d; cursor: crosshair;
+}
+.sfxs-factline {
+  margin-top: 4px; color: #b4cbbe; font: 600 10.5px/1.3 Inter, Arial, sans-serif;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.sfxs-modes { display: flex; align-items: center; gap: 4px; min-width: 0; margin-top: 5px; }
+.sfxs-modes > button {
+  flex: 0 0 auto; min-height: 22px; padding: 0 8px;
+  border: 1px solid #283a30; border-radius: 5px; background: #142018;
+  color: #b4c9bc; font: 700 10.5px/1 Inter, Arial, sans-serif; cursor: pointer;
+}
+.sfxs-modes > button:hover { border-color: #43844f; color: #8fe3a6; }
+.sfxs-modes > button.active { border-color: #35c64b; background: #1a3c23; color: #ffffff; }
+.sfxs-seg { margin-left: auto; display: flex; align-items: center; gap: 3px; min-width: 0; }
+.sfxs-seg input {
+  width: 44px; height: 22px; padding: 0 4px;
+  border: 1px solid #283a30; border-radius: 4px; background: #111a14; color: #ffffff; font-size: 11px;
+}
+.sfxs-seg .sfxs-icon { width: 22px; height: 22px; font-size: 11px; }
+
+/* ------------------------------------------------------------- fx rack -- */
+.sfxs-fx {
+  flex: 0 0 auto; min-width: 0;
+  padding: 8px; border: 1px solid #26392d; border-radius: 10px; background: #121c16;
+}
+.sfxs-fx[hidden] { display: none; }
+.sfxs-row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+.sfxs-slider { display: block; min-width: 0; margin-bottom: 5px; }
+.sfxs-slider > span { display: block; color: #b4cbbe; font: 700 10.5px/1 Inter, Arial, sans-serif; letter-spacing: .03em; }
+.sfxs-slider .val { float: right; color: #72ff89; font-style: normal; font-weight: 700; }
+.sfxs-slider input[type="range"] { display: block; width: 100%; height: 14px; margin: 3px 0 0; accent-color: #32d36a; }
+.sfxs-toggles { display: grid; gap: 3px; align-content: start; }
+.sfxs-toggles label {
+  display: flex; align-items: center; gap: 5px; min-width: 0;
+  padding: 4px 6px; border: 1px solid #26392d; border-radius: 5px; background: #15221b; cursor: pointer;
+}
+.sfxs-toggles input { margin: 0; accent-color: #32d36a; }
+.sfxs-toggles span { color: #ffffff; font-size: 10.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sfxs-reset {
+  width: 100%; min-height: 24px; margin-top: 4px;
+  border: 1px solid #283a30; border-radius: 6px; background: #142018;
+  color: #b4c9bc; font: 700 11px/1 Inter, Arial, sans-serif; cursor: pointer;
+}
+.sfxs-reset:hover { border-color: #43844f; color: #8fe3a6; }
+
+/* ---------------------------------------------------------- bottom bar -- */
+.sfxs-bar {
+  flex: 0 0 auto; min-width: 0;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center; gap: 5px;
+  margin: 0 -5px; padding: 6px 8px;
+  border-top: 1px solid #26392d; background: #0f1813;
+}
+.sfxs-now {
+  min-width: 0; color: #ffffff; font: 700 11.5px/1.2 Inter, Arial, sans-serif;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sfxs-bar > button {
+  min-height: 24px; padding: 0 10px;
+  border: 1px solid #283a30; border-radius: 6px; background: #142018;
+  color: #b4c9bc; font: 700 11px/1 Inter, Arial, sans-serif; cursor: pointer;
+}
+.sfxs-bar > button:hover { border-color: #43844f; color: #8fe3a6; }
+.sfxs-primary {
+  border-color: #49c86b !important;
+  background: linear-gradient(180deg, #45c966, #2ca54d) !important;
+  color: #07140a !important; font-weight: 800 !important;
+}
+.sfxs-transport {
+  grid-column: 1 / -1; display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px;
+}
+.sfxs-transport button {
+  min-height: 24px; min-width: 0; padding: 0;
+  border: 1px solid #283a30; border-radius: 6px; background: #142018;
+  color: #b4c9bc; font: 700 11px/1 Inter, Arial, sans-serif; cursor: pointer;
+}
+.sfxs-transport button:hover { border-color: #43844f; color: #8fe3a6; }
+.sfxs-transport button.active { border-color: #35c64b; background: #1a3c23; color: #b6f7c6; }
+.sfxs-transport .sfxs-play { border-color: #2f4a39; background: #1c3c26; color: #a8f0bd; }
+.sfxs-status {
+  flex: 0 0 auto; min-height: 12px; margin: 0 -5px; padding: 2px 8px 4px;
+  background: #0f1813; color: #b4cbbe; font-size: 10.5px;
+}
+.sfxs-status.error { color: #ff8e8e; }
+
+/* Nothing selected: the preview and the rack are a promise, not dead controls. */
+#sfxStudioView:not(.has-sound) .sfxs-wave,
+#sfxStudioView:not(.has-sound) .sfxs-factline,
+#sfxStudioView:not(.has-sound) .sfxs-modes,
+#sfxStudioView:not(.has-sound) .sfxs-zoomlevel,
+#sfxStudioView:not(.has-sound) .sfxs-prevhead .sfxs-icon,
+#sfxStudioView:not(.has-sound) .sfxs-fx { display: none; }
+
+/* Under ~340px the facts column starves the waveform, so they stack — two by
+   two rather than four across, where each cell would be 35px and none of the
+   headings would survive. */
+/* The column costs the result cards 116px. Below 470px that is the difference
+   between a readable file name and "Butt…", so it gives width back first and
+   the names take a second line. */
+@media (max-width: 470px) {
+  .sfxs-sources { flex-basis: 96px; width: 96px; }
+  .sfxs-cardname { flex-wrap: wrap; }
+  .sfxs-cardname span {
+    flex: 1 1 100%; white-space: normal; overflow: hidden;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .sfxs-carddur { margin-left: 9px; }
+  .sfxs-title strong, .sfxs-prevhead strong {
+    white-space: normal; overflow: hidden;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+}
+/* Below this the column and the results cannot both be useful, so the column
+   becomes a toggle. It opens over the results rather than beside them. */
+@media (max-width: 380px) {
+  .sfxs-srctoggle { display: inline-flex; }
+  .sfxs-sources { display: none; }
+  #sfxStudioView.show-sources .sfxs-sources {
+    display: flex; flex: 1 1 auto; width: auto;
+  }
+  #sfxStudioView.show-sources .sfxs-list { display: none; }
+}
+@media (max-width: 340px) {
+  .sfxs-wave { height: 50px; }
+  .sfxs-row2 { grid-template-columns: minmax(0, 1fr); }
+  /* Mono/Stereo/Rev plus two number fields is ~210px; the segment fields
+     take the second line rather than pushing the fit button off the edge.
+     They stay, rather than being hidden, because dragging the waveform sets
+     a rough range and these are how you make it exact. */
+  .sfxs-modes { flex-wrap: wrap; }
+  .sfxs-seg { flex: 1 1 100%; margin-left: 0; margin-top: 3px; justify-content: flex-end; }
+  /* Four chips plus a sort box on one line leaves each chip a letter or two.
+     A second line costs 26px and is readable. */
+  .sfxs-filters { flex-wrap: wrap; }
+  .sfxs-chip { flex: 1 1 42%; }
+  .sfxs-chip .n { display: none; }
+  .sfxs-resultbar { flex-wrap: wrap; }
+  /* The segment fields drop below the channel buttons rather than pushing
+     Reverse off the edge. */
+}
+@media (max-width: 290px) {
+  .sfxs-card { grid-template-columns: 20px minmax(0, 1fr) auto; gap: 5px; }
+  .sfxs-cardplay { width: 20px; height: 20px; }
+  /* The format and size column goes; the length stays, because it sits with
+     the name now. */
+  .sfxs-cardside { display: none; }
+  /* IN/OUT plus the fit button is 3px wider than the panel here. The number
+     fields give up the width, since they are fine-tuning a selection the
+     waveform drag already made. */
+  .sfxs-seg input { width: 32px; }
+  .sfxs-wave { height: 46px; }
+  /* The name gets its own row so Segment and Insert keep readable widths. */
+  .sfxs-bar { grid-template-columns: auto auto; }
+  .sfxs-now { grid-column: 1 / -1; }
+  .sfxs-bar > button { width: 100%; }
+}

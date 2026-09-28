@@ -1,0 +1,7 @@
+/* Premiere primary rail. Nine shelves: SFX and MOGRT were split out of one
+   Library shelf. Tools’ and Punch’s actions live on #orbitRightDock. */
+#panel-sfx .asset-type-row{grid-template-columns:repeat(3,minmax(0,1fr))!important;height:auto!important;min-height:0!important}
+#app .orbit-route-hidden{display:none!important}
+#app #sfxMogrtView.orbit-route-active{display:flex!important}
+#app .orbit-view-panel.orbit-route-active{display:block!important}
+.orbit-library-fallback{box-sizing:border-box;padding:24px!important}.orbit-library-fallback strong{display:block;color:#e7f9ec;font-size:12px}.orbit-library-fallback>span:last-child{display:block;color:#789081;font-size:9px}.orbit-library-fallback .big{min-width:52px;padding:5px 8px;border:1px solid #2e7d45;border-radius:6px;font:800 9px Arial,sans-serif!important}

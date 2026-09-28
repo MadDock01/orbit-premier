@@ -1,0 +1,33 @@
+/* Editable test theme: reference-inspired emerald glass, no bitmap UI.
+   Header stays in normal document flow (no padding-top spacer) so CEP panels
+   never show a blank band above the brand row. */
+#app{
+  padding-top:0!important;
+}
+#app .orbit-shell-header{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  flex:0 0 auto!important;width:100%!important;height:44px!important;min-height:44px!important;
+  padding:0 12px!important;box-sizing:border-box!important;isolation:isolate;overflow:hidden;
+  background:radial-gradient(ellipse at 70% 0%,#074e2a80,transparent 55%),linear-gradient(120deg,#080e0b,#021009)!important;
+  border-bottom:1px solid #17764f!important
+}
+#app .orbit-shell-header::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:180px;height:70px;right:8%;top:12px;border-top:2px solid #00ee87;border-radius:50%;transform:rotate(-24deg);box-shadow:0 -4px 12px #00ec7440;opacity:.55}
+#app .orbit-header-copy strong{font-size:20px;letter-spacing:-.4px}
+#app .orbit-header-copy em{letter-spacing:2px;color:#a7c4b5}
+#app #assetTypeRow>.shelf.active{border:1px solid #00eb81!important;border-radius:10px!important;background:linear-gradient(130deg,#063a2380,#06110a)!important;box-shadow:inset 0 0 12px #00eb8120,0 0 9px #00eb8130!important;color:#b8ffdf!important}
+
+#app .orbit-header-copy strong{font-size:18px!important}
+#app .orbit-header-copy em{font-size:9px!important;letter-spacing:1.5px!important}
+@media(min-width:900px){
+#app{padding-top:0!important}
+#app .orbit-shell-header{height:48px!important;min-height:48px!important;padding:0 14px!important;box-sizing:border-box}
+#app .orbit-header-logo{width:36px!important;height:32px!important}
+#app .orbit-header-logo img{width:28px!important;height:28px!important}
+#app #assetTypeRow{top:48px!important}
+#app #assetTypeRow>.shelf{min-height:48px!important}
+#app #assetTypeRow>.shelf svg{width:17px;height:17px}
+#app #assetTypeRow>.shelf span{font-size:8px!important}
+}
+@media(max-width:440px){
+#app .orbit-header-copy strong{font-size:17px!important}
+}
