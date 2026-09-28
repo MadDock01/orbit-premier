@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "platform": "win32-x64",
+  "runtimeVersion": "1.9.2",
+  "runtime": {
+    "url": "https://assets.compxorbit.com/whisper-bin-x64.zip",
+    "sha256": "49dcc16de826f20bd53d44f947a1ae49dfa81f86cad67a64d80820cb192d674a",
+    "sizeMB": 8,
+    "archive": "whisper-bin-x64.zip"
+  },
+  "ffmpeg": {
+    "url": "https://assets.compxorbit.com/ffmpeg-8.1.2-essentials_build.zip",
+    "sha256": "db580001caa24ac104c8cb856cd113a87b0a443f7bdf47d8c12b1d740584a2ec",
+    "sizeMB": 104,
+    "archive": "ffmpeg-8.1.2-essentials_build.zip",
+    "version": "8.1.2"
+  },
+  "models": {
+    "tiny": {
+      "url": "https://assets.compxorbit.com/ggml-tiny-q5_1.bin",
+      "sha256": "818710568da3ca15689e31a743197b520007872ff9576237bda97bd1b469c3d7",
+      "file": "ggml-tiny-q5_1.bin",
+      "sizeMB": 31
+    },
+    "base": {
+      "url": "https://assets.compxorbit.com/ggml-base-q5_1.bin",
+      "sha256": "422f1ae452ade6f30a004d7e5c6a43195e4433bc370bf23fac9cc591f01a8898",
+      "file": "ggml-base-q5_1.bin",
+      "sizeMB": 57
+    },
+    "small": {
+      "url": "https://assets.compxorbit.com/ggml-small-q5_1.bin",
+      "sha256": "ae85e4a935d7a567bd102fe55afc16bb595bdb618e11b2fc7591bc08120411bb",
+      "file": "ggml-small-q5_1.bin",
+      "sizeMB": 181
+    },
+    "medium": {
+      "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/d15393806e24a74f60827e23e986f0c10750b358/ggml-medium-q5_0.bin?download=true",
+      "sha256": "19fea4b380c3a618ec4723c3eef2eb785ffba0d0538cf43f8f235e7b3b34220f",
+      "file": "ggml-medium-q5_0.bin",
+      "sizeMB": 514
+    },
+    "large-v3-turbo": {
+      "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/98aa99a0a9db05ae2342309f5096248665f7cba3/ggml-large-v3-turbo-q5_0.bin?download=true",
+      "sha256": "394221709cd5ad1f40c46e6031ca61bce88931e6e088c188294c6d5a55ffa7e2",
+      "file": "ggml-large-v3-turbo-q5_0.bin",
+      "sizeMB": 548
+    },
+    "large-v3": {
+      "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/c521a4b02f422512d734391fdf08bb08c0862f68/ggml-large-v3-q5_0.bin?download=true",
+      "sha256": "d75795ecff3f83b5faa89d1900604ad8c780abd5739fae406de19f23ecd98ad1",
+      "file": "ggml-large-v3-q5_0.bin",
+      "sizeMB": 1080
+    }
+  }
+}

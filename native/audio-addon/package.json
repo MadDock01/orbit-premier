@@ -1,0 +1,17 @@
+{
+  "name": "orbit_audio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Native RNNoise addon for the CompX Orbit AI Voice Cleaner (N-API).",
+  "gypfile": true,
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "install": "node-gyp rebuild"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.0.0"
+  },
+  "devDependencies": {
+    "node-gyp": "^10.0.0"
+  }
+}

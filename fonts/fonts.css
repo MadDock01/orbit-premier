@@ -1,0 +1,138 @@
+/* Bundled fonts for caption templates.
+   Loaded into the panel webview only — does NOT install fonts on the OS.
+   The HTML5 canvas in captionRenderer.js uses any @font-face declared here,
+   so PNGs exported to Premiere have these fonts baked in regardless of
+   the user's installed system fonts. */
+
+/* ── Variable fonts (one file = all weights) ─────────────────────────────── */
+@font-face {
+  font-family: 'Alexandria';
+  src: url('Alexandria-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Cinzel';
+  src: url('Cinzel-VF.ttf') format('truetype');
+  font-weight: 400 900;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('Montserrat-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('OpenSans-VF.ttf') format('truetype');
+  font-weight: 300 800;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Readex Pro';
+  src: url('ReadexPro-VF.ttf') format('truetype');
+  font-weight: 160 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('Roboto-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: block;
+}
+
+/* ── Static-weight fonts ─────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Poppins';
+  src: url('Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('Silkscreen-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('Silkscreen-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Carter One';
+  src: url('CarterOne.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Candal';
+  src: url('Candal.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'League Spartan';
+  src: url('LeagueSpartan-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: block;
+}
+
+/* ── Komika Axis (not on Google Fonts) ────────────────────────────────────
+   Drop KomikaAxis.ttf into this folder to enable. If absent, templates that
+   reference Komika Axis will fall back to the system default. */
+@font-face {
+  font-family: 'Komika Axis';
+  src: url('KomikaAxis.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+
+/* ── Arabic-script fonts (Google Fonts, SIL OFL) ──────────────────────────
+   Bundled so Arabic-tagged templates render the intended typeface for
+   testers who don't have these system-installed. */
+@font-face {
+  font-family: 'Amiri';
+  src: url('Amiri-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Amiri';
+  src: url('Amiri-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Lalezar';
+  src: url('Lalezar.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Rakkas';
+  src: url('Rakkas.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Alyamama';
+  src: url('Alyamama.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Jomhuria';
+  src: url('Jomhuria.ttf') format('truetype');
+  font-weight: 400;
+  font-display: block;
+}
