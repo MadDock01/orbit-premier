@@ -41,7 +41,7 @@
   place-items: center;
   border-radius: 10px;
   background: var(--orbit-blue-soft, #102c4d);
-  border: 1px solid color-mix(in srgb, var(--orbit-blue, #4da3ff) 55%, #2f679c);
+  border: 1px solid #4088d2; /* 55% --orbit-blue over #2f679c; CEP Chromium has no color-mix() */
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 0 0 1px rgba(12,15,22,0.35);
   overflow: hidden;
 }
@@ -94,7 +94,7 @@
 .cx-gate__input::placeholder { color: var(--orbit-faint, #657086); letter-spacing: .04em; }
 .cx-gate__input:focus-visible {
   border-color: var(--orbit-blue, #4da3ff);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--orbit-blue, #4da3ff) 22%, transparent);
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.22);
 }
 .cx-gate__input.is-error { border-color: var(--orbit-danger, #ff7180); }
 
@@ -174,8 +174,8 @@
   padding: 5px 10px;
   font-size: 10.5px;
   color: var(--orbit-warning, #f2bb62);
-  background: color-mix(in srgb, var(--orbit-warning, #f2bb62) 12%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--orbit-warning, #f2bb62) 30%, transparent);
+  background: rgba(242, 187, 98, 0.12);
+  border-bottom: 1px solid rgba(242, 187, 98, 0.3);
 }
 .cx-grace[hidden] { display: none; }
 .cx-grace__retry {

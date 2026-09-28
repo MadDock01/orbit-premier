@@ -1,0 +1,15 @@
+{
+  "name": "compx-orbit-premiere",
+  "version": "2.5.0",
+  "private": true,
+  "description": "CompX Orbit Studio - Premiere Pro CEP extension",
+  "scripts": {
+    "test": "node scripts/run-tests.cjs",
+    "audit": "node scripts/audit-release.cjs",
+    "hashes": "node scripts/audit-release.cjs --hashes"
+  },
+  "devDependencies": {
+    "acorn": "^8.15.0",
+    "jsdom": "^26.1.0"
+  }
+}

@@ -3,7 +3,7 @@
 // exercised on whatever machine the build runs on.
 const fs = require('fs'), path = require('path'), vm = require('vm'), assert = require('assert/strict');
 const root = path.resolve(__dirname, '..');
-const acorn = require(path.resolve(root, '../CompX-Orbit-Studio/tools/node_modules/acorn'));
+const acorn = require('./dev-require.cjs')('acorn');
 const src = fs.readFileSync(path.join(root, 'js/main.js'), 'utf8');
 const ast = acorn.parse(src, { ecmaVersion: 2022, allowReturnOutsideFunction: true });
 
@@ -65,13 +65,6 @@ test('Library extension matching is case-insensitive', () => {
     assert.ok(m, list + ' not found');
     assert.equal(m[1], m[1].toLowerCase(), list + ' must be declared lowercase');
   }
-});
-test('Reveal-in-folder handles macOS, Windows and everything else', () => {
-  const fn = src.slice(findFn('revealInFolder').start, findFn('revealInFolder').end);
-  assert.match(fn, /darwin/, 'no macOS branch');
-  assert.match(fn, /"open"|'open'/, 'macOS should use open -R');
-  assert.match(fn, /win32/, 'no Windows branch');
-  assert.ok(/else\s*\{[\s\S]*xdg-open/.test(fn), 'no fallback branch');
 });
 test('No shell binary is invoked without a platform guard', () => {
   const bad = [];

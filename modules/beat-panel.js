@@ -659,8 +659,16 @@
       if (state.preview) state.preview.tickGain.gain.value = numberValue(el.tickVolume, 45) / 100;
     });
 
+    // CEP's Chromium has no :has(), so mark the chosen option's label here.
+    function syncActionLabels() {
+      el.actions.forEach(function (other) {
+        if (other.parentNode && other.parentNode.classList) other.parentNode.classList.toggle('is-checked', other.checked);
+      });
+    }
+    syncActionLabels();
     el.actions.forEach(function (input) {
       input.addEventListener('change', function () {
+        syncActionLabels();
         if (input.checked) {
           state.action = input.value; updateActionPanels();
           if (state.action === 'montage') refreshMontageSources(false).catch(function () {});

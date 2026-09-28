@@ -164,58 +164,13 @@ check('CSInterface loads once, before the CEP bridge and feature modules', () =>
   assert.equal((html.match(/src="js\/CSInterface.js"/g) || []).length, 1);
   assert.ok(html.indexOf('src="js/CSInterface.js"') < html.indexOf('src="utils/cep.js"'));
 });
-// CEP serialises evalScript. An unthrottled activity poll once filled that
-// queue and every later action — caption apply included — waited behind it.
-function trackerHarness() {
-  const calls = [], timers = [], probe = {};
-  const context = {
-    probe, document: { hidden: false, getElementById: () => null },
-    setTimeout(fn, ms) { timers.push({ fn, ms }); return timers.length; },
-    clearTimeout() {}, auditFallback() {}, trackerSetStatus() {},
-    trackerHasComp: false, trackerLastSignature: '', trackerLastActivityAt: 0,
-    callHostRaw(script, callback, timeoutMs) { calls.push({ script, callback, timeoutMs }); },
-  };
-  vm.createContext(context);
-  vm.runInContext(
-    section(read('js/main.js'), 'const TRACKER_POLL_MS = 4000;', 'function trackerTick()') +
-    '\nprobe.poll = trackerPoll;' +
-    '\nprobe.state = function () { return { inFlight: trackerPollInFlight, backoff: trackerPollBackoffMs }; };',
-    context);
-  return { calls, timers, context, probe };
-}
-check('The activity poll never queues a second host call while one is in flight', () => {
-  const h = trackerHarness();
-  h.probe.poll();
-  assert.equal(h.calls.length, 1);
-  assert.equal(h.probe.state().inFlight, true);
-  h.probe.poll(); h.probe.poll();
-  assert.equal(h.calls.length, 1, 'overlapping ticks must not reach the host');
-  h.calls[0].callback('{"hasComp":true,"compName":"Seq","signature":"a|1|0"}');
-  assert.equal(h.probe.state().inFlight, false);
-  h.probe.poll();
-  assert.equal(h.calls.length, 2);
-});
-check('A stalled poll uses a short timeout and backs off instead of hammering', () => {
-  const h = trackerHarness();
-  h.probe.poll();
-  assert.equal(h.calls[0].timeoutMs, 8000, 'a cheap read must not hold the 2-minute default');
-  h.calls[0].callback('ERR: Adobe host timed out while running this action');
-  assert.equal(h.probe.state().backoff, 8000);
-  h.probe.poll();
-  h.calls[1].callback('ERR: Adobe host timed out while running this action');
-  assert.equal(h.probe.state().backoff, 16000);
-  h.probe.poll();
-  h.calls[2].callback('{"hasComp":true,"compName":"Seq","signature":"a|2|0"}');
-  assert.equal(h.probe.state().backoff, 4000, 'a good reply resets the interval');
-});
-check('A hidden panel stops polling the host entirely', () => {
-  const h = trackerHarness();
-  h.context.document.hidden = true;
-  h.probe.poll(); h.probe.poll();
-  assert.equal(h.calls.length, 0);
-  h.context.document.hidden = false;
-  h.probe.poll();
-  assert.equal(h.calls.length, 1);
+// The Work Tracker had no UI in Premiere, yet it polled the host every few
+// seconds, asked for notification permission at launch and fired a "take a
+// break" notification and beep from nowhere. It was removed; keep it gone.
+check('No hidden activity tracker polls the host or raises notifications', () => {
+  const main = read('js/main.js');
+  assert.ok(!/ppro_getActivitySignature/.test(main), 'main.js must not poll the host for activity');
+  assert.ok(!/Notification\.requestPermission|new Notification\(/.test(main), 'main.js must not raise OS notifications');
 });
 const hostFixture = section(read('jsx/hostscript.jsx'), 'function orbitGetTrackList()', 'function smartAutoReframe') + '\nfunction getSequenceInfo(){return "{}";}';
 check('A same-call probe cannot prove host functions persist outside an IIFE', () => {

@@ -223,6 +223,19 @@
     return !transcriptionModeSelect || transcriptionModeSelect.value !== 'cloud';
   }
 
+  // Cloud transcription signs in through AuthAPI + LoginFlow. Those modules
+  // are not part of this build, so offering Cloud only ever ended at a
+  // "Sign in" message with no way to sign in. Offer it only when they load.
+  function _cloudAvailable() {
+    return !!(global.AuthAPI && global.AuthAPI.getAccessToken &&
+      global.LoginFlow && global.LoginFlow.startLogin);
+  }
+
+  function _localUnavailableMessage(reason) {
+    return (reason || 'Local Whisper is unavailable.') +
+      (_cloudAvailable() ? ' Switch Engine to Cloud.' : '');
+  }
+
   function _selectedLocalModel() {
     return localModelSelect ? localModelSelect.value : 'base';
   }
@@ -413,12 +426,12 @@
       return;
     }
     if (!global.WhisperLocalAPI || !global.WhisperLocalAPI.getStatus) {
-      engineHint.textContent = 'Local Whisper is unavailable. Use Cloud mode.';
+      engineHint.textContent = _localUnavailableMessage();
       return;
     }
     var status = global.WhisperLocalAPI.getStatus(_selectedLocalModel());
     if (!status.available) {
-      engineHint.textContent = status.reason || 'Local Whisper is unavailable.';
+      engineHint.textContent = _localUnavailableMessage(status.reason);
       return;
     }
     var banglaNote = langSelect && langSelect.value === 'bn' && _selectedLocalModel() !== 'large-v3'
@@ -458,7 +471,13 @@
       // Local Whisper currently ships a Windows-only runtime. Never leave a
       // Mac on the unsupported default; Cloud is the working cross-platform
       // engine and still uses the same FFmpeg audio preparation pipeline.
-      transcriptionModeSelect.value = (savedEngine === 'cloud' || !localSupported) ? 'cloud' : 'local';
+      if (!_cloudAvailable()) {
+        var cloudOption = transcriptionModeSelect.querySelector('option[value="cloud"]');
+        if (cloudOption) cloudOption.parentNode.removeChild(cloudOption);
+        transcriptionModeSelect.value = 'local';
+      } else {
+        transcriptionModeSelect.value = (savedEngine === 'cloud' || !localSupported) ? 'cloud' : 'local';
+      }
     } catch (_) {}
     transcriptionModeSelect.addEventListener('change', _syncTranscriptionModeUI);
   }
@@ -1685,13 +1704,13 @@
       _setBtnLoading(generateBtn, true, 'Checking local model...');
       if (!global.WhisperLocalAPI || !global.WhisperLocalAPI.getStatus) {
         _setBtnLoading(generateBtn, false);
-        setStatus('error', 'Local Whisper is unavailable. Switch Engine to Cloud.');
+        setStatus('error', _localUnavailableMessage());
         return;
       }
       var localStatus = global.WhisperLocalAPI.getStatus(_selectedLocalModel());
       if (!localStatus.available) {
         _setBtnLoading(generateBtn, false);
-        setStatus('error', localStatus.reason || 'Local Whisper is unavailable. Switch Engine to Cloud.');
+        setStatus('error', _localUnavailableMessage(localStatus.reason));
         return;
       }
       function proceedWithLocalEngine() {

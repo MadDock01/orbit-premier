@@ -18,7 +18,7 @@
 #panel-silence-cutter input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,#32bd5c,#3b3f45);border-radius:9px}
 #panel-silence-cutter input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;margin-top:-4.5px;border-radius:50%;background:#57dc7c;border:2px solid #184d28;box-shadow:0 0 0 2px rgba(70,219,113,.12)}
 #panel-silence-cutter .slider-val{box-sizing:border-box;width:58px;height:26px;display:flex;align-items:center;justify-content:flex-end;padding:0 7px;color:#e2e5e4!important;background:#111317;border:1px solid #34383f;border-radius:5px;font:8px/1 var(--mono,monospace)!important}
-#panel-silence-cutter .form-row:has(#sc-threshold){grid-template-columns:105px minmax(0,1fr) 58px 42px}
+#panel-silence-cutter .form-row.sc-threshold-row{grid-template-columns:105px minmax(0,1fr) 58px 42px}
 #panel-silence-cutter #sc-auto-threshold{position:static;transform:none;width:42px;height:26px;padding:0;font-size:8px}
 #panel-silence-cutter .audio-opt{margin:1px 0 0 115px!important;color:#b9bec0!important;font-size:9px!important}
 #panel-silence-cutter .audio-opt input{accent-color:#45d36f}

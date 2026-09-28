@@ -36,7 +36,7 @@ if "!ORBIT_SIGN_PASSWORD!"=="" (
   exit /b 1
 )
 
-echo   Running 7 test suites, compiling JSXBIN, signing...
+echo   Running the audit and test suites, compiling JSXBIN, signing...
 echo.
 node scripts\build-release.cjs
 set RESULT=%ERRORLEVEL%

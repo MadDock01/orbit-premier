@@ -17,9 +17,7 @@ const MAP = [
 
 const files = [
   'modules/project-doctor.js',
-  'modules/multicam-panel.js',
   'modules/composer-tools.js',
-  'modules/punch-panel.js',
   'modules/audio-panel.js',
   'modules/autoCaptions.js',
 ];

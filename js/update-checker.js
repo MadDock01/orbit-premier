@@ -53,6 +53,10 @@
     }
 
     showUpdateBanner(data) {
+      // The panel runs with Node enabled, so server text must never reach
+      // innerHTML unescaped: markup injected here could run local commands.
+      const version = String(data.latestVersion == null ? "" : data.latestVersion)
+        .replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
       const existing = document.getElementById("orbit-pr-update-banner");
       if (existing) existing.remove();
 
@@ -85,7 +89,7 @@
           <span style="font-size: 14px;">🚀</span>
           <div style="min-width: 0;">
             <div style="font-weight: 800; color: #45c66d; letter-spacing: 0.3px;">
-              Orbit Premiere Update: v${data.latestVersion}
+              Orbit Premiere Update: v${version}
             </div>
             <div style="color: #aab0bd; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
               Faster cuts, typography presets & workflow improvements.
@@ -118,7 +122,10 @@
       document.body.prepend(banner);
 
       document.getElementById("orbit-pr-btn-update")?.addEventListener("click", () => {
-        const targetUrl = data.downloadUrl || data.dashboardUrl || "https://compxorbit.com/dashboard";
+        const fallbackUrl = "https://compxorbit.com/dashboard";
+        let targetUrl = data.downloadUrl || data.dashboardUrl || fallbackUrl;
+        // Only ever open a web page; never a file:, javascript: or other scheme.
+        try { if (new URL(targetUrl).protocol !== "https:") targetUrl = fallbackUrl; } catch (e) { targetUrl = fallbackUrl; }
         if (window.cep && cep.util && cep.util.openURLInDefaultBrowser) {
           cep.util.openURLInDefaultBrowser(targetUrl);
         } else {

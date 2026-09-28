@@ -1,6 +1,6 @@
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const root = path.resolve(__dirname, '..');
-const acorn = require(path.resolve(root, '../CompX-Orbit-Studio/tools/node_modules/acorn'));
+const acorn = require('../tests/dev-require.cjs')('acorn');
 const read = p => fs.readFileSync(path.join(root, p), 'utf8');
 const source = read('jsx/hostscript.jsx');
 const hostAst = acorn.parse(source, {ecmaVersion: 2020});
@@ -27,6 +27,8 @@ if (process.argv.includes('--deduplicate')) {
   process.exit(0);
 }
 let failures = [], checked = 0;
+// Keep in step with the folder lists in build-release.cjs and build-test-zxp.cjs.
+const SHIPPED_DIRS = ['CSXS','assets','bin','css','fonts','icons','js','lib','modules','utils'];
 const html = read('index.html');
 const assets = [...html.matchAll(/(?:src|href)="([^"#]+)"/g)].map(m=>m[1].split('?')[0]).filter(p=>!/^https?:|^data:/.test(p));
 for (const p of assets) if (!fs.existsSync(path.join(root,p))) failures.push('Missing HTML asset: '+p);
@@ -37,6 +39,14 @@ for (const dir of ['js','utils','modules']) for (const name of fs.readdirSync(pa
   const file=dir+'/'+name, text=read(file);
   try { acorn.parse(text,{ecmaVersion:2022,allowReturnOutsideFunction:true}); checked++; } catch(e) { failures.push(file+': '+e.message); }
   for (const m of text.matchAll(/CEP\.evalScript\(\s*['"]([\w$]+)['"]/g)) if (!globals[m[1]]) failures.push(file+': missing host function '+m[1]);
+  for (const m of text.matchAll(/callHost(?:Raw)?\(\s*["'`]([A-Za-z_$][\w$]*)\(/g)) if (!globals[m[1]]) failures.push(file+': missing host function '+m[1]);
+  // Files read from the installed extension must live in a folder the build
+  // scripts package; a runtime file under scripts/ worked in dev and vanished
+  // from every signed ZXP.
+  for (const m of text.matchAll(/extensionRoot\(\)\s*,\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]/g)) {
+    if (!SHIPPED_DIRS.includes(m[1])) failures.push(file+': reads '+m[1]+'/'+m[2]+' at runtime, but '+m[1]+'/ is not packaged');
+    else if (!fs.existsSync(path.join(root,m[1],m[2]))) failures.push(file+': runtime file missing: '+m[1]+'/'+m[2]);
+  }
 }
 for (const [name] of duplicates) failures.push('Duplicate host global: '+name);
 let loader = read('js/compx-loader.js');

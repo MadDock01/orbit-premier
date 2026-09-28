@@ -14,26 +14,16 @@ async function build(){
   cp.execFileSync(process.execPath,[path.join(root,'tests/sfx-regression.cjs')],{cwd:root,stdio:'inherit'});
   cp.execFileSync(process.execPath,[path.join(root,'tests/audio-regression.cjs')],{cwd:root,stdio:'inherit'});
   const stage=fs.mkdtempSync(path.join(os.tmpdir(),'orbit-premiere-release-'));
-  // Retired features and superseded modules. Nothing in index.html or
-  // js/compx-loader.js loads these; they must not reach the package.
-  const EXCLUDE=new Set(['modules/auth.js','modules/authGate.js','modules/loginFlow.js','modules/library.js',
-    'modules/punch-engine.js','modules/punch-panel.js','modules/motion-panel.js',
-    'utils/updater.js','lib/CSInterface.js','lib/coloris.min.js','lib/coloris.min.css',
-    'css/composer-tools.css','css/tools-premium.css','css/premiere-tools-studio.css','css/orbit-foundation.css',
-    // Superseded by the SFX Studio: the drawer and its stylesheet hung off
-    // the old shared SFX/MOGRT library, which SFX no longer uses.
-    'modules/sfx-design.js','css/sfx-design.css',
-    // Multicam Podcast was removed: its "analysis" only read clip boundaries
-    // on the mic tracks, so on a normally-recorded podcast — one continuous
-    // clip per mic — it reported both speakers talking at all times.
-    'modules/multicam-panel.js','css/multicam.css']);
-  for(const dir of ['CSXS','assets','bin','css','fonts','icons','js','lib','modules','utils','presets']){
+  // Only these folders ship. Retired modules were deleted from the repo rather
+  // than excluded here; presets/ is left out because the Preset shelf that used
+  // those .prfpset packs was retired and nothing reads them any more.
+  // Keep this list in step with SHIPPED_DIRS in audit-release.cjs.
+  for(const dir of ['CSXS','assets','bin','css','fonts','icons','js','lib','modules','utils']){
     const srcDir=path.join(root,dir);
     if(!fs.existsSync(srcDir))continue;
     fs.cpSync(srcDir,path.join(stage,dir),{recursive:true,filter:p=>{
       const base=path.basename(p);
-      if(base.startsWith('._')||base==='.DS_Store')return false;
-      return !EXCLUDE.has(path.relative(root,p).split(path.sep).join('/'));
+      return !(base.startsWith('._')||base==='.DS_Store');
     }});
   }
   for(const file of ['index.html','default-templates.json','motion-presets.json'])fs.copyFileSync(path.join(root,file),path.join(stage,file));

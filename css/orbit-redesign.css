@@ -1078,7 +1078,7 @@ body :is(button, a, input, select, textarea, [tabindex]):focus-visible {
   cursor: pointer;
 }
 #app .beat-action-opt input { accent-color: var(--brand); }
-#app .beat-action-opt:has(input:checked) {
+#app .beat-action-opt.is-checked {
   background: #0e2415 !important;
   border-color: #2fae57 !important;
   color: #8debaa !important;

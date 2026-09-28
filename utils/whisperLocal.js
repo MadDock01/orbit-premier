@@ -36,7 +36,7 @@
   }
 
   function loadSpec() {
-    var manifestPath = path.join(extensionRoot(), 'scripts', 'autocaptions-runtime.json');
+    var manifestPath = path.join(extensionRoot(), 'utils', 'autocaptions-runtime.json');
     var spec = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     if (!spec || spec.schema !== 1 || !spec.runtime || !spec.ffmpeg || !spec.models) {
       throw new Error('Invalid local Whisper runtime manifest.');

@@ -364,7 +364,7 @@ test('The index survives a round trip, and a corrupt one does not throw', () => 
 // markup but reaches nothing is caught here.
 // ---------------------------------------------------------------------------
 let JSDOM;
-try { JSDOM = require(path.resolve(root, '../CompX-Orbit-Studio/tools/node_modules/jsdom')).JSDOM; }
+try { JSDOM = require('./dev-require.cjs')('jsdom').JSDOM; }
 catch (_) { try { JSDOM = require('jsdom').JSDOM; } catch (_2) { JSDOM = null; } }
 
 if (!JSDOM) {

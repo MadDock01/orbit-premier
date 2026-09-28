@@ -7,9 +7,7 @@ const files = [
   'modules/autoCaptions.js',
   'modules/audio-panel.js',
   'modules/beat-panel.js',
-  'modules/punch-panel.js',
   'modules/project-doctor.js',
-  'modules/multicam-panel.js',
   'modules/composer-tools.js',
 ];
 const root = path.resolve(__dirname, '..');

@@ -1,7 +1,7 @@
 // Execute production JSX functions with simulated Premiere objects.
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
 const root=path.resolve(__dirname,'..');
-const acorn=require(path.resolve(root,'../CompX-Orbit-Studio/tools/node_modules/acorn'));
+const acorn=require('./dev-require.cjs')('acorn');
 const source=fs.readFileSync(path.join(root,'jsx/hostscript.jsx'),'utf8');
 const ast=acorn.parse(source,{ecmaVersion:2022,allowReturnOutsideFunction:true});
 function load(ctx,names){vm.createContext(ctx);for(const name of names){const fn=ast.body.find(x=>x.type==='FunctionDeclaration'&&x.id.name===name);assert.ok(fn,name);vm.runInContext(source.slice(fn.start,fn.end),ctx);}return ctx;}

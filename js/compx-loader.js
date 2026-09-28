@@ -4,15 +4,15 @@
   var ENTRY_SCRIPTS = ['js/main.js', 'js/premiere-edition.js'];
   var HOST_FILE = '/jsx/hostscript.jsx';
   var HASHES = {
-    "/jsx/hostscript.jsx": "64f2d7527c4ece6cf082db65746d25c2cc6aab5b98d65596250357f454456bba",
+    "/jsx/hostscript.jsx": "895c935aa0e9c798c8d71febfd904cda08d3da526239f5064ffc53fa98820aac",
     "js/compx-license.js": "d36f4798facc9b0582e3568d9ab7187af6f2faa9cc07b457d8bfb0b7d1bc0b60",
     "js/license-gate.js": "a5029a09abfee9deeed588153cbd6e5484cad1dbc0e5ee26e1ebacdee5cec26e",
     "js/compxlib.js": "b11b7c15b37bbd4bca4508daa8a2a7b250b663e0529809917607378847f58512",
     "js/diagnostics.js": "b81888c6a2eee667e50b2dfa09c1eaa1445b4dfa620cce77a062370a58e9f335",
-    "js/main.js": "a37bf9614bf37ca568182f01638d56b93a0728bf221f1db98c0f26c589889c53",
+    "js/main.js": "0dbb09307e1f63b8653995dfadb937d2ea9b7e55a0697ab442718be7a7c9b1ac",
     "js/premiere-edition.js": "146632a93df4e88f12be50465a7f146d5a34bb1bfc6401b61a67e38c78813c53",
     "js/storage.js": "40f2540d6a13fe120daede55d620f4842e4baa458a576aac6820286d85c4bc96",
-    "js/update-checker.js": "f24fd0f95f373cae17d0e5451a58347c7ba734d6ba857c6ef5cba5a78de9523d"
+    "js/update-checker.js": "29179a5c339e4c68edab823e7661b1937bf79a164c515f38961885e5d89a8521"
 };
   var booted = false, blocked = false, bootPromise = null, bootNonce = Date.now();
   var nodeFs = null, nodePath = null, nodeCrypto = null;
@@ -22,7 +22,14 @@
   function extensionPath() { try { var cs = window.csInterface || new CSInterface(); return cs.getSystemPath(SystemPath.EXTENSION); } catch (ignore) { return ''; } }
   function absolutePath(relativePath) { var root = extensionPath(); if (!root) return null; var cleaned = String(relativePath || '').replace(/^[/\\]+/, ''); return nodePath ? nodePath.join(root, cleaned) : root + '/' + cleaned; }
   function sha256(relativePath) { if (!nodeFs || !nodeCrypto) return null; var filePath = absolutePath(relativePath); if (!filePath || !nodeFs.existsSync(filePath)) return null; return nodeCrypto.createHash('sha256').update(nodeFs.readFileSync(filePath)).digest('hex'); }
-  function verifyIntegrity() { if (!nodeFs || !nodeCrypto) return true; var failed = []; Object.keys(HASHES).forEach(function (relativePath) { var actual = sha256(relativePath); if (actual === null || actual !== HASHES[relativePath]) failed.push(relativePath); }); if (failed.length) { fail('Integrity check failed for: ' + failed.join(', ') + '. Reinstall this extension from a trusted package.'); return false; } return true; }
+  function verifyIntegrity() { if (!nodeFs || !nodeCrypto) {
+    // Outside Premiere (theme-preview.html in a browser) there is nothing to verify.
+    // Inside Premiere the manifest always enables Node, so its absence means the
+    // package was altered; skipping the check there would make it a no-op.
+    if (!window.__adobe_cep__) return true;
+    fail('Integrity check unavailable: Node.js is disabled for this panel. Reinstall this extension from a trusted package.');
+    return false;
+  } var failed = []; Object.keys(HASHES).forEach(function (relativePath) { var actual = sha256(relativePath); if (actual === null || actual !== HASHES[relativePath]) failed.push(relativePath); }); if (failed.length) { fail('Integrity check failed for: ' + failed.join(', ') + '. Reinstall this extension from a trusted package.'); return false; } return true; }
   function hasActiveLicense() {
     // Use the same verified status API as license-gate.js. The shipped
     // CompXLicense module does not expose an isActivated() method.

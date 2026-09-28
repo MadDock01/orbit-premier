@@ -13,7 +13,7 @@ function build() {
   }
 
   const stage = fs.mkdtempSync(path.join(os.tmpdir(), 'orbit-premiere-test-'));
-  for (const dir of ['CSXS', 'assets', 'bin', 'css', 'fonts', 'icons', 'js', 'lib', 'modules', 'utils', 'presets']) {
+  for (const dir of ['CSXS', 'assets', 'bin', 'css', 'fonts', 'icons', 'js', 'lib', 'modules', 'utils']) {
     const srcDir = path.join(root, dir);
     if (!fs.existsSync(srcDir)) continue;
     fs.cpSync(srcDir, path.join(stage, dir), { recursive: true, filter: p => !path.basename(p).startsWith('._') && path.basename(p) !== '.DS_Store' });
@@ -39,10 +39,10 @@ function build() {
     .replace(/ExtensionBundleVersion="[^"]+"/, 'ExtensionBundleVersion="' + version + '"')
     .replace(/(<Extension Id="com\.compxorbit\.premiere\.main" Version=")[^"]+"/, '$1' + version + '"'));
 
-  // Reuse the existing local signing identity; never log its password.
-  const legacy = fs.readFileSync(path.join(tools, 'build-premiere-zxp.js'), 'utf8');
-  const password = process.env.ORBIT_SIGN_PASSWORD || (legacy.match(/const CERT_PASS = "([^"]+)";/) || [])[1];
-  if (!password) throw Error('Signing password unavailable');
+  // Same rule as build-release.cjs: the signing password comes from the
+  // environment only, never from a source file, and is never logged.
+  const password = process.env.ORBIT_SIGN_PASSWORD;
+  if (!password) throw Error('Set ORBIT_SIGN_PASSWORD before building a test ZXP');
 
   const out = path.join(root, 'dist', 'CompX-Orbit-Premiere-v' + version + '-test.zxp');
   fs.mkdirSync(path.dirname(out), { recursive: true });

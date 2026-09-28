@@ -3,14 +3,14 @@
 // exists in the markup but is wired to nothing, or wired to the wrong endpoint.
 const fs = require('fs'), path = require('path'), assert = require('assert/strict');
 const root = path.resolve(__dirname, '..');
-// jsdom is a soft dependency: install it in ../CompX-Orbit-Studio/tools with
-// `npm install jsdom` to run this suite. Missing means skip, not fail, so the
-// release build never breaks over a dev-only package.
+// jsdom is a soft dependency: `npm install` in this repo provides it.
+// Missing means skip, not fail, so the release build never breaks over a
+// dev-only package.
 let JSDOM;
-try { JSDOM = require(path.resolve(root, '../CompX-Orbit-Studio/tools/node_modules/jsdom')).JSDOM; }
+try { JSDOM = require('./dev-require.cjs')('jsdom').JSDOM; }
 catch (_) {
   try { JSDOM = require('jsdom').JSDOM; } catch (_2) {
-    console.log('SKIP dock wiring suite: jsdom is not installed (npm install jsdom in ../CompX-Orbit-Studio/tools).');
+    console.log('SKIP dock wiring suite: jsdom is not installed (run npm install).');
     process.exit(0);
   }
 }
